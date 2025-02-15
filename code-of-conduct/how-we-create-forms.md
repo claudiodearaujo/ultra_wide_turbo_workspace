@@ -1,18 +1,18 @@
 ---
 document_type: protocol
-goal: define structure for form creation and implementation
-gpt_action: follow this template when creating new forms
+goal: definir estrutura para criação e implementação de formulários
+gpt_action: siga este template ao criar novos formulários
 ---
 
-# Form Structure
+# Estrutura do Formulário
 
-1. GIVEN [[Form]] NEEDS creation
-   1. THEN [[You]] CREATE enum for form fields
-   2. AND [[You]] EXTEND FormConfig
+1. GIVEN [[Form]] PRECISA de criação
+   1. THEN [[You]] CRIA enum para campos do formulário
+   2. AND [[You]] ESTENDE FormConfig
 
-2. WHEN [[You]] IMPLEMENT form
-   1. THEN [[You]] ADD private constructor
-   2. AND [[You]] ADD GetIt registration
+2. WHEN [[You]] IMPLEMENTA formulário
+   1. THEN [[You]] ADICIONA construtor privado
+   2. AND [[You]] ADICIONA registro GetIt
    ```dart
    class ExampleForm extends FormConfig {
      ExampleForm._();
@@ -22,9 +22,9 @@ gpt_action: follow this template when creating new forms
    }
    ```
 
-3. WHEN [[You]] ADD form fields
-   1. THEN [[You]] DECLARE late final formFieldConfigs
-   2. AND [[You]] ADD field configurations
+3. WHEN [[You]] ADICIONA campos do formulário
+   1. THEN [[You]] DECLARA late final formFieldConfigs
+   2. AND [[You]] ADICIONA configurações dos campos
    ```dart
    @override
    late final Map<Enum, FormFieldConfig> formFieldConfigs = {
@@ -37,9 +37,9 @@ gpt_action: follow this template when creating new forms
    };
    ```
 
-4. WHEN [[You]] NEED initialization
-   1. THEN [[You]] ADD late final DTO field
-   2. AND [[You]] CREATE initialize method
+4. WHEN [[You]] PRECISA de inicialização
+   1. THEN [[You]] ADICIONA late final campo DTO
+   2. AND [[You]] CRIA método initialize
    ```dart
    late final ExampleDto? _initialDto;
    
@@ -48,27 +48,27 @@ gpt_action: follow this template when creating new forms
    }
    ```
 
-5. WHEN [[You]] EXPOSE fields
-   1. THEN [[You]] CREATE getters for each field
+5. WHEN [[You]] EXPÕE campos
+   1. THEN [[You]] CRIA getters para cada campo
    ```dart
    FormFieldConfig<String> get name => 
        formFieldConfig(_ExampleFormField.name);
    ```
 
-6. WHEN [[You]] NEED field updates
-   1. THEN [[You]] ADD update methods
+6. WHEN [[You]] PRECISA de atualizações de campo
+   1. THEN [[You]] ADICIONA métodos de atualização
    ```dart
    void updateName(String? value) => name.value = value;
    ```
 
-# Form Usage in ViewModel
+# Uso do Formulário no ViewModel
 
-1. WHEN [[You]] USE form in ViewModel
-   1. THEN [[You]] ADD form dependency
+1. WHEN [[You]] USA formulário no ViewModel
+   1. THEN [[You]] ADICIONA dependência do formulário
    ```dart
    late final _form = ExampleForm.locate;
    ```
-   2. AND [[You]] INITIALIZE in initialise method
+   2. AND [[You]] INICIALIZA no método initialise
    ```dart
    @override
    Future<void> initialise() async {
@@ -77,7 +77,7 @@ gpt_action: follow this template when creating new forms
      super.initialise();
    }
    ```
-   3. AND [[You]] DISPOSE form
+   3. AND [[You]] FAZ dispose do formulário
    ```dart
    @override
    void dispose() {
@@ -86,19 +86,19 @@ gpt_action: follow this template when creating new forms
    }
    ```
 
-# Form Field Types
+# Tipos de Campos de Formulário
 
-1. GIVEN [[FormFieldType]] OPTIONS
-   1. THEN [[text]] IS for text input
-   2. AND [[counter]] IS for numeric input
-   3. AND [[dropDown]] IS for enum selection
-   4. AND [[toggle]] IS for boolean values
+1. GIVEN [[FormFieldType]] OPÇÕES
+   1. THEN [[text]] É para entrada de texto
+   2. AND [[counter]] É para entrada numérica
+   3. AND [[dropDown]] É para seleção de enum
+   4. AND [[toggle]] É para valores booleanos
 
-# Form Validation
+# Validação de Formulário
 
-1. WHEN [[You]] NEED validation
-   1. THEN [[You]] USE kValueValidators
-   2. OR [[You]] COMBINE with kValueValidatorsMultiple
+1. WHEN [[You]] PRECISA de validação
+   1. THEN [[You]] USA kValueValidators
+   2. OR [[You]] COMBINA com kValueValidatorsMultiple
    ```dart
    valueValidator: kValueValidatorsMultiple([
      kValueValidatorsRequired(),
@@ -107,10 +107,10 @@ gpt_action: follow this template when creating new forms
    ])
    ```
 
-# Complete Example
+# Exemplo Completo
 
-1. GIVEN [[CleaningTask]] NEEDS form
-   1. THEN [[You]] CREATE form fields enum
+1. GIVEN [[CleaningTask]] PRECISA de formulário
+   1. THEN [[You]] CRIA enum de campos do formulário
    ```dart
    enum _ManageCleaningTaskFormField {
      name,
@@ -120,7 +120,7 @@ gpt_action: follow this template when creating new forms
    }
    ```
 
-2. WHEN [[You]] IMPLEMENT form class
+2. WHEN [[You]] IMPLEMENTA classe do formulário
    ```dart
    class ManageCleaningTaskForm extends FormConfig {
      ManageCleaningTaskForm._();
@@ -142,15 +142,15 @@ gpt_action: follow this template when creating new forms
          initialValue: _initialCleaningTaskDto?.name,
          valueValidator: kValueValidatorsMultiple([
            kValueValidatorsRequired(
-             errorText: () => 'This field is required',
+             errorText: () => 'Este campo é obrigatório',
            ),
            kValueValidatorsMinLength(
              minLength: 1,
-             errorText: () => 'Name must be at least 1 character long.',
+             errorText: () => 'Nome deve ter pelo menos 1 caractere.',
            ),
            kValueValidatorsMaxLength(
              maxLength: 50,
-             errorText: () => 'Name can be at most 50 characters long.',
+             errorText: () => 'Nome pode ter no máximo 50 caracteres.',
            ),
          ]),
        ),
@@ -160,7 +160,7 @@ gpt_action: follow this template when creating new forms
          initialValue: _initialCleaningTaskDto?.description,
          valueValidator: kValueValidatorsMaxLength(
            maxLength: 200,
-           errorText: () => 'Description can be at most 200 characters long.',
+           errorText: () => 'Descrição pode ter no máximo 200 caracteres.',
          ),
        ),
        _ManageCleaningTaskFormField.frequency: FormFieldConfig<String>(
@@ -169,10 +169,10 @@ gpt_action: follow this template when creating new forms
          initialValue: _initialCleaningTaskDto?.frequency?.toString(),
          valueValidator: kValueValidatorsMultiple([
            kValueValidatorsRequired(
-             errorText: () => 'This field is required',
+             errorText: () => 'Este campo é obrigatório',
            ),
            kValueValidatorsIsValidNumber(
-             errorText: () => 'Please enter a valid number.',
+             errorText: () => 'Por favor, insira um número válido.',
            ),
          ]),
        ),
@@ -181,7 +181,7 @@ gpt_action: follow this template when creating new forms
          formFieldType: FormFieldType.dropDown,
          initialValue: _initialCleaningTaskDto?.cleaningScheduleTimeSpan ?? CleaningScheduleTimeSpan.week,
          valueValidator: kValueValidatorsRequired(
-           errorText: () => 'This field is required',
+           errorText: () => 'Este campo é obrigatório',
          ),
        ),
      };
@@ -198,7 +198,7 @@ gpt_action: follow this template when creating new forms
    }
    ```
 
-3. WHEN [[You]] USE form in ViewModel
+3. WHEN [[You]] USA formulário no ViewModel
    ```dart
    class ManageCleaningTaskViewModel extends BaseViewModel<OriginArguments<ManageCleaningTaskOrigin, ManageCleaningTaskArguments>> {
      final _cleaningTasksService = CleaningTasksService.locate;

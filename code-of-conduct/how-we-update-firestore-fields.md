@@ -1,30 +1,30 @@
 ---
 document_type: code of conduct
-goal: define process for updating Firestore fields with proper handling of nullable values
-gpt_action: follow these steps when implementing Firestore field updates
+goal: definir processo para atualização de campos do Firestore com tratamento adequado de valores nulos
+gpt_action: siga estes passos ao implementar atualizações de campos do Firestore
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify update requirements]]
-   1. [[verify update requirements]]
-      1. Check if fields are nullable
-      2. Review data integrity needs
-      3. Check real-time update needs
-      4. Identify input collection methods
+1. [[You]] [[verifica requisitos de atualização]]
+   1. [[verifica requisitos de atualização]]
+      1. Verifica se campos são nulos
+      2. Revisa necessidades de integridade de dados
+      3. Verifica necessidades de atualização em tempo real
+      4. Identifica métodos de coleta de entrada
 
-2. [[You]] [[confirm request types]]
-   1. [[confirm request types]]
-      1. Check if regular update request
-      2. Check if nullable fields request
-      3. Review JSON serialization needs
-      4. Verify DTO field matching
+2. [[You]] [[confirma tipos de requisição]]
+   1. [[confirma tipos de requisição]]
+      1. Verifica se é requisição de atualização regular
+      2. Verifica se é requisição de campos nulos
+      3. Revisa necessidades de serialização JSON
+      4. Verifica correspondência de campos DTO
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[create update requests]]
-   1. [[create update requests]]
-      1. Regular update request:
+1. [[You]] [[cria requisições de atualização]]
+   1. [[cria requisições de atualização]]
+      1. Requisição de atualização regular:
 ```dart
 @JsonSerializable(includeIfNull: false, explicitToJson: true)
 class UpdateItemDtoRequest extends Writeable {
@@ -35,7 +35,7 @@ class UpdateItemDtoRequest extends Writeable {
   final String name;
 }
 ```
-      2. Nullable fields request:
+      2. Requisição de campos nulos:
 ```dart
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
 class UpdateCompletedAtRequest extends Writeable {
@@ -50,9 +50,9 @@ class UpdateCompletedAtRequest extends Writeable {
 }
 ```
 
-2. [[You]] [[implement service updates]]
-   1. [[implement service updates]]
-      1. Regular field update:
+2. [[You]] [[implementa atualizações de serviço]]
+   1. [[implementa atualizações de serviço]]
+      1. Atualização de campo regular:
 ```dart
 Future<TurboResponse<DocumentReference>> updateItemName({
   required String itemId,
@@ -69,7 +69,7 @@ Future<TurboResponse<DocumentReference>> updateItemName({
   );
 }
 ```
-      2. Nullable field update:
+      2. Atualização de campo nulo:
 ```dart
 Future<TurboResponse<DocumentReference>> updateCompletionStatus({
   required String itemId,
@@ -80,7 +80,7 @@ Future<TurboResponse<DocumentReference>> updateCompletionStatus({
   final updatedItem = item.copyWith(
     completedAt: completedAt,
     completedBy: completedBy,
-    forceNull: true, // Important for nullable fields
+    forceNull: true, // Importante para campos nulos
   );
   
   return updateDoc(
@@ -93,28 +93,28 @@ Future<TurboResponse<DocumentReference>> updateCompletionStatus({
 }
 ```
 
-3. [[You]] [[implement dto support]]
-   1. [[implement dto support]]
-      1. Add copyWith with nullable support:
+3. [[You]] [[implementa suporte dto]]
+   1. [[implementa suporte dto]]
+      1. Adiciona copyWith com suporte a nulos:
 ```dart
 YourDto copyWith({
   String? name,
   DateTime? completedAt,
   String? completedBy,
-  bool forceNull = false, // Add this parameter
+  bool forceNull = false, // Adicione este parâmetro
 }) =>
     YourDto(
-      // Regular fields
+      // Campos regulares
       name: name ?? this.name,
-      // Nullable fields
+      // Campos nulos
       completedAt: forceNull ? completedAt : completedAt ?? this.completedAt,
       completedBy: forceNull ? completedBy : completedBy ?? this.completedBy,
     );
 ```
 
-4. [[You]] [[handle responses]]
-   1. [[handle responses]]
-      1. Implement response handling:
+4. [[You]] [[trata respostas]]
+   1. [[trata respostas]]
+      1. Implementa tratamento de resposta:
 ```dart
 final response = await updateCompletionStatus(
   itemId: 'id',
@@ -123,31 +123,31 @@ final response = await updateCompletionStatus(
 );
 
 if (response.isSuccess) {
-  // Show success feedback
+  // Mostra feedback de sucesso
 } else {
-  // Show error feedback
+  // Mostra feedback de erro
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify request objects]]
-   1. [[verify request objects]]
-      1. Regular updates use includeIfNull: false
-      2. Nullable updates use includeIfNull: true
-      3. Field names match DTO structure
-      4. Proper JSON serialization support
+1. [[You]] [[verifica objetos de requisição]]
+   1. [[verifica objetos de requisição]]
+      1. Atualizações regulares usam includeIfNull: false
+      2. Atualizações nulas usam includeIfNull: true
+      3. Nomes dos campos correspondem à estrutura DTO
+      4. Suporte adequado à serialização JSON
 
-2. [[You]] [[verify service layer]]
-   1. [[verify service layer]]
-      1. Immediate local state updates work
-      2. Optimistic UI updates function
-      3. Specific field updates work
-      4. Nullable fields handled correctly
+2. [[You]] [[verifica camada de serviço]]
+   1. [[verifica camada de serviço]]
+      1. Atualizações de estado local imediatas funcionam
+      2. Atualizações otimistas de UI funcionam
+      3. Atualizações de campos específicos funcionam
+      4. Campos nulos são tratados corretamente
 
-3. [[You]] [[verify dto implementation]]
-   1. [[verify dto implementation]]
-      1. copyWith supports nullable fields
-      2. forceNull parameter works
-      3. Regular fields update correctly
-      4. Error handling works properly 
+3. [[You]] [[verifica implementação dto]]
+   1. [[verifica implementação dto]]
+      1. copyWith suporta campos nulos
+      2. Parâmetro forceNull funciona
+      3. Campos regulares atualizam corretamente
+      4. Tratamento de erros funciona adequadamente 

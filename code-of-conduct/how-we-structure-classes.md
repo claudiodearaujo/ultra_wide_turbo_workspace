@@ -1,96 +1,96 @@
 ---
-document_type: code of conduct
-goal: define standard structure for organizing class code with clear sections
-gpt_action: follow these section patterns when creating or modifying class files
+document_type: código de conduta
+goal: definir estrutura padrão para organizar código de classes com seções claras
+gpt_action: siga estes padrões de seção ao criar ou modificar arquivos de classe
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify class needs]]
-   1. [[verify class needs]]
-      1. Check if service class
-      2. Check if view model
-      3. Check if widget class
-      4. Identify required sections
+1. [[You]] [[verifica necessidades da classe]]
+   1. [[verifica necessidades da classe]]
+      1. Verifica se é classe de serviço
+      2. Verifica se é view model
+      3. Verifica se é classe de widget
+      4. Identifica seções necessárias
 
-2. [[You]] [[confirm section requirements]]
-   1. [[confirm section requirements]]
-      1. Check dependency injection needs
-      2. Review state management needs
-      3. Verify event handling needs
-      4. Identify helper methods needed
+2. [[You]] [[confirma requisitos de seção]]
+   1. [[confirma requisitos de seção]]
+      1. Verifica necessidades de injeção de dependência
+      2. Revisa necessidades de gerenciamento de estado
+      3. Verifica necessidades de tratamento de eventos
+      4. Identifica métodos auxiliares necessários
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[setup class sections]]
-   1. [[setup class sections]]
-      1. Add section headers with dividers:
+1. [[You]] [[configura seções da classe]]
+   1. [[configura seções da classe]]
+      1. Adiciona cabeçalhos de seção com divisores:
 ```dart
 // 📍 LOCATOR ------------------------------------------------------------------------------- \\
-// For dependency injection and service location
-- Static getters/methods for dependency injection
-- Factory registration methods
+// Para injeção de dependência e localização de serviço
+- Getters/métodos estáticos para injeção de dependência
+- Métodos de registro de factory
 
 // 🧩 DEPENDENCIES -------------------------------------------------------------------------- \\
-// For injected dependencies and services
-- Final service instances
-- API instances
-- Other dependencies
+// Para dependências e serviços injetados
+- Instâncias finais de serviço
+- Instâncias de API
+- Outras dependências
 
 // 🎬 INIT & DISPOSE ------------------------------------------------------------------------ \\
-// For initialization and cleanup
-- initState/dispose overrides
-- Custom initialization methods
-- Cleanup methods
+// Para inicialização e limpeza
+- Sobrescritas de initState/dispose
+- Métodos de inicialização personalizados
+- Métodos de limpeza
 
 // 👂 LISTENERS ----------------------------------------------------------------------------- \\
-// For event listeners and subscriptions
-- Stream subscriptions
-- Event handlers
-- Callback methods
+// Para ouvintes de eventos e assinaturas
+- Assinaturas de stream
+- Manipuladores de eventos
+- Métodos de callback
 
 // ⚡️ OVERRIDES ----------------------------------------------------------------------------- \\
-// For method overrides from parent classes
-- Required overrides
-- Optional overrides
-- Interface implementations
+// Para sobrescritas de métodos das classes pai
+- Sobrescritas obrigatórias
+- Sobrescritas opcionais
+- Implementações de interface
 
 // 🎩 STATE --------------------------------------------------------------------------------- \\
-// For state management
+// Para gerenciamento de estado
 - ValueNotifiers
 - StateNotifiers
-- Form controllers
-- Local state variables
+- Controladores de formulário
+- Variáveis de estado local
 
 // 🛠 UTIL ---------------------------------------------------------------------------------- \\
-// For technical utilities
+// Para utilitários técnicos
 - Mutexes
 - Debouncers
-- Technical helpers
+- Auxiliares técnicos
 
 // 🧲 FETCHERS ------------------------------------------------------------------------------ \\
-// For data retrieval
+// Para recuperação de dados
 - Getters
-- Data fetching methods
+- Métodos de busca de dados
 
 // 🏗️ HELPERS ------------------------------------------------------------------------------- \\
-// For complex operations and business logic
-- Business logic methods
-- Complex calculations
-- Data transformations
-- Helper functions
-- Formatters
+// Para operações complexas e lógica de negócio
+- Métodos de lógica de negócio
+- Cálculos complexos
+- Transformações de dados
+- Funções auxiliares
+- Formatadores
 
 // 🪄 MUTATORS ------------------------------------------------------------------------------ \\
-// For state mutations and updates
-- Methods that change state
-- Update operations
-- API calls
+// Para mutações e atualizações de estado
+- Métodos que alteram estado
+- Operações de atualização
+- Chamadas de API
 ```
 
-2. [[You]] [[implement service example]]
-   1. [[implement service example]]
-      1. Create example service class:
+2. [[You]] [[implementa exemplo de serviço]]
+   1. [[implementa exemplo de serviço]]
+      1. Cria classe de serviço de exemplo:
 ```dart
 class DataService extends BaseService {
   // 📍 LOCATOR
@@ -147,9 +147,9 @@ class DataService extends BaseService {
 }
 ```
 
-3. [[You]] [[implement view model example]]
-   1. [[implement view model example]]
-      1. Create example view model class:
+3. [[You]] [[implementa exemplo de view model]]
+   1. [[implementa exemplo de view model]]
+      1. Cria classe de view model de exemplo:
 ```dart
 class ItemViewModel extends BaseViewModel {
   // 📍 LOCATOR
@@ -188,7 +188,7 @@ class ItemViewModel extends BaseViewModel {
       );
     } catch (error, stackTrace) {
       log.error(
-        'Error creating item',
+        'Erro ao criar item',
         error: error,
         stackTrace: stackTrace,
       );
@@ -200,25 +200,25 @@ class ItemViewModel extends BaseViewModel {
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify section structure]]
-   1. [[verify section structure]]
-      1. All sections present and in order
-      2. Proper dividers and emojis used
-      3. Section comments explain purpose
-      4. Code organized in correct sections
+1. [[You]] [[verifica estrutura de seções]]
+   1. [[verifica estrutura de seções]]
+      1. Todas as seções presentes e em ordem
+      2. Divisores e emojis apropriados usados
+      3. Comentários de seção explicam propósito
+      4. Código organizado nas seções corretas
 
-2. [[You]] [[verify examples]]
-   1. [[verify examples]]
-      1. Service example demonstrates sections
-      2. View model example shows patterns
-      3. Code follows section guidelines
-      4. Examples are clear and complete
+2. [[You]] [[verifica exemplos]]
+   1. [[verifica exemplos]]
+      1. Exemplo de serviço demonstra seções
+      2. Exemplo de view model mostra padrões
+      3. Código segue diretrizes de seção
+      4. Exemplos são claros e completos
 
-3. [[You]] [[verify snippet]]
-   1. [[verify snippet]]
-      1. Save as `allheaders` snippet:
+3. [[You]] [[verifica snippet]]
+   1. [[verifica snippet]]
+      1. Salva como snippet `allheaders`:
 ```dart
 // 📍 LOCATOR ------------------------------------------------------------------------------- \\
 // 🧩 DEPENDENCIES -------------------------------------------------------------------------- \\

@@ -1,172 +1,172 @@
 ---
 document_type: code of conduct
-goal: define process for preparing structured content prompts for various platforms
-gpt_action: follow these steps when preparing content from work logs and other inputs
+goal: definir processo para preparar prompts de conteúdo estruturado para várias plataformas
+gpt_action: siga estes passos ao preparar conteúdo a partir de logs de trabalho e outras entradas
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[analyze input]]
-   1. [[analyze input]]
-      1. Review daily work logs
-      2. Note technical achievements
-      3. Identify teaching opportunities
-      4. Collect visual references
-      5. Review additional materials
+1. [[You]] [[analisa entrada]]
+   1. [[analisa entrada]]
+      1. Revisa logs diários de trabalho
+      2. Anota conquistas técnicas
+      3. Identifica oportunidades de ensino
+      4. Coleta referências visuais
+      5. Revisa materiais adicionais
 
-2. [[You]] [[evaluate content]]
-   1. [[evaluate content]]
-      1. Assess technical depth
-      2. Identify target audience
-      3. Review visual requirements
-      4. Consider platform formats
-      5. Check educational value
+2. [[You]] [[avalia conteúdo]]
+   1. [[avalia conteúdo]]
+      1. Avalia profundidade técnica
+      2. Identifica público-alvo
+      3. Revisa requisitos visuais
+      4. Considera formatos de plataforma
+      5. Verifica valor educacional
 
-# 🛠️ Content Preparation
+# 🛠️ Preparação de Conteúdo
 
-1. [[You]] [[categorize content]]
-   1. [[categorize content]]
-      1. Sort by content type:
-         - Technical tutorials
-         - Development insights
-         - Process improvements
-         - UI/UX showcases
-         - AI integration examples
-         - Tips and tricks
-         - Project showcases
+1. [[You]] [[categoriza conteúdo]]
+   1. [[categoriza conteúdo]]
+      1. Organiza por tipo de conteúdo:
+         - Tutoriais técnicos
+         - Insights de desenvolvimento
+         - Melhorias de processo
+         - Demonstrações de UI/UX
+         - Exemplos de integração com IA
+         - Dicas e truques
+         - Demonstrações de projetos
 
-2. [[You]] [[prepare twitter content]]
-   1. [[prepare twitter content]]
-      1. Fill Twitter thread template:
+2. [[You]] [[prepara conteúdo twitter]]
+   1. [[prepara conteúdo twitter]]
+      1. Preenche template de thread do Twitter:
 ```md
-TOPIC: [Development insight/solution]
-THREAD_TYPE: [Learning/Solution/Tips]
-EDUCATIONAL_VALUE:
-- [Main learning point]
-- [Technical insight]
-- [Practical application]
-KEY_POINTS:
-- [Problem solved]
-- [Technical approach]
-- [Key learnings]
-VISUALS:
-- [List required screenshots/demos]
-HOOK: [Engaging problem/solution statement]
-ENGAGEMENT: [Question to encourage discussion]
+TÓPICO: [Insight/solução de desenvolvimento]
+TIPO_THREAD: [Aprendizado/Solução/Dicas]
+VALOR_EDUCACIONAL:
+- [Ponto principal de aprendizado]
+- [Insight técnico]
+- [Aplicação prática]
+PONTOS_CHAVE:
+- [Problema resolvido]
+- [Abordagem técnica]
+- [Aprendizados principais]
+VISUAIS:
+- [Lista de screenshots/demos necessários]
+GANCHO: [Declaração envolvente do problema/solução]
+ENGAJAMENTO: [Pergunta para estimular discussão]
 ```
 
-3. [[You]] [[prepare linkedin content]]
-   1. [[prepare linkedin content]]
-      1. Fill LinkedIn post template:
+3. [[You]] [[prepara conteúdo linkedin]]
+   1. [[prepara conteúdo linkedin]]
+      1. Preenche template de post do LinkedIn:
 ```md
-POST_TYPE: [Learning/Case Study/Tutorial]
-TOPIC: [Technical insight/solution]
-AUDIENCE: [Flutter devs/Tech leads/etc.]
-LEARNING_FOCUS: [Key educational takeaway]
-STRUCTURE:
-- [Problem statement]
-- [Solution approach]
-- [Technical implementation]
-- [Key learnings]
-VISUALS: [Required images/screenshots]
-DISCUSSION_PROMPT: [Question to engage community]
+TIPO_POST: [Aprendizado/Estudo de Caso/Tutorial]
+TÓPICO: [Insight/solução técnica]
+PÚBLICO: [Devs Flutter/Tech leads/etc.]
+FOCO_APRENDIZADO: [Principal lição educacional]
+ESTRUTURA:
+- [Declaração do problema]
+- [Abordagem da solução]
+- [Implementação técnica]
+- [Aprendizados principais]
+VISUAIS: [Imagens/screenshots necessários]
+PROMPT_DISCUSSÃO: [Pergunta para engajar comunidade]
 ```
 
-4. [[You]] [[prepare instagram content]]
-   1. [[prepare instagram content]]
-      1. Fill Instagram post template:
+4. [[You]] [[prepara conteúdo instagram]]
+   1. [[prepara conteúdo instagram]]
+      1. Preenche template de post do Instagram:
 ```md
-POST_TYPE: [Learning/Process/Result]
-VISUAL_FOCUS: [UI/Process/Solution]
-EDUCATIONAL_ANGLE: [What others can learn]
-REQUIRED_VISUALS:
-- [List images/screenshots needed]
-CAPTION_STRUCTURE:
-- [Problem statement]
-- [Solution approach]
-- [Key learning]
-- [Community question]
-HASHTAGS: [Relevant educational/tech tags]
+TIPO_POST: [Aprendizado/Processo/Resultado]
+FOCO_VISUAL: [UI/Processo/Solução]
+ÂNGULO_EDUCACIONAL: [O que outros podem aprender]
+VISUAIS_NECESSÁRIOS:
+- [Lista de imagens/screenshots necessários]
+ESTRUTURA_LEGENDA:
+- [Declaração do problema]
+- [Abordagem da solução]
+- [Aprendizado principal]
+- [Pergunta para comunidade]
+HASHTAGS: [Tags relevantes de educação/tecnologia]
 ```
 
-5. [[You]] [[prepare blog content]]
-   1. [[prepare blog content]]
-      1. Fill blog post template:
+5. [[You]] [[prepara conteúdo blog]]
+   1. [[prepara conteúdo blog]]
+      1. Preenche template de post de blog:
 ```md
-TITLE: [Clear, learning-focused title]
-TYPE: [Tutorial/Case Study/Technical Deep-dive]
-LEARNING_OBJECTIVES:
-- [What readers will learn]
-- [Practical takeaways]
-- [Applicable scenarios]
-STRUCTURE:
-- [Problem context]
-- [Solution exploration]
-- [Technical implementation]
-- [Learnings & best practices]
-REQUIRED_MATERIALS:
-- [Code snippets]
+TÍTULO: [Título claro, focado em aprendizado]
+TIPO: [Tutorial/Estudo de Caso/Deep-dive Técnico]
+OBJETIVOS_APRENDIZADO:
+- [O que leitores aprenderão]
+- [Lições práticas]
+- [Cenários aplicáveis]
+ESTRUTURA:
+- [Contexto do problema]
+- [Exploração da solução]
+- [Implementação técnica]
+- [Aprendizados e melhores práticas]
+MATERIAIS_NECESSÁRIOS:
+- [Trechos de código]
 - [Screenshots]
-- [Diagrams]
-TECHNICAL_DEPTH: [Beginner/Intermediate/Advanced]
-FURTHER_LEARNING: [Related resources/topics]
+- [Diagramas]
+PROFUNDIDADE_TÉCNICA: [Iniciante/Intermediário/Avançado]
+APRENDIZADO_ADICIONAL: [Recursos/tópicos relacionados]
 ```
 
-6. [[You]] [[prepare video content]]
-   1. [[prepare video content]]
-      1. Fill video content template:
+6. [[You]] [[prepara conteúdo vídeo]]
+   1. [[prepara conteúdo vídeo]]
+      1. Preenche template de conteúdo de vídeo:
 ```md
-VIDEO_TYPE: [Tutorial/Solution/Tips]
-DURATION: [Short/Long]
-LEARNING_GOALS:
-- [Main takeaway]
-- [Technical skills covered]
-- [Practical applications]
-OUTLINE:
-- [Problem introduction]
-- [Solution exploration]
-- [Technical demonstration]
-- [Key learnings]
-REQUIRED_MATERIALS:
-- [Screen recordings]
-- [UI demonstrations]
-- [Code walkthroughs]
-STYLE: [Educational/Practical/In-depth]
-ENGAGEMENT: [Questions/challenges for viewers]
+TIPO_VÍDEO: [Tutorial/Solução/Dicas]
+DURAÇÃO: [Curto/Longo]
+OBJETIVOS_APRENDIZADO:
+- [Principal lição]
+- [Habilidades técnicas cobertas]
+- [Aplicações práticas]
+ESTRUTURA:
+- [Introdução do problema]
+- [Exploração da solução]
+- [Demonstração técnica]
+- [Aprendizados principais]
+MATERIAIS_NECESSÁRIOS:
+- [Gravações de tela]
+- [Demonstrações de UI]
+- [Explicações de código]
+ESTILO: [Educacional/Prático/Aprofundado]
+ENGAJAMENTO: [Perguntas/desafios para espectadores]
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify content principles]]
-   1. [[verify content principles]]
-      1. Educational focus is clear
-      2. Value-driven content provided
-      3. Authentic voice maintained
-      4. Community focus present
+1. [[You]] [[verifica princípios de conteúdo]]
+   1. [[verifica princípios de conteúdo]]
+      1. Foco educacional está claro
+      2. Conteúdo orientado a valor fornecido
+      3. Voz autêntica mantida
+      4. Foco na comunidade presente
 
-2. [[You]] [[verify completeness]]
-   1. [[verify completeness]]
-      1. All templates properly filled
-      2. Visual requirements specified
-      3. Technical context included
-      4. Educational value clear
+2. [[You]] [[verifica completude]]
+   1. [[verifica completude]]
+      1. Todos os templates devidamente preenchidos
+      2. Requisitos visuais especificados
+      3. Contexto técnico incluído
+      4. Valor educacional claro
 
-3. [[You]] [[prepare final package]]
-   1. [[prepare final package]]
-      1. Create content package:
+3. [[You]] [[prepara pacote final]]
+   1. [[prepara pacote final]]
+      1. Cria pacote de conteúdo:
 ```md
-# Content Package: [Topic]
+# Pacote de Conteúdo: [Tópico]
 
-## Source Material
-- Work log entry: [Reference]
-- Additional context: [Details]
+## Material Fonte
+- Entrada do log de trabalho: [Referência]
+- Contexto adicional: [Detalhes]
 
-## Content Prompts
-[Include relevant prompts from templates]
+## Prompts de Conteúdo
+[Incluir prompts relevantes dos templates]
 
-## Visual Requirements
-[Detailed list of needed visuals]
+## Requisitos Visuais
+[Lista detalhada de visuais necessários]
 
-## Technical Context
-[Relevant technical details for accuracy]
+## Contexto Técnico
+[Detalhes técnicos relevantes para precisão]
 ``` 

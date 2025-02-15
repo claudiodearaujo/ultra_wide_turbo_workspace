@@ -1,7 +1,7 @@
 ---
 document_type: agent work document
-goal: track work hours and progress
-gpt_action: log your hours worked
+goal: rastrear horas de trabalho e progresso
+gpt_action: registrar suas horas trabalhadas
 ---
 
 - [ ] 

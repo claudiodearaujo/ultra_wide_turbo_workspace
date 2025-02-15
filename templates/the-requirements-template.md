@@ -1,188 +1,188 @@
 ---
 document_type: template
-goal: provide a structured way to document requirements
-gpt_action: use as foundation for your requirements document
+goal: fornecer uma maneira estruturada de documentar requisitos
+gpt_action: usar como base para seu documento de requisitos
 ---
 
-# 👤 Actors & 🧩 Components (Who or what)
-> - Someone or something that can perform actions or be interacted with (examples include User, Button, Screen, Input Field, Message, System, API, Database, and they can be a person, service, visual or non-visual).
+# 👤 Atores & 🧩 Componentes (Quem ou o quê)
+> - Alguém ou algo que pode realizar ações ou ser interagido (exemplos incluem Usuário, Botão, Tela, Campo de Entrada, Mensagem, Sistema, API, Banco de Dados, e podem ser uma pessoa, serviço, visual ou não-visual).
 
-> - What benefits from this? · Who maintains this? · What do users interact with? · What shows information? · What processes data? · What stores data? · What external systems are involved? · What needs to be monitored?
+> - Quem se beneficia disso? · Quem mantém isso? · Com o que os usuários interagem? · O que mostra informações? · O que processa dados? · O que armazena dados? · Quais sistemas externos estão envolvidos? · O que precisa ser monitorado?
 
-> - GPT Instructions: Start by listing all nouns from your feature description - these are your potential actors and components. Then expand this list by asking: who uses it, what do they interact with, what shows information, what stores data, and what processes data? For each item, decide if it's an Actor (can perform actions) or Component (is acted upon). Finally, break down any complex components into smaller, more manageable pieces.
+> - Instruções GPT: Comece listando todos os substantivos da descrição do seu recurso - estes são seus potenciais atores e componentes. Em seguida, expanda esta lista perguntando: quem usa, com o que interagem, o que mostra informações, o que armazena dados e o que processa dados? Para cada item, decida se é um Ator (pode realizar ações) ou Componente (é atuado). Finalmente, divida quaisquer componentes complexos em partes menores e mais gerenciáveis.
 
-> - Possible Parents: Itself
-> - Link actors and components to their (optional) parent by starting with the parent in [[double square brackets]] and the actor(s)/component(s) beneath it. Example:
-> 	- [[parent]]
-> 		- [[Actor]]
-> 		- [[Component]]
----
-
-- [ ]
-
-# 🎬 Activities (Who or what does what?)
-> - Actions that an Actor or Component performs (examples include Create List, Delete Item, Sync Data, and they must always contain a verb + action).
-
-> - What can each actor do? · What should happen automatically? · What needs user input? · What happens periodically? · What triggers other activities? · What needs to be logged? · What needs to be measured? · What needs authorization?
-
-> - GPT Instructions: Take each Actor and Component and list everything they can do, must do, or should do automatically. Start each activity with a verb (create, update, delete, etc.) and make it specific. Think about: user interactions, system automations, periodic tasks, and data operations. Don't worry about the "how" yet - focus on what needs to happen.
-
-> - Possible Parents: Actor, Component
-> - Link activities to their parent by starting with the parent in [[double square brackets]] and the activitity beneath it. Example:
-> 	- [[parent]]
-> 		- [[Create item]]
-> 		- [[Delete item]]
+> - Possíveis Pais: Ele mesmo
+> - Vincule atores e componentes ao seu (opcional) pai começando com o pai em [[colchetes duplos]] e o(s) ator(es)/componente(s) abaixo dele. Exemplo:
+> 	- [[pai]]
+> 		- [[Ator]]
+> 		- [[Componente]]
 ---
 
 - [ ]
 
-## 🌊 Activity Flows & Scenarios (What in which order?)
-> - Sequences of Atomic Actions (like "Tap button") that map out the steps to complete an Activity. May have optional paths for both successful completion (Happy Flow), errors (Error Flow), and scenarios like no connection, empty states, loading states, etc.
+# 🎬 Atividades (Quem ou o quê faz o quê?)
+> - Ações que um Ator ou Componente realiza (exemplos incluem Criar Lista, Excluir Item, Sincronizar Dados, e devem sempre conter um verbo + ação).
 
-> - What's the ideal path? · What could fail? · What needs validation? · What needs confirmation? · What's time sensitive? · What needs recovery steps? · What should be cached? · What should be retried? · What needs rollback?
+> - O que cada ator pode fazer? · O que deve acontecer automaticamente? · O que precisa de entrada do usuário? · O que acontece periodicamente? · O que desencadeia outras atividades? · O que precisa ser registrado? · O que precisa ser medido? · O que precisa de autorização?
 
-> - GPT Instructions: For each Activity think of the perfect scenario (Happy Flow) - what happens when everything works? Then optionally add Error Flows by asking "what could go wrong?" at each step. Finally, consider edge cases like no connection, empty states, or loading states. Break each flow into atomic (indivisible) actions that can be clearly implemented and tested. Prefix each atomic action with BDD Gherkin keywords: GIVEN, WHEN, THEN, AND, BUT.
+> - Instruções GPT: Pegue cada Ator e Componente e liste tudo o que eles podem fazer, devem fazer ou deveriam fazer automaticamente. Comece cada atividade com um verbo (criar, atualizar, excluir, etc.) e torne-a específica. Pense em: interações do usuário, automações do sistema, tarefas periódicas e operações de dados. Não se preocupe com o "como" ainda - concentre-se no que precisa acontecer.
 
-> - Possible Parents: Activities, Itself
-> - Link activity flows to their parent by starting with the parent in [[double square brackets]] and the activity flow(s) beneath it. Example:
-> 	- [[parent]]
-> 		- GIVEN [[User]] is at [[Home Screen]]
-> 		- WHEN [[User]] [[taps create item button]]
-> 		- THEN [[System]] [[shows create item feedback]]
-> 		- AND [[System]] [[creates database item]]
-> 		- BUT [[System]] [[does not navigate]]
+> - Possíveis Pais: Ator, Componente
+> - Vincule atividades ao seu pai começando com o pai em [[colchetes duplos]] e a atividade abaixo dele. Exemplo:
+> 	- [[pai]]
+> 		- [[Criar item]]
+> 		- [[Excluir item]]
 ---
 
 - [ ]
 
-# 📝 Properties (Which values?)
-> - Describes a value or configuration that belongs to an object (examples include width, color, id, name).
+## 🌊 Fluxos de Atividade & Cenários (O que em qual ordem?)
+> - Sequências de Ações Atômicas (como "Tocar botão") que mapeiam os passos para completar uma Atividade. Podem ter caminhos opcionais para conclusão bem-sucedida (Fluxo Feliz), erros (Fluxo de Erro), e cenários como sem conexão, estados vazios, estados de carregamento, etc.
 
-> - What identifies it? · What describes it? · What configures it? · What measures it? · What styles it? · What formats it? · What tracks it? · What groups it? · What orders it?
+> - Qual é o caminho ideal? · O que poderia falhar? · O que precisa de validação? · O que precisa de confirmação? · O que é sensível ao tempo? · O que precisa de etapas de recuperação? · O que deve ser armazenado em cache? · O que deve ser tentado novamente? · O que precisa de reversão?
 
-> - GPT Instructions: For each object in your system, think about its data needs in three categories: identity (what makes it unique), configuration (what can be changed), and state (what can vary). Consider what needs to be stored, displayed, measured, or tracked. Make sure each property has a clear type and purpose.
+> - Instruções GPT: Para cada Atividade, pense no cenário perfeito (Fluxo Feliz) - o que acontece quando tudo funciona? Em seguida, adicione opcionalmente Fluxos de Erro perguntando "o que poderia dar errado?" em cada etapa. Finalmente, considere casos extremos como sem conexão, estados vazios ou estados de carregamento. Divida cada fluxo em ações atômicas (indivisíveis) que podem ser claramente implementadas e testadas. Prefixe cada ação atômica com palavras-chave BDD Gherkin: DADO, QUANDO, ENTÃO, E, MAS.
 
-> - Possible Parents: Actor, Component, Activity, Activity Flow, Scenario, Atomic Action, Scenario, Behaviour
-> - Link properties to their parent by starting with the parent in [[double square brackets]] and the property/properties beneath it. Example:
-> 	- [[parent]]
-> 		- [[name : string]]
+> - Possíveis Pais: Atividades, Ele mesmo
+> - Vincule fluxos de atividade ao seu pai começando com o pai em [[colchetes duplos]] e o fluxo de atividade abaixo dele. Exemplo:
+> 	- [[pai]]
+> 		- DADO [[Usuário]] está em [[Tela Inicial]]
+> 		- QUANDO [[Usuário]] [[toca no botão criar item]]
+> 		- ENTÃO [[Sistema]] [[mostra feedback de criação de item]]
+> 		- E [[Sistema]] [[cria item no banco de dados]]
+> 		- MAS [[Sistema]] [[não navega]]
 ---
 
 - [ ]
 
-# 🛠️ Behaviours (How does it act when.. in terms of.. ?)
-> - Defines how something looks, works and performs Examples include ui/ux, rules & limits, data & analytics, security, performance and scalability.
+# 📝 Propriedades (Quais valores?)
+> - Descreve um valor ou configuração que pertence a um objeto (exemplos incluem largura, cor, id, nome).
 
-> - When should it change? · How should it respond? · What are the limits? · What needs validation? · What needs animation? · What needs protection? · What should be cached? · What should be optimized? · What should be monitored? · What needs fallback? · How should it scale? · What should be logged? · How should it fail? · What should be measured? · What needs authorization?
+> - O que o identifica? · O que o descreve? · O que o configura? · O que o mede? · O que o estiliza? · O que o formata? · O que o rastreia? · O que o agrupa? · O que o ordena?
 
-> - GPT Instructions: Think about each object's rules and constraints in terms of: limits (max/min values, allowed inputs), timing (when, how often), security (who can access), and performance (what needs to be fast). Focus on behaviours that can be clearly tested - if you can't write a test for it, make it more specific.
+> - Instruções GPT: Para cada objeto em seu sistema, pense sobre suas necessidades de dados em três categorias: identidade (o que o torna único), configuração (o que pode ser alterado) e estado (o que pode variar). Considere o que precisa ser armazenado, exibido, medido ou rastreado. Certifique-se de que cada propriedade tenha um tipo e propósito claros.
 
-> - Possible Parents: Actor, Component, Activity, Activity Flow, Scenario, Atomic Action, Scenario, Property
-> - Link behaviours to their parent by starting with the parent in [[double square brackets]] and the behaviour(s) beneath it. Example:
-> 	- [ ] [[parent]]
-> 		- [ ] [[Should fail when length is 100+ characters]]
-> 		- [ ] [[Should not show when list is empty]]
+> - Possíveis Pais: Ator, Componente, Atividade, Fluxo de Atividade, Cenário, Ação Atômica, Cenário, Comportamento
+> - Vincule propriedades ao seu pai começando com o pai em [[colchetes duplos]] e a propriedade abaixo dele. Exemplo:
+> 	- [[pai]]
+> 		- [[nome : string]]
 ---
 
 - [ ]
 
-# 💡 Ideas & 🪵 Backlog
-> - Anything that could be added later, too complex now, needs more research, would be nice to have, or alternative approaches.
+# 🛠️ Comportamentos (Como age quando.. em termos de.. ?)
+> - Define como algo parece, funciona e executa Exemplos incluem ui/ux, regras & limites, dados & análises, segurança, desempenho e escalabilidade.
 
-> - What could be added later? · What's too complex now? · What needs more research? · What would be nice to have? · What are alternative approaches? · What could be automated?
+> - Quando deve mudar? · Como deve responder? · Quais são os limites? · O que precisa de validação? · O que precisa de animação? · O que precisa de proteção? · O que deve ser armazenado em cache? · O que deve ser otimizado? · O que deve ser monitorado? · O que precisa de fallback? · Como deve escalar? · O que deve ser registrado? · Como deve falhar? · O que deve ser medido? · O que precisa de autorização?
 
-> - GPT Instructions: While working through the requirements, note down any ideas that come up but don't fit the current scope. Think about: future enhancements, alternative approaches, performance improvements, and nice-to-have features. Don't discard ideas just because they're complex - they might be valuable later.
+> - Instruções GPT: Pense sobre as regras e restrições de cada objeto em termos de: limites (valores máximos/mínimos, entradas permitidas), tempo (quando, com que frequência), segurança (quem pode acessar) e desempenho (o que precisa ser rápido). Concentre-se em comportamentos que podem ser claramente testados - se você não pode escrever um teste para isso, torne-o mais específico.
 
-> - Possible Parents: Anything (optional)
-> - Link ideas and backlog items to their (optional) parent by starting with the parent in [[double square brackets]] and the idea(s)/backlog item(s) beneath it. Example:
-> 	- [ ] [[parent]]
-> 		- [ ] [[Do we need a limit?]]
-> 		- [ ] [[Is this safe?]]
+> - Possíveis Pais: Ator, Componente, Atividade, Fluxo de Atividade, Cenário, Ação Atômica, Cenário, Propriedade
+> - Vincule comportamentos ao seu pai começando com o pai em [[colchetes duplos]] e o comportamento abaixo dele. Exemplo:
+> 	- [ ] [[pai]]
+> 		- [ ] [[Deve falhar quando o comprimento for 100+ caracteres]]
+> 		- [ ] [[Não deve mostrar quando a lista estiver vazia]]
 ---
 
 - [ ]
 
-# ❓ Questions
-> - Questions that need to be answered to clarify requirements.
+# 💡 Ideias & 🪵 Backlog
+> - Qualquer coisa que poderia ser adicionada mais tarde, muito complexa agora, precisa de mais pesquisa, seria bom ter, ou abordagens alternativas.
 
-> - What's unclear? · What needs decision? · What are the edge cases? · What could be improved? · What are we missing? · What assumptions are we making? · What risks exist? · What dependencies are there?
+> - O que poderia ser adicionado mais tarde? · O que é muito complexo agora? · O que precisa de mais pesquisa? · O que seria bom ter? · Quais são as abordagens alternativas? · O que poderia ser automatizado?
 
-> - GPT Instructions: Throughout the process, note any uncertainties or assumptions you make. Focus on questions that could impact implementation or user experience.
+> - Instruções GPT: Enquanto trabalha nos requisitos, anote quaisquer ideias que surgirem, mas não se encaixam no escopo atual. Pense em: melhorias futuras, abordagens alternativas, melhorias de desempenho e recursos desejáveis. Não descarte ideias apenas porque são complexas - elas podem ser valiosas mais tarde.
 
-> - Possible Parents: Everything (optional)
-> - Link questions to their (optional) parent by starting with the parent in [[double square brackets]] and the question(s) beneath it. Example:
-> 	- [ ] [[parent]]
-> 		- [ ] [[Do we need a limit?]]
-> 		- [ ] [[Is this safe?]]
+> - Possíveis Pais: Qualquer coisa (opcional)
+> - Vincule ideias e itens de backlog ao seu (opcional) pai começando com o pai em [[colchetes duplos]] e a ideia/item de backlog abaixo dele. Exemplo:
+> 	- [ ] [[pai]]
+> 		- [ ] [[Precisamos de um limite?]]
+> 		- [ ] [[Isso é seguro?]]
 ---
 
 - [ ]
 
-# 🎯 Roles, 📝 Tasks & 🎓 Suggested Approach
-> - Each behaviour, property, activity (flow), scenario, atomic action, actor, component must directly or indirectly (by parents) cascade down to a todo with assigned role. Creating a task for a parent and completing it automatically covers its children unless children have open tasks themselves.
+# ❓ Perguntas
+> - Perguntas que precisam ser respondidas para esclarecer requisitos.
 
-> - Who's responsible for what?
+> - O que está incerto? · O que precisa de decisão? · Quais são os casos extremos? · O que poderia ser melhorado? · O que estamos perdendo? · Quais suposições estamos fazendo? · Quais riscos existem? · Quais dependências existem?
 
-> - GPT Instructions: Review all items in the requirements and create clear specific tasks for implementation. Every item should have at least one task. Group tasks by role (UI/UX, Frontend, Backend, etc.) and ensure they're specific enough to be actionable and testable.
+> - Instruções GPT: Ao longo do processo, anote quaisquer incertezas ou suposições que você fizer. Concentre-se em perguntas que possam impactar a implementação ou a experiência do usuário.
 
-> - Possible Parents: Everything (optional)
-> - Link tasks to their parent by starting with the parent in [[double square brackets]] and the task(s) beneath it. Example:
-> 	- [ ] [[parent]]
-> 		- [ ] Make a cool design
-> 		- [ ] Get some feedback
+> - Possíveis Pais: Tudo (opcional)
+> - Vincule perguntas ao seu (opcional) pai começando com o pai em [[colchetes duplos]] e a pergunta abaixo dele. Exemplo:
+> 	- [ ] [[pai]]
+> 		- [ ] [[Precisamos de um limite?]]
+> 		- [ ] [[Isso é seguro?]]
 ---
 
-- [ ] UI/UX Designer
-- [ ] Frontend Developer
-- [ ] Backend Developer
-- [ ] Data Engineer
-- [ ] DevOps Engineer
-- [ ] Project Manager
-- [ ] Marketeer
+- [ ]
+
+# 🎯 Papéis, 📝 Tarefas & 🎓 Abordagem Sugerida
+> - Cada comportamento, propriedade, atividade (fluxo), cenário, ação atômica, ator, componente deve direta ou indiretamente (por pais) se desdobrar em uma tarefa com papel atribuído. Criar uma tarefa para um pai e completá-la automaticamente cobre seus filhos, a menos que os filhos tenham tarefas abertas.
+
+> - Quem é responsável por quê?
+
+> - Instruções GPT: Revise todos os itens nos requisitos e crie tarefas claras e específicas para implementação. Cada item deve ter pelo menos uma tarefa. Agrupe tarefas por papel (UI/UX, Frontend, Backend, etc.) e certifique-se de que sejam específicas o suficiente para serem acionáveis e testáveis.
+
+> - Possíveis Pais: Tudo (opcional)
+> - Vincule tarefas ao seu pai começando com o pai em [[colchetes duplos]] e a tarefa abaixo dele. Exemplo:
+> 	- [ ] [[pai]]
+> 		- [ ] Faça um design legal
+> 		- [ ] Obtenha algum feedback
+---
+
+- [ ] Designer UI/UX
+- [ ] Desenvolvedor Frontend
+- [ ] Desenvolvedor Backend
+- [ ] Engenheiro de Dados
+- [ ] Engenheiro DevOps
+- [ ] Gerente de Projeto
+- [ ] Profissional de Marketing
 
 <!--
-# 🎯 Strategy Guide
-> How to use this template.
+# 🎯 Guia de Estratégia
+> Como usar este modelo.
 ---
-Start anywhere that makes sense: user-focused (Actors), feature-focused (Activities), data-focused (Properties), or rules-focused (Behaviours). For each item you add, link it to related items using double [[square brackets]], add its properties and behaviours, and create todos for implementation.
+Comece em qualquer lugar que faça sentido: focado no usuário (Atores), focado no recurso (Atividades), focado nos dados (Propriedades) ou focado nas regras (Comportamentos). Para cada item que você adicionar, vincule-o a itens relacionados usando [[colchetes duplos]], adicione suas propriedades e comportamentos e crie tarefas para implementação.
 
-Every item in this template has a checkbox. Checking off an item means:
-- The item itself is fully implemented
-- All its children (sub-items) are fully implemented 
-- All its relationships are properly connected
-- All its required tests are passing
+Cada item neste modelo tem uma caixa de seleção. Marcar um item significa:
+- O próprio item está totalmente implementado
+- Todos os seus filhos (sub-itens) estão totalmente implementados
+- Todos os seus relacionamentos estão devidamente conectados
+- Todos os seus testes necessários estão passando
 
-Only check off a parent item when ALL its children are complete.
+Só marque um item pai quando TODOS os seus filhos estiverem completos.
 
-# 🔗 Relationship Guide (How to connect items)
-> Every item in the requirements should be connected to other items and/or a todo. This creates a complete, traceable network of requirements. Creating a task for a parent and completing it automatically covers its children unless children have open tasks themselves.
+# 🔗 Guia de Relacionamento (Como conectar itens)
+> Cada item nos requisitos deve estar conectado a outros itens e/ou uma tarefa. Isso cria uma rede completa e rastreável de requisitos. Criar uma tarefa para um pai e completá-la automaticamente cobre seus filhos, a menos que os filhos tenham tarefas abertas.
 ---
 
-## Common Relationships
-- [[Actor]]
-	- [[Activities]]
-		- [[Activity Flows]]
-			- [[Atomic Actions]]
-		- [[Behaviours]]
-- [[Component]]
-	- [[Activities]]
-		- [[Activity Flows]]
-			- [[Atomic Actions]]
-		- [[Behaviours]]
-- [[Properties]]
-	- [[Behaviours]]
+## Relacionamentos Comuns
+- [[Ator]]
+	- [[Atividades]]
+		- [[Fluxos de Atividade]]
+			- [[Ações Atômicas]]
+		- [[Comportamentos]]
+- [[Componente]]
+	- [[Atividades]]
+		- [[Fluxos de Atividade]]
+			- [[Ações Atômicas]]
+		- [[Comportamentos]]
+- [[Propriedades]]
+	- [[Comportamentos]]
 
-## How to Map
-Start with any item and ask:
-- What uses this?
-- What does this use?
-- What properties does it have?
-- What behaviours does it follow?
-- What activities is it involved in?
+## Como Mapear
+Comece com qualquer item e pergunte:
+- O que usa isso?
+- O que isso usa?
+- Quais propriedades isso tem?
+- Quais comportamentos isso segue?
+- Em quais atividades está envolvido?
 
-## Validation
-After completing each section, verify:
-1. All items use [[square brackets]] to indicate relationships (if applicable)
-2. All items have relationships (if applicable)
-3. All items have todos
+## Validação
+Após completar cada seção, verifique:
+1. Todos os itens usam [[colchetes]] para indicar relacionamentos (se aplicável)
+2. Todos os itens têm relacionamentos (se aplicável)
+3. Todos os itens têm tarefas
 -->

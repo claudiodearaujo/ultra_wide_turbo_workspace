@@ -1,47 +1,47 @@
 ---
 document_type: code of conduct
-goal: define structure and process for creating Firestore documents
-gpt_action: follow these steps when implementing Firestore document functionality
+goal: definir estrutura e processo para criar documentos do Firestore
+gpt_action: siga estes passos ao implementar funcionalidade de documentos do Firestore
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify existing components]]
-   1. [[verify existing components]]
-      1. Search for DTOs in feature's `dtos` folder
-      2. Check for services in feature's `services` folder
-      3. Look for APIs in feature's `apis` folder
-      4. Verify similar existing implementations
+1. [[You]] [[verifica componentes existentes]]
+   1. [[verifica componentes existentes]]
+      1. Procura por DTOs na pasta `dtos` da feature
+      2. Verifica serviços na pasta `services` da feature
+      3. Procura por APIs na pasta `apis` da feature
+      4. Verifica implementações similares existentes
 
-2. [[You]] [[confirm implementation details]]
-   1. [[confirm implementation details]]
-      1. Verify Firestore collection structure
-      2. Confirm if using `CollectionService` or `DocumentService`
-      3. Check required relationships with other collections
-      4. Search for similar implementations
+2. [[You]] [[confirma detalhes de implementação]]
+   1. [[confirma detalhes de implementação]]
+      1. Verifica estrutura da collection do Firestore
+      2. Confirma se está usando `CollectionService` ou `DocumentService`
+      3. Verifica relacionamentos necessários com outras collections
+      4. Procura por implementações similares
 
-3. [[You]] [[state assumptions]]
-   1. [[state assumptions]]
-      1. We extend either `CollectionService` or `DocumentService`
-      2. We use DTOs implementing `TurboWriteableId<String>`
-      3. We follow consistent collection structure
-      4. We implement proper logging using Loglytics
-      5. We reuse existing components when possible
+3. [[You]] [[declara premissas]]
+   1. [[declara premissas]]
+      1. Estendemos `CollectionService` ou `DocumentService`
+      2. Usamos DTOs implementando `TurboWriteableId<String>`
+      3. Seguimos estrutura consistente de collection
+      4. Implementamos logging adequado usando Loglytics
+      5. Reutilizamos componentes existentes quando possível
 
-4. [[You]] [[request clarification]]
-   1. [[request clarification]]
-      1. Confirm if data belongs in collection or single document
-      2. Verify collection security rules requirements
-      3. Check specific error handling requirements
-      4. Confirm specific logging requirements
-      5. Ask about reusable components
+4. [[You]] [[solicita esclarecimentos]]
+   1. [[solicita esclarecimentos]]
+      1. Confirma se dados pertencem a collection ou documento único
+      2. Verifica requisitos de regras de segurança da collection
+      3. Verifica requisitos específicos de tratamento de erros
+      4. Confirma requisitos específicos de logging
+      5. Pergunta sobre componentes reutilizáveis
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[setup collection]]
-   1. [[setup collection]]
-      1. Create Firestore collection with proper structure
-      2. Set up security rules:
+1. [[You]] [[configura collection]]
+   1. [[configura collection]]
+      1. Cria collection do Firestore com estrutura adequada
+      2. Configura regras de segurança:
 ```firestore-security-rules
 rules_version = '2';
 service cloud.firestore {
@@ -53,11 +53,11 @@ service cloud.firestore {
 }
 ```
 
-2. [[You]] [[create DTO]]
-   1. [[create DTO]]
-      1. Implement `TurboWriteableId<String>`
-      2. Define required fields
-      3. Create factory methods:
+2. [[You]] [[cria DTO]]
+   1. [[cria DTO]]
+      1. Implementa `TurboWriteableId<String>`
+      2. Define campos obrigatórios
+      3. Cria métodos factory:
 ```dart
 class ItemDto implements TurboWriteableId<String> {
   @override
@@ -101,9 +101,9 @@ class ItemDto implements TurboWriteableId<String> {
 }
 ```
 
-3. [[You]] [[implement service]]
-   1. [[implement service]]
-      1. Create API extending `BaseApi`:
+3. [[You]] [[implementa serviço]]
+   1. [[implementa serviço]]
+      1. Cria API estendendo `BaseApi`:
 ```dart
 class ItemsApi extends BaseApi<ItemDto> {
   ItemsApi()
@@ -112,7 +112,7 @@ class ItemsApi extends BaseApi<ItemDto> {
         );
 }
 ```
-      2. Create service extending base service:
+      2. Cria serviço estendendo serviço base:
 ```dart
 class ItemsService extends CollectionService<ItemDto, ItemsApi> {
   ItemsService({
@@ -123,7 +123,7 @@ class ItemsService extends CollectionService<ItemDto, ItemsApi> {
     required String name,
     String? parentId,
   }) async {
-    log.debug('Creating item with name: $name');
+    log.debug('Criando item com nome: $name');
     
     final item = ItemDto.defaultValue(
       id: api.genId,
@@ -137,9 +137,9 @@ class ItemsService extends CollectionService<ItemDto, ItemsApi> {
 }
 ```
 
-4. [[You]] [[implement UI]]
-   1. [[implement UI]]
-      1. IF [[using form input]]
+4. [[You]] [[implementa UI]]
+   1. [[implementa UI]]
+      1. SE [[usando entrada de formulário]]
 ```dart
 void onCreateShoppingListTapped() {
   _sheetService.showInputSheet(
@@ -159,13 +159,13 @@ void onCreateShoppingListTapped() {
   );
 }
 ```
-      2. IF [[using direct creation]]
+      2. SE [[usando criação direta]]
 ```dart
 Future<void> onCreateDefaultListTapped() async {
   try {
-    log.debug('Creating default shopping list');
+    log.debug('Criando lista de compras padrão');
     final response = await _shoppingListsService.createShoppingList(
-      title: 'My Shopping List',
+      title: 'Minha Lista de Compras',
     );
     
     if (response.isSuccess) {
@@ -175,7 +175,7 @@ Future<void> onCreateDefaultListTapped() async {
     }
   } catch (error, stackTrace) {
     log.error(
-      'Error creating default shopping list',
+      'Erro ao criar lista de compras padrão',
       error: error,
       stackTrace: stackTrace,
     );
@@ -183,14 +183,14 @@ Future<void> onCreateDefaultListTapped() async {
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify implementation]]
-   1. [[verify implementation]]
-      1. Firestore collection properly set up
-      2. Security rules configured correctly
-      3. Service extends appropriate base service
-      4. Service registered with dependencies
-      5. UI provides clear feedback
-      6. Form validation implemented (if applicable)
-      7. Document creation tested
+1. [[You]] [[verifica implementação]]
+   1. [[verifica implementação]]
+      1. Collection do Firestore configurada adequadamente
+      2. Regras de segurança configuradas corretamente
+      3. Serviço estende serviço base apropriado
+      4. Serviço registrado com dependências
+      5. UI fornece feedback claro
+      6. Validação de formulário implementada (se aplicável)
+      7. Criação de documento testada

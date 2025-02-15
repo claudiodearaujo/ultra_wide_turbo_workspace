@@ -1,53 +1,52 @@
-
 ---
 document_type: code of conduct
-goal: define process for organizing and using constants and globals
-gpt_action: follow these patterns when working with constants and globals
+goal: definir processo para organização e uso de constantes e globais
+gpt_action: siga estes padrões ao trabalhar com constantes e globais
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify constant type]]
-   1. [[verify constant type]]
-      1. Check if app-wide constant
-      2. Check if feature-specific constant
-      3. Review usage scope
-      4. Identify constant category
+1. [[You]] [[verifica tipo de constante]]
+   1. [[verifica tipo de constante]]
+      1. Verifica se é constante global do app
+      2. Verifica se é constante específica de feature
+      3. Revisa escopo de uso
+      4. Identifica categoria da constante
 
-2. [[You]] [[confirm location]]
-   1. [[confirm location]]
-      1. Core constants in `/lib/core/constants/`
-      2. Feature constants in `/features/*/constants/`
-      3. Verify file category
-      4. Check naming convention
+2. [[You]] [[confirma localização]]
+   1. [[confirma localização]]
+      1. Constantes core em `/lib/core/constants/`
+      2. Constantes de feature em `/features/*/constants/`
+      3. Verifica categoria do arquivo
+      4. Verifica convenção de nomenclatura
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[implement key constants]]
-   1. [[implement key constants]]
-      1. Use k_keys.dart for string keys:
+1. [[You]] [[implementa constantes chave]]
+   1. [[implementa constantes chave]]
+      1. Use k_keys.dart para chaves string:
 ```dart
-// Bad
+// Ruim
 map['parentId'] = value;
 
-// Good
+// Bom
 map[kKeysParentId] = value;
 ```
 
-2. [[You]] [[implement value constants]]
-   1. [[implement value constants]]
-      1. Use k_values.dart for default values:
+2. [[You]] [[implementa constantes de valor]]
+   1. [[implementa constantes de valor]]
+      1. Use k_values.dart para valores padrão:
 ```dart
-// Bad
+// Ruim
 final defaultDuration = 60;
 
-// Good
+// Bom
 final defaultDuration = kValuesDefaultDurationInMinutes;
 ```
 
-3. [[You]] [[implement asset constants]]
-   1. [[implement asset constants]]
-      1. Organize by asset type:
+3. [[You]] [[implementa constantes de assets]]
+   1. [[implementa constantes de assets]]
+      1. Organiza por tipo de asset:
 ```dart
 // k_svgs.dart
 final kSvgLogo = 'assets/svgs/logo.svg';
@@ -62,15 +61,15 @@ final kLottieSuccess = 'assets/lottie/success.json';
 final kMdChangelog = 'assets/markdown/changelog.md';
 ```
 
-4. [[You]] [[implement globals]]
-   1. [[implement globals]]
-      1. Core globals implementation:
+4. [[You]] [[implementa globais]]
+   1. [[implementa globais]]
+      1. Implementação de globais core:
 ```dart
 // g_strings.dart
 Text(gStrings.hello);
 
 // g_print.dart
-log.debug('Debug info');
+log.debug('Info de debug');
 
 // g_feedback.dart
 gFeedback.showSnackBar(...);
@@ -80,23 +79,23 @@ TimeFormat get gTimeFormat => SettingsService.locate.timeFormat;
 DateFormat get gDateFormat => SettingsService.locate.dateFormat;
 ```
 
-5. [[You]] [[organize file structure]]
-   1. [[organize file structure]]
-      1. Follow standard structure:
+5. [[You]] [[organiza estrutura de arquivos]]
+   1. [[organiza estrutura de arquivos]]
+      1. Segue estrutura padrão:
 ```
 lib/
 ├── core/
 │   ├── constants/
-│   │   ├── k_keys.dart      # Map/JSON keys
-│   │   ├── k_values.dart    # Default values
-│   │   ├── k_sizes.dart     # UI sizes
-│   │   ├── k_colors.dart    # Colors
-│   │   ├── k_svgs.dart      # SVG assets
-│   │   └── k_lottie.dart    # Lottie animations
+│   │   ├── k_keys.dart      # Chaves Map/JSON
+│   │   ├── k_values.dart    # Valores padrão
+│   │   ├── k_sizes.dart     # Tamanhos de UI
+│   │   ├── k_colors.dart    # Cores
+│   │   ├── k_svgs.dart      # Assets SVG
+│   │   └── k_lottie.dart    # Animações Lottie
 │   └── globals/
-│       ├── g_strings.dart   # Localization
+│       ├── g_strings.dart   # Localização
 │       ├── g_print.dart     # Logging
-│       └── g_feedback.dart  # User feedback
+│       └── g_feedback.dart  # Feedback do usuário
 └── features/
     └── feature_name/
         ├── constants/
@@ -105,25 +104,25 @@ lib/
             └── g_feature_specific.dart
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify naming]]
-   1. [[verify naming]]
-      1. Constants use `k` prefix
-      2. Globals use `g` prefix
-      3. Names are descriptive
-      4. Categories are clear
+1. [[You]] [[verifica nomenclatura]]
+   1. [[verifica nomenclatura]]
+      1. Constantes usam prefixo `k`
+      2. Globais usam prefixo `g`
+      3. Nomes são descritivos
+      4. Categorias são claras
 
-2. [[You]] [[verify organization]]
-   1. [[verify organization]]
-      1. Files in correct locations
-      2. Constants properly categorized
-      3. Feature-specific items in feature folders
-      4. Shared items in core
+2. [[You]] [[verifica organização]]
+   1. [[verifica organização]]
+      1. Arquivos nas localizações corretas
+      2. Constantes adequadamente categorizadas
+      3. Itens específicos de feature nas pastas de feature
+      4. Itens compartilhados no core
 
-3. [[You]] [[verify best practices]]
-   1. [[verify best practices]]
-      1. No magic values used
-      2. Constants used consistently
-      3. Documentation clear
-      4. Feature organization correct 
+3. [[You]] [[verifica melhores práticas]]
+   1. [[verifica melhores práticas]]
+      1. Nenhum valor mágico usado
+      2. Constantes usadas consistentemente
+      3. Documentação clara
+      4. Organização de features correta 

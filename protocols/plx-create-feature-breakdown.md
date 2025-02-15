@@ -1,108 +1,108 @@
 ---
 document_type: protocol
-goal: create structured and engaging feature breakdowns following our standard format
-gpt_action: follow these steps when user wants to create a new feature breakdown
+goal: criar breakdowns de recursos estruturados e envolventes seguindo nosso formato padrão
+gpt_action: seguir estes passos quando o usuário quer criar um novo breakdown de recurso
 ---
 
-CONTEXT: The [[User]] wants to create a new feature breakdown and needs you to handle the creation process following our standard format and structure.
+CONTEXTO: O [[Usuário]] quer criar um novo breakdown de recurso e precisa que você gerencie o processo de criação seguindo nosso formato e estrutura padrão.
 
-1. GIVEN [[User]] RUNS plx-create-feature-breakdown command
-   1. THEN [[You]] READ [[input]]
-      1. AND [[You]] CHECK feature type
+1. DADO [[Usuário]] EXECUTA comando plx-create-feature-breakdown
+   1. ENTÃO [[Você]] LÊ [[entrada]]
+      1. E [[Você]] VERIFICA tipo de recurso
          ```markdown
-         # Feature Types
-         - ui          : User interface components
-         - api         : API implementations
-         - integration : Third-party integrations
-         - core        : Core functionality
+         # Tipos de Recurso
+         - ui          : Componentes de interface do usuário
+         - api         : Implementações de API
+         - integration : Integrações com terceiros
+         - core        : Funcionalidade central
          ```
-      2. AND [[You]] CHECK required parameters
+      2. E [[Você]] VERIFICA parâmetros necessários
          ```markdown
-         # Required Parameters
-         - title        : Name in Pascal Case With Spaces
-         - type         : One of the feature types above
-         - difficulty   : 🟢 Easy | 🟡 Medium | 🔴 Hard
-         - readingTime  : Duration (e.g., "15 minutes")
+         # Parâmetros Necessários
+         - title        : Nome em Pascal Case Com Espaços
+         - type         : Um dos tipos de recurso acima
+         - difficulty   : 🟢 Fácil | 🟡 Médio | 🔴 Difícil
+         - readingTime  : Duração (ex: "15 minutos")
          ```
-   2. IF [[input]] IS empty
-      1. THEN [[You]] ASK [[User]] for feature type
-      2. AND [[You]] ASK for required parameters
+   2. SE [[entrada]] ESTÁ vazia
+      1. ENTÃO [[Você]] PERGUNTA ao [[Usuário]] tipo de recurso
+      2. E [[Você]] PERGUNTA parâmetros necessários
 
-2. WHEN [[You]] CREATES breakdown
-   1. THEN [[You]] CREATE file in features directory
+2. QUANDO [[Você]] CRIA breakdown
+   1. ENTÃO [[Você]] CRIA arquivo no diretório features
       ```markdown
-      # File Location
-      feature-breakdowns/title-in-lowercase-with-dashes.md
+      # Localização do Arquivo
+      feature-breakdowns/titulo-em-minusculo-com-hifens.md
       ```
-   2. THEN [[You]] ADD frontmatter
+   2. ENTÃO [[Você]] ADICIONA frontmatter
       ```markdown
-      # Frontmatter Format
+      # Formato do Frontmatter
       ---
       document_type: feature-breakdown
-      title: Title In Pascal Case
+      title: Título Em Pascal Case
       difficulty: 🟢 | 🟡 | 🔴
-      reading_time: "15 minutes"
+      reading_time: "15 minutos"
       feature_type: ui | api | integration | core
-      gpt_action: follow these steps to understand [title]
+      gpt_action: seguir estes passos para entender [título]
       ---
       ```
-   3. THEN [[You]] CREATE sections
-      1. AND [[You]] ADD "📝 Table of Contents"
-      2. AND [[You]] ADD "📝 Introduction"
-      3. AND [[You]] ADD "🎯 The Plan"
-      4. AND [[You]] ADD "💻 Implementation"
-      5. AND [[You]] ADD "🧪 Testing"
-      6. AND [[You]] ADD "🤔 Reflection"
+   3. ENTÃO [[Você]] CRIA seções
+      1. E [[Você]] ADICIONA "📝 Sumário"
+      2. E [[Você]] ADICIONA "📝 Introdução"
+      3. E [[Você]] ADICIONA "🎯 O Plano"
+      4. E [[Você]] ADICIONA "💻 Implementação"
+      5. E [[Você]] ADICIONA "🧪 Testes"
+      6. E [[Você]] ADICIONA "🤔 Reflexão"
 
-3. WHEN [[You]] FILLS sections
-   1. THEN [[You]] WRITE Table of Contents
-      1. AND [[You]] LIST all sections
-      2. AND [[You]] ADD reading time estimates
-      3. AND [[You]] ADD difficulty indicators
-   2. THEN [[You]] WRITE Introduction
-      1. AND [[You]] EXPLAIN what and why
-      2. AND [[You]] ADD feature overview screenshot
-      3. AND [[You]] ADD "Prerequisites"
-      4. AND [[You]] ADD "What You'll Learn"
-      5. AND [[You]] ADD real-world use cases
-   3. THEN [[You]] WRITE The Plan
-      1. AND [[You]] CREATE numbered steps
-      2. AND [[You]] ADD concept visualizations
-      3. AND [[You]] ADD "Think About It" questions
-      4. AND [[You]] ADD alternative approaches
-   4. THEN [[You]] WRITE Implementation
-      1. AND [[You]] ADD code snippets with comments
-      2. AND [[You]] ADD implementation screenshots
-      3. AND [[You]] ADD interaction GIFs
-      4. AND [[You]] ADD "Code Breakdown" boxes
-      5. AND [[You]] ADD "Common Errors"
-   5. THEN [[You]] WRITE Testing
-      1. AND [[You]] CREATE test scenarios
-      2. AND [[You]] ADD test results screenshots
-      3. AND [[You]] ADD "Test Writing Tips"
-      4. AND [[You]] ADD debugging strategies
-   6. THEN [[You]] WRITE Reflection
-      1. AND [[You]] DISCUSS pros and cons
-      2. AND [[You]] ADD performance notes
-      3. AND [[You]] ADD security considerations
-      4. AND [[You]] ADD future improvements
+3. QUANDO [[Você]] PREENCHE seções
+   1. ENTÃO [[Você]] ESCREVE Sumário
+      1. E [[Você]] LISTA todas as seções
+      2. E [[Você]] ADICIONA estimativas de tempo de leitura
+      3. E [[Você]] ADICIONA indicadores de dificuldade
+   2. ENTÃO [[Você]] ESCREVE Introdução
+      1. E [[Você]] EXPLICA o que e por que
+      2. E [[Você]] ADICIONA screenshot da visão geral do recurso
+      3. E [[Você]] ADICIONA "Pré-requisitos"
+      4. E [[Você]] ADICIONA "O Que Você Aprenderá"
+      5. E [[Você]] ADICIONA casos de uso no mundo real
+   3. ENTÃO [[Você]] ESCREVE O Plano
+      1. E [[Você]] CRIA etapas numeradas
+      2. E [[Você]] ADICIONA visualizações conceituais
+      3. E [[Você]] ADICIONA "Pense Nisso" perguntas
+      4. E [[Você]] ADICIONA abordagens alternativas
+   4. ENTÃO [[Você]] ESCREVE Implementação
+      1. E [[Você]] ADICIONA snippets de código com comentários
+      2. E [[Você]] ADICIONA screenshots de implementação
+      3. E [[Você]] ADICIONA GIFs de interação
+      4. E [[Você]] ADICIONA "Boxes de Desmontagem de Código"
+      5. E [[Você]] ADICIONA "Erros Comuns"
+   5. ENTÃO [[Você]] ESCREVE Testes
+      1. E [[Você]] CRIA cenários de teste
+      2. E [[Você]] ADICIONA screenshots de resultados de teste
+      3. E [[Você]] ADICIONA "Dicas de Escrita de Teste"
+      4. E [[Você]] ADICIONA estratégias de depuração
+   6. ENTÃO [[Você]] ESCREVE Reflexão
+      1. E [[Você]] DISCUSSA prós e contras
+      2. E [[Você]] ADICIONA notas de desempenho
+      3. E [[Você]] ADICIONA considerações de segurança
+      4. E [[Você]] ADICIONA melhorias futuras
 
-4. GIVEN [[breakdown]] IS ready
-   1. THEN [[You]] ADD image placeholders
-      1. AND [[You]] USE format
+4. DADO [[breakdown]] ESTÁ pronto
+   1. ENTÃO [[Você]] ADICIONA espaços reservados para imagens
+      1. E [[Você]] USE formato
          ```markdown
          [SCREENSHOT: Feature overview showing final result]
          [GIF: Key user interactions with the feature]
          [STOCK: Concept visualization for complex parts]
          ```
-   2. THEN [[You]] VERIFY style guidelines
-      1. AND [[You]] CHECK emoticons
-      2. AND [[You]] CHECK formatting
-      3. AND [[You]] CHECK line breaks
-   3. THEN [[You]] VERIFY content
-      1. AND [[You]] CHECK all sections present
-      2. AND [[You]] CHECK code examples
-      3. AND [[You]] CHECK links
-      4. AND [[You]] CHECK flowcharts
+   2. ENTÃO [[Você]] VERIFICA diretrizes de estilo
+      1. E [[Você]] VERIFICA emoticons
+      2. E [[Você]] VERIFICA formatação
+      3. E [[Você]] VERIFICA quebras de linha
+   3. ENTÃO [[Você]] VERIFICA conteúdo
+      1. E [[Você]] VERIFICA todas as seções presentes
+      2. E [[Você]] VERIFICA exemplos de código
+      3. E [[Você]] VERIFICA links
+      4. E [[Você]] VERIFICA fluxogramas
 
-NOTE: Remember to use emoticons for all main headers, keep explanations clear and comprehensive, and include detailed code examples with thorough comments. Each section should follow the exact structure from [[how-we-create-feature-breakdowns]]. 
+NOTA: Lembre-se de usar emoticons para todos os cabeçalhos principais, manter explicações claras e abrangentes e incluir exemplos de código detalhados com comentários detalhados. Cada seção deve seguir exatamente a estrutura de [[how-we-create-feature-breakdowns]]. 

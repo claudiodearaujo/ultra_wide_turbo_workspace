@@ -1,50 +1,50 @@
 ---
 document_type: protocol
-goal: execute high priority user task with perfect focus
-gpt_action: follow these steps when user needs a task done with highest priority
+goal: executar tarefa de alta prioridade do usuário com foco perfeito
+gpt_action: siga estes passos quando o usuário precisar de uma tarefa feita com a mais alta prioridade
 ---
 
-CONTEXT: The [[User]] has a high priority task that needs immediate focused attention and wants you to execute it perfectly before continuing with any other work.
+CONTEXTO: O [[User]] tem uma tarefa de alta prioridade que precisa de atenção imediata e focada e deseja que você a execute perfeitamente antes de continuar com qualquer outro trabalho.
 
-1. GIVEN [[You]] RECEIVES plx-do command
-   1. THEN [[You]] READ [[task]]
-      1. AND [[You]] IDENTIFY task requirements
-      2. AND [[You]] CLEAR current focus
-   2. IF [[task]] HAS no clear details
-      1. THEN [[You]] ASK [[User]]
-      2. AND [[You]] WAIT response
+1. DADO QUE [[You]] RECEBE comando plx-do
+   1. ENTÃO [[You]] LÊ [[task]]
+      1. E [[You]] IDENTIFICA requisitos da tarefa
+      2. E [[You]] LIMPA foco atual
+   2. SE [[task]] NÃO TEM detalhes claros
+      1. ENTÃO [[You]] PERGUNTA ao [[User]]
+      2. E [[You]] AGUARDA resposta
 
-2. WHEN [[You]] STARTS task
-   1. THEN [[You]] UPDATE [[your-milestones]]
-      1. AND [[You]] ADD priority milestone
-      2. AND [[You]] SET as current focus
-   2. THEN [[You]] UPDATE [[your-todo-list]]
-      1. AND [[You]] ADD task at top
-      2. AND [[You]] MARK as high priority
+2. QUANDO [[You]] INICIA tarefa
+   1. ENTÃO [[You]] ATUALIZA [[your-milestones]]
+      1. E [[You]] ADICIONA milestone prioritário
+      2. E [[You]] DEFINE como foco atual
+   2. ENTÃO [[You]] ATUALIZA [[your-todo-list]]
+      1. E [[You]] ADICIONA tarefa no topo
+      2. E [[You]] MARCA como alta prioridade
 
-3. GIVEN [[task]] IS ready
-   1. THEN [[You]] FOCUS only on task
-      1. AND [[You]] IGNORE unrelated issues
-      2. AND [[You]] SKIP other improvements
-   2. THEN [[You]] FOLLOW development process
-      1. AND [[You]] EXECUTE task steps
-      2. AND [[You]] TEST thoroughly
-   3. IF [[task]] NEEDS clarification
-      1. THEN [[You]] ASK [[User]]
-      2. AND [[You]] WAIT response
+3. DADO QUE [[task]] ESTÁ pronta
+   1. ENTÃO [[You]] FOCA apenas na tarefa
+      1. E [[You]] IGNORA questões não relacionadas
+      2. E [[You]] PULA outras melhorias
+   2. ENTÃO [[You]] SEGUE processo de desenvolvimento
+      1. E [[You]] EXECUTA passos da tarefa
+      2. E [[You]] TESTA minuciosamente
+   3. SE [[task]] PRECISA de esclarecimento
+      1. ENTÃO [[You]] PERGUNTA ao [[User]]
+      2. E [[You]] AGUARDA resposta
 
-4. WHEN [[task]] IS complete
-   1. THEN [[You]] VERIFY results
-      1. AND [[You]] CHECK requirements
-      2. AND [[You]] CONFIRM quality
-   2. THEN [[You]] UPDATE [[your-todo-list]]
-      1. AND [[You]] MARK task complete
-      2. AND [[You]] UPDATE milestone
+4. QUANDO [[task]] ESTÁ completa
+   1. ENTÃO [[You]] VERIFICA resultados
+      1. E [[You]] CHECA requisitos
+      2. E [[You]] CONFIRMA qualidade
+   2. ENTÃO [[You]] ATUALIZA [[your-todo-list]]
+      1. E [[You]] MARCA tarefa como completa
+      2. E [[You]] ATUALIZA milestone
 
-5. GIVEN [[task]] IS verified
-   1. THEN [[You]] RESUME normal flow
-      1. AND [[You]] RETURN to development process
-      2. AND [[You]] CONTINUE with next task
-   2. IF [[User]] ACCEPTS result
-      1. THEN [[You]] CONFIRM completion
-      2. AND [[You]] START next task 
+5. DADO QUE [[task]] ESTÁ verificada
+   1. ENTÃO [[You]] RETOMA fluxo normal
+      1. E [[You]] RETORNA ao processo de desenvolvimento
+      2. E [[You]] CONTINUA com próxima tarefa
+   2. SE [[User]] ACEITA resultado
+      1. ENTÃO [[You]] CONFIRMA conclusão
+      2. E [[You]] INICIA próxima tarefa 

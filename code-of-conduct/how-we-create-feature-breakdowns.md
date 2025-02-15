@@ -1,129 +1,129 @@
 ---
 document_type: code of conduct
-goal: define how to create engaging and educational feature breakdowns
-gpt_action: follow these guidelines when creating student-friendly feature breakdowns
+goal: definir como criar breakdowns de features envolventes e educativos
+gpt_action: siga estas diretrizes ao criar breakdowns de features amigáveis para estudantes
 ---
 
-# 🚀 How We Create Feature Breakdowns
+# 🚀 Como Criamos Breakdowns de Features
 
-## ✍️ Common Style Guidelines
+## ✍️ Diretrizes Gerais de Estilo
 
-- Use emoticons for all main headers to make content more approachable
-- Keep explanations concise, clear, and beginner-friendly
-- Include practical code examples with comments explaining key concepts
-- Use markdown formatting consistently for better readability
-- One sentence per checklist item for easy understanding
-- Document titles should be in Pascal Case with spaces
-- Always add a line break after each header for proper parsing in all editors
-- Use emojis strategically to highlight important points 🎯
-- Add "Did you know?" sections for interesting facts 💡
+- Use emoticons para todos os cabeçalhos principais para tornar o conteúdo mais acessível
+- Mantenha explicações concisas, claras e amigáveis para iniciantes
+- Inclua exemplos práticos de código com comentários explicando conceitos-chave
+- Use formatação markdown consistentemente para melhor legibilidade
+- Uma frase por item de checklist para fácil compreensão
+- Títulos de documentos devem estar em Pascal Case com espaços
+- Sempre adicione uma quebra de linha após cada cabeçalho para análise adequada em todos os editores
+- Use emojis estrategicamente para destacar pontos importantes 🎯
+- Adicione seções "Você sabia?" para fatos interessantes 💡
 
-## 🚀 Common Best Practices
+## 🚀 Melhores Práticas Comuns
 
-- Place docs in their appropriate directory based on type
-- Start filenames with appropriate prefix
-- Include relevant code examples with step-by-step explanations
-- Keep formatting consistent and visually appealing
-- Link to related documentation and learning resources
-- Document while the information is fresh
-- Add real-world analogies to explain complex concepts
-- Include "Common Pitfalls" sections to prevent mistakes
-- Provide "Pro Tips" for advanced insights 🔥
+- Coloque documentos em seu diretório apropriado baseado no tipo
+- Comece nomes de arquivos com prefixo apropriado
+- Inclua exemplos de código relevantes com explicações passo a passo
+- Mantenha formatação consistente e visualmente atraente
+- Vincule à documentação relacionada e recursos de aprendizado
+- Documente enquanto a informação está fresca
+- Adicione analogias do mundo real para explicar conceitos complexos
+- Inclua seções "Armadilhas Comuns" para prevenir erros
+- Forneça "Dicas Pro" para insights avançados 🔥
 
-## 📖️ Image Placeholders
+## 📖️ Placeholders de Imagem
 
 ### Screenshots
-- Use `[SCREENSHOT: Description of what should be captured]`
-- Include specific UI elements or areas to focus on
-- Mention any required highlighting or annotations
-- Add numbered callouts for step-by-step explanations
-- Include "Before & After" comparisons where helpful
+- Use `[SCREENSHOT: Descrição do que deve ser capturado]`
+- Inclua elementos específicos da UI ou áreas para focar
+- Mencione qualquer destaque ou anotação necessária
+- Adicione marcadores numerados para explicações passo a passo
+- Inclua comparações "Antes & Depois" onde útil
 
 ### GIFs
-- Use `[GIF: Description of the interaction to record]`
-- Specify start and end points of the interaction
-- Note any specific elements to focus on
-- Include approximate duration if relevant
-- Add slow-motion sections for complex interactions
+- Use `[GIF: Descrição da interação a ser gravada]`
+- Especifique pontos de início e fim da interação
+- Anote quaisquer elementos específicos para focar
+- Inclua duração aproximada se relevante
+- Adicione seções em câmera lenta para interações complexas
 
-### Stock Images
-- Use `[STOCK: Description of the needed image]`
-- Include preferred style (e.g., minimalist, colorful, professional)
-- Specify any required colors or themes
-- Note preferred dimensions if important
-- Consider using metaphorical images to explain concepts
+### Imagens Stock
+- Use `[STOCK: Descrição da imagem necessária]`
+- Inclua estilo preferido (ex: minimalista, colorido, profissional)
+- Especifique quaisquer cores ou temas necessários
+- Anote dimensões preferidas se importante
+- Considere usar imagens metafóricas para explicar conceitos
 
-## 📖 Document Types and Their MANDATORY File Structures
+## 📖 Tipos de Documento e Suas Estruturas OBRIGATÓRIAS de Arquivo
 
-### Feature Breakdowns
+### Breakdowns de Features
 
-Detailed documentation of implemented features with a focus on learning and understanding.
+Documentação detalhada de features implementadas com foco em aprendizado e compreensão.
 
-#### Table of Contents
+#### Sumário
 
-- Title: "# 📝 Table of Contents"
-- Content: List of all sections in the document
-- Keep it concise but comprehensive
-- Add estimated reading time for each section ⏱️
-- Include difficulty level indicators (🟢 Easy, 🟡 Medium, 🔴 Hard)
+- Título: "# 📝 Sumário"
+- Conteúdo: Lista de todas as seções no documento
+- Mantenha conciso mas abrangente
+- Adicione tempo estimado de leitura para cada seção ⏱️
+- Inclua indicadores de dificuldade (🟢 Fácil, 🟡 Médio, 🔴 Difícil)
 
-#### Introduction Section
+#### Seção de Introdução
 
-- Title: "# 📝 File Name In Pascal Case With Spaces"
-- Content: Explain what feature was implemented and why
-- Include any relevant context or dependencies
-- Add `[SCREENSHOT: Feature overview or final result]` to show the end result
-- Include a "Prerequisites" checklist for required knowledge
-- Add a "What You'll Learn" section with clear outcomes
-- Include real-world use cases and examples
+- Título: "# 📝 Nome Do Arquivo Em Pascal Case Com Espaços"
+- Conteúdo: Explique qual feature foi implementada e por quê
+- Inclua qualquer contexto ou dependências relevantes
+- Adicione `[SCREENSHOT: Visão geral da feature ou resultado final]` para mostrar o resultado final
+- Inclua uma checklist de "Pré-requisitos" para conhecimento necessário
+- Adicione uma seção "O Que Você Vai Aprender" com resultados claros
+- Inclua casos de uso e exemplos do mundo real
 
-#### The Plan Section
+#### Seção do Plano
 
-- Title: "# 🎯 The Plan"
-- Format: Numbered list with clear progression
-- Each step should reflect exactly what was done
-- Keep steps concise and clear
-- Add `[STOCK: Relevant concept visualization]` if helpful for understanding
-- Include "Think About It" questions for deeper understanding
-- Add alternative approaches and their trade-offs
-- Include decision-making flowcharts for complex choices
+- Título: "# 🎯 O Plano"
+- Formato: Lista numerada com progressão clara
+- Cada passo deve refletir exatamente o que foi feito
+- Mantenha passos concisos e claros
+- Adicione `[STOCK: Visualização relevante do conceito]` se útil para compreensão
+- Inclua perguntas "Pense Sobre Isso" para entendimento mais profundo
+- Adicione abordagens alternativas e seus trade-offs
+- Inclua fluxogramas de tomada de decisão para escolhas complexas
 
-#### Implementation Section
+#### Seção de Implementação
 
-- Title: "# 💻 Implementation"
-- Sub-sections matching The Plan steps
-- Include actual code snippets with detailed comments
-- Explain patterns and important decisions
-- Document why certain approaches were chosen
-- Add `[SCREENSHOT: Key implementation details]` for complex parts
-- Add `[GIF: User interaction flows]` for dynamic features
-- Include "Code Breakdown" boxes explaining complex snippets
-- Add "Try It Yourself" exercises
-- Include "Common Errors" and their solutions
-- Add performance tips and best practices 🚀
+- Título: "# 💻 Implementação"
+- Sub-seções correspondentes aos passos do Plano
+- Inclua snippets reais de código com comentários detalhados
+- Explique padrões e decisões importantes
+- Documente por que certas abordagens foram escolhidas
+- Adicione `[SCREENSHOT: Detalhes chave da implementação]` para partes complexas
+- Adicione `[GIF: Fluxos de interação do usuário]` para features dinâmicas
+- Inclua caixas de "Análise do Código" explicando snippets complexos
+- Adicione exercícios "Tente Você Mesmo"
+- Inclua "Erros Comuns" e suas soluções
+- Adicione dicas de performance e melhores práticas 🚀
 
-#### Testing Section
+#### Seção de Testes
 
-- Title: "# 🧪 Testing"
-- Format: Checklist style with "- [ ]" prefix
-- List all test scenarios and edge cases
-- Include `[SCREENSHOT: Test results or coverage]` if relevant
-- Add "Test Writing Tips" for better coverage
-- Include examples of good vs bad tests
-- Add debugging strategies and tools
-- Include performance testing guidelines
+- Título: "# 🧪 Testes"
+- Formato: Estilo checklist com prefixo "- [ ]"
+- Liste todos os cenários de teste e casos de borda
+- Inclua `[SCREENSHOT: Resultados dos testes ou cobertura]` se relevante
+- Adicione "Dicas de Escrita de Testes" para melhor cobertura
+- Inclua exemplos de testes bons vs ruins
+- Adicione estratégias e ferramentas de debugging
+- Inclua diretrizes de teste de performance
 
-#### Reflection Section
+#### Seção de Reflexão
 
-- Title: "# 🤔 Reflection"
-- What went well and what could be improved
-- Alternative approaches considered
-- Performance implications
-- Security considerations
-- Scalability discussion
-- Future improvement suggestions
-- Learning outcomes achieved
+- Título: "# 🤔 Reflexão"
+- O que foi bem e o que poderia ser melhorado
+- Abordagens alternativas consideradas
+- Implicações de performance
+- Considerações de segurança
+- Discussão de escalabilidade
+- Sugestões de melhorias futuras
+- Resultados de aprendizado alcançados
 
-## 🤖 GPT Agent Instructions
+## 🤖 Instruções para o Agente GPT
 
-- Instructions for a hypothetical agent to perform all the tasks in the feature breakdown so agent creates the end result of the feature breakdown.
+- Instruções para um agente hipotético executar todas as tarefas no breakdown da feature para que o agente crie o resultado final do breakdown da feature.

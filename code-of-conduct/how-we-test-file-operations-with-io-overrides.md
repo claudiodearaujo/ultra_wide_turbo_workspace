@@ -1,30 +1,30 @@
 ---
 document_type: code of conduct
-goal: define process for testing file operations using IOOverrides
-gpt_action: follow these steps when testing code that uses Directory.current
+goal: definir processo para testar operações de arquivo usando IOOverrides
+gpt_action: siga estes passos ao testar código que usa Directory.current
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[analyze testing challenges]]
-   1. [[analyze testing challenges]]
-      1. Tests might interact with real project files
-      2. File paths tied to actual working directory
-      3. Hard to isolate test file operations
-      4. Risk of polluting project directory
+1. [[You]] [[analisa desafios de teste]]
+   1. [[analisa desafios de teste]]
+      1. Testes podem interagir com arquivos reais do projeto
+      2. Caminhos de arquivo vinculados ao diretório de trabalho atual
+      3. Difícil isolar operações de arquivo de teste
+      4. Risco de poluir diretório do projeto
 
-2. [[You]] [[confirm solution approach]]
-   1. [[confirm solution approach]]
-      1. Use Dart's IOOverrides to control Directory.current
-      2. Intercept file and directory operations
-      3. Redirect to test directory
-      4. Keep production code unchanged
+2. [[You]] [[confirma abordagem de solução]]
+   1. [[confirma abordagem de solução]]
+      1. Usa IOOverrides do Dart para controlar Directory.current
+      2. Intercepta operações de arquivo e diretório
+      3. Redireciona para diretório de teste
+      4. Mantém código de produção inalterado
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[create test override]]
-   1. [[create test override]]
-      1. Implement IOOverrides class:
+1. [[You]] [[cria override de teste]]
+   1. [[cria override de teste]]
+      1. Implementa classe IOOverrides:
 ```dart
 class _TestIOOverrides extends IOOverrides {
   final Directory _testDir;
@@ -35,56 +35,56 @@ class _TestIOOverrides extends IOOverrides {
 }
 ```
 
-2. [[You]] [[setup test environment]]
-   1. [[setup test environment]]
-      1. Create test directory and override:
+2. [[You]] [[configura ambiente de teste]]
+   1. [[configura ambiente de teste]]
+      1. Cria diretório e override de teste:
 ```dart
 setUp(() async {
-  // Create fresh test directory
+  // Cria diretório de teste novo
   tempDir = await Directory.systemTemp.createTemp('test_workspace');
   
-  // Set up test files
+  // Configura arquivos de teste
   await sourceDir.create(recursive: true);
   await File(...).writeAsString(...);
   
-  // Override Directory.current
+  // Sobrepõe Directory.current
   IOOverrides.global = _TestIOOverrides(tempDir);
 });
 ```
 
-3. [[You]] [[implement cleanup]]
-   1. [[implement cleanup]]
-      1. Clean up after tests:
+3. [[You]] [[implementa limpeza]]
+   1. [[implementa limpeza]]
+      1. Limpa após os testes:
 ```dart
 tearDown(() async {
   // Remove override
   IOOverrides.global = null;
   
-  // Clean up test directory
+  // Limpa diretório de teste
   await tempDir.delete(recursive: true);
 });
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify test isolation]]
-   1. [[verify test isolation]]
-      1. Tests use temporary directories
-      2. No interaction with real project files
-      3. File operations properly intercepted
-      4. Production code remains unchanged
+1. [[You]] [[verifica isolamento de teste]]
+   1. [[verifica isolamento de teste]]
+      1. Testes usam diretórios temporários
+      2. Sem interação com arquivos reais do projeto
+      3. Operações de arquivo adequadamente interceptadas
+      4. Código de produção permanece inalterado
 
-2. [[You]] [[verify cleanup process]]
-   1. [[verify cleanup process]]
-      1. Overrides removed after each test
-      2. Test directories cleaned up
-      3. No leftover test files
-      4. System state restored
+2. [[You]] [[verifica processo de limpeza]]
+   1. [[verifica processo de limpeza]]
+      1. Overrides removidos após cada teste
+      2. Diretórios de teste limpos
+      3. Sem arquivos de teste remanescentes
+      4. Estado do sistema restaurado
 
-3. [[You]] [[verify best practices]]
-   1. [[verify best practices]]
-      1. Always use temporary directories
-      2. Clean up after each test
-      3. Remove overrides in tearDown
-      4. Keep production code using Directory.current
-      5. Don't modify implementation for testing 
+3. [[You]] [[verifica melhores práticas]]
+   1. [[verifica melhores práticas]]
+      1. Sempre use diretórios temporários
+      2. Limpe após cada teste
+      3. Remova overrides no tearDown
+      4. Mantenha código de produção usando Directory.current
+      5. Não modifique implementação para teste 

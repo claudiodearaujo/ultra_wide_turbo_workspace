@@ -1,97 +1,97 @@
 ---
 document_type: protocol
-goal: create structured and engaging tutorials following our standard format
-gpt_action: follow these steps when user wants to create a new tutorial
+goal: criar tutoriais estruturados e envolventes seguindo nosso formato padrão
+gpt_action: siga estes passos quando o usuário quiser criar um novo tutorial
 ---
 
-CONTEXT: The [[User]] wants to create a new tutorial and needs you to handle the creation process following our standard format and structure.
+CONTEXTO: O [[User]] quer criar um novo tutorial e precisa que você gerencie o processo de criação seguindo nosso formato e estrutura padrão.
 
-1. GIVEN [[User]] RUNS plx-create-tutorial command
-   1. THEN [[You]] READ [[input]]
-      1. AND [[You]] CHECK tutorial type
+1. DADO QUE [[User]] EXECUTA o comando plx-create-tutorial
+   1. ENTÃO [[You]] LÊ [[input]]
+      1. E [[You]] VERIFICA tipo de tutorial
          ```markdown
-         # Tutorial Types
-         - feature      : How to use a feature
-         - concept      : Explaining a concept
-         - integration : Setting up integrations
-         - workflow    : Step-by-step process
+         # Tipos de Tutorial
+         - feature      : Como usar uma funcionalidade
+         - concept      : Explicando um conceito
+         - integration : Configurando integrações
+         - workflow    : Processo passo a passo
          ```
-      2. AND [[You]] CHECK required parameters
+      2. E [[You]] VERIFICA parâmetros necessários
          ```markdown
-         # Required Parameters
-         - title         : Name in Pascal Case With Spaces
-         - type          : One of the tutorial types above
-         - difficulty    : 🟢 Beginner | 🟡 Intermediate | 🔴 Advanced
-         - estimatedTime : Duration (e.g., "30 minutes")
+         # Parâmetros Necessários
+         - title         : Nome em Pascal Case Com Espaços
+         - type          : Um dos tipos de tutorial acima
+         - difficulty    : 🟢 Iniciante | 🟡 Intermediário | 🔴 Avançado
+         - estimatedTime : Duração (ex: "30 minutos")
          ```
-   2. IF [[input]] IS empty
-      1. THEN [[You]] ASK [[User]] for tutorial type
-      2. AND [[You]] ASK for required parameters
+   2. SE [[input]] ESTÁ vazio
+      1. ENTÃO [[You]] PERGUNTA ao [[User]] o tipo de tutorial
+      2. E [[You]] PERGUNTA os parâmetros necessários
 
-2. WHEN [[You]] CREATES tutorial
-   1. THEN [[You]] CREATE file in tutorials directory
+2. QUANDO [[You]] CRIA tutorial
+   1. ENTÃO [[You]] CRIA arquivo no diretório tutorials
       ```markdown
-      # File Location
-      tutorials/title-in-lowercase-with-dashes.md
+      # Localização do Arquivo
+      tutorials/titulo-em-minusculo-com-tracos.md
       ```
-   2. THEN [[You]] ADD frontmatter
+   2. ENTÃO [[You]] ADICIONA frontmatter
       ```markdown
-      # Frontmatter Format
+      # Formato do Frontmatter
       ---
       document_type: tutorial
-      title: Title In Pascal Case
+      title: Titulo Em Pascal Case
       difficulty: 🟢 | 🟡 | 🔴
-      time_estimate: "30 minutes"
+      time_estimate: "30 minutos"
       tutorial_type: feature | concept | integration | process
-      gpt_action: follow these steps to learn [title]
+      gpt_action: siga estes passos para aprender [título]
       ---
       ```
-   3. THEN [[You]] CREATE sections
-      1. AND [[You]] ADD "📝 Table of Contents"
-      2. AND [[You]] ADD "📝 Introduction"
-      3. AND [[You]] ADD "🎯 Suggested Approach"
-      4. AND [[You]] ADD "👨‍🏫 Tutorial"
-      5. AND [[You]] ADD "✅ Checklist"
+   3. ENTÃO [[You]] CRIA seções
+      1. E [[You]] ADICIONA "📝 Sumário"
+      2. E [[You]] ADICIONA "📝 Introdução"
+      3. E [[You]] ADICIONA "🎯 Abordagem Sugerida"
+      4. E [[You]] ADICIONA "👨‍🏫 Tutorial"
+      5. E [[You]] ADICIONA "✅ Checklist"
 
-3. WHEN [[You]] FILLS sections
-   1. THEN [[You]] WRITE Table of Contents
-      1. AND [[You]] LIST all sections
-      2. AND [[You]] ADD time estimates
-      3. AND [[You]] ADD difficulty indicators
-   2. THEN [[You]] WRITE Introduction
-      1. AND [[You]] EXPLAIN what, how, why
-      2. AND [[You]] ADD "What You'll Learn"
-      3. AND [[You]] ADD "Prerequisites"
-      4. AND [[You]] ADD "Learning Goals"
-   3. THEN [[You]] WRITE Suggested Approach
-      1. AND [[You]] CREATE checklist
-      2. AND [[You]] ADD difficulty indicators
-      3. AND [[You]] ADD "Think About It" prompts
-   4. THEN [[You]] WRITE Tutorial
-      1. AND [[You]] ADD code examples
-      2. AND [[You]] ADD explanations
-      3. AND [[You]] ADD "Try It Yourself"
-      4. AND [[You]] ADD "Common Pitfalls"
-   5. THEN [[You]] WRITE Checklist
-      1. AND [[You]] LIST verification points
-      2. AND [[You]] ADD "Troubleshooting Guide"
-      3. AND [[You]] ADD "Next Steps"
+3. QUANDO [[You]] PREENCHE seções
+   1. ENTÃO [[You]] ESCREVE Sumário
+      1. E [[You]] LISTA todas as seções
+      2. E [[You]] ADICIONA estimativas de tempo
+      3. E [[You]] ADICIONA indicadores de dificuldade
+   2. ENTÃO [[You]] ESCREVE Introdução
+      1. E [[You]] EXPLICA o quê, como, por quê
+      2. E [[You]] ADICIONA "O Que Você Vai Aprender"
+      3. E [[You]] ADICIONA "Pré-requisitos"
+      4. E [[You]] ADICIONA "Objetivos de Aprendizagem"
+   3. ENTÃO [[You]] ESCREVE Abordagem Sugerida
+      1. E [[You]] CRIA checklist
+      2. E [[You]] ADICIONA indicadores de dificuldade
+      3. E [[You]] ADICIONA sugestões "Pense Sobre Isso"
+   4. ENTÃO [[You]] ESCREVE Tutorial
+      1. E [[You]] ADICIONA exemplos de código
+      2. E [[You]] ADICIONA explicações
+      3. E [[You]] ADICIONA "Tente Você Mesmo"
+      4. E [[You]] ADICIONA "Erros Comuns"
+   5. ENTÃO [[You]] ESCREVE Checklist
+      1. E [[You]] LISTA pontos de verificação
+      2. E [[You]] ADICIONA "Guia de Solução de Problemas"
+      3. E [[You]] ADICIONA "Próximos Passos"
 
-4. GIVEN [[tutorial]] IS ready
-   1. THEN [[You]] ADD image placeholders
-      1. AND [[You]] USE format
+4. DADO QUE [[tutorial]] ESTÁ pronto
+   1. ENTÃO [[You]] ADICIONA marcadores de imagem
+      1. E [[You]] USA formato
          ```markdown
-         [SCREENSHOT: Description]
-         [GIF: Description]
-         [STOCK: Description]
+         [SCREENSHOT: Descrição]
+         [GIF: Descrição]
+         [STOCK: Descrição]
          ```
-   2. THEN [[You]] VERIFY style guidelines
-      1. AND [[You]] CHECK emoticons
-      2. AND [[You]] CHECK formatting
-      3. AND [[You]] CHECK line breaks
-   3. THEN [[You]] VERIFY content
-      1. AND [[You]] CHECK all sections present
-      2. AND [[You]] CHECK code examples
-      3. AND [[You]] CHECK links
+   2. ENTÃO [[You]] VERIFICA diretrizes de estilo
+      1. E [[You]] CHECA emoticons
+      2. E [[You]] CHECA formatação
+      3. E [[You]] CHECA quebras de linha
+   3. ENTÃO [[You]] VERIFICA conteúdo
+      1. E [[You]] CHECA todas as seções presentes
+      2. E [[You]] CHECA exemplos de código
+      3. E [[You]] CHECA links
 
-NOTE: Remember to use emoticons for all main headers, keep explanations concise and beginner-friendly, and include practical code examples with detailed comments. Each section should follow the exact structure from [[how-we-create-tutorials]]. 
+NOTA: Lembre-se de usar emoticons para todos os cabeçalhos principais, manter explicações concisas e amigáveis para iniciantes, e incluir exemplos práticos de código com comentários detalhados. Cada seção deve seguir a estrutura exata de [[how-we-create-tutorials]]. 

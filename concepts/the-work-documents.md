@@ -1,28 +1,28 @@
 ---
 document_type: concept
-goal: inform about all available work documents
-gpt_action: use documents during development
+goal: informar sobre todos os documentos de trabalho disponíveis
+gpt_action: usar documentos durante o desenvolvimento
 ---
 
-# 📝 The Work Documents
+# 📝 Os Documentos de Trabalho
 
 - [[your-requirements]]
-   A comprehensive document that holds all project requirements, including actors, components, activities, properties, and behaviors.
+   Um documento abrangente que contém todos os requisitos do projeto, incluindo atores, componentes, atividades, propriedades e comportamentos.
 
 - [[your-ticket]]
-   Contains the detailed technical specifications and implementation details for the development work.
+   Contém as especificações técnicas detalhadas e detalhes de implementação para o trabalho de desenvolvimento.
 
 - [[your-milestones]]
-   Tracks development progress through clear, testable milestones.
+   Rastreia o progresso do desenvolvimento através de marcos claros e testáveis.
 
 - [[your-todo-list]]
-   Manages the current milestone's tasks, prioritizing user-added items that must be completed first, while tracking atomic tasks and test implementation progress for the current milestone.
+   Gerencia as tarefas do marco atual, priorizando itens adicionados pelo usuário que devem ser completados primeiro, enquanto rastreia tarefas atômicas e progresso de implementação de testes para o marco atual.
 
 - [[your-tests]]
-   Houses all BDD Gherkin style tests organized by milestone.
+   Armazena todos os testes em estilo BDD Gherkin organizados por marco.
 
 - [[your-hours]]
-   Tracks work hours, progress, and task completion status to maintain clear documentation of time spent and work accomplished.
+   Rastreia horas de trabalho, progresso e status de conclusão de tarefas para manter documentação clara do tempo gasto e trabalho realizado.
 
 - [[your-backlog]]
-   A chronological list of future work items that are only referenced or modified when explicitly requested by the user.
+   Uma lista cronológica de itens de trabalho futuros que são apenas referenciados ou modificados quando explicitamente solicitado pelo usuário.

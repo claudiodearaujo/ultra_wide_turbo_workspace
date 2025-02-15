@@ -1,49 +1,49 @@
 ---
 document_type: protocol
-goal: evaluate current task and improve approach by taking a step back and refocusing
-gpt_action: follow these steps when needing to focus or improve current approach
+goal: avaliar a tarefa atual e melhorar a abordagem dando um passo atrás e refocando
+gpt_action: siga estes passos quando precisar focar ou melhorar a abordagem atual
 ---
 
-CONTEXT: The [[User]] notices you are drifting off track and wants you to help realign the original task and goals.
+CONTEXTO: O [[User]] percebe que você está se desviando do caminho e deseja que você ajude a realinhar a tarefa e objetivos originais.
 
-1. GIVEN [[User]] RUNS plx-focus command
-   1. THEN [[You]] PAUSE current work
-      1. AND [[You]] CHECK [[your-todo-list]]
-      2. AND [[You]] CHECK [[your-milestones]]
-   2. AND [[You]] ANALYSE current state
-      1. AND [[You]] IDENTIFY original goal
-      2. AND [[You]] IDENTIFY current progress
-      3. AND [[You]] IDENTIFY any deviations
+1. DADO QUE [[User]] EXECUTA o comando plx-focus
+   1. ENTÃO [[You]] PAUSA o trabalho atual
+      1. E [[You]] VERIFICA [[your-todo-list]]
+      2. E [[You]] VERIFICA [[your-milestones]]
+   2. E [[You]] ANALISA o estado atual
+      1. E [[You]] IDENTIFICA o objetivo original
+      2. E [[You]] IDENTIFICA o progresso atual
+      3. E [[You]] IDENTIFICA quaisquer desvios
 
-2. WHEN [[You]] EVALUATES alignment
-   1. THEN [[You]] COMPARE current vs intended
-      1. AND [[You]] CHECK task relevance
-      2. AND [[You]] CHECK progress direction
-      3. AND [[You]] CHECK resource usage
-   2. IF [[misalignment]] IS found
-      1. THEN [[You]] DOCUMENT issues
-      2. AND [[You]] IDENTIFY root causes
+2. QUANDO [[You]] AVALIA o alinhamento
+   1. ENTÃO [[You]] COMPARA atual vs pretendido
+      1. E [[You]] VERIFICA relevância da tarefa
+      2. E [[You]] VERIFICA direção do progresso
+      3. E [[You]] VERIFICA uso de recursos
+   2. SE [[misalignment]] É encontrado
+      1. ENTÃO [[You]] DOCUMENTA problemas
+      2. E [[You]] IDENTIFICA causas raiz
 
-3. GIVEN [[evaluation]] IS complete
-   1. THEN [[You]] DETERMINE next steps
-      1. AND [[You]] CHECK if plan adjustment needed
-      2. AND [[You]] CHECK if focus correction needed
-   2. IF [[adjustments]] ARE needed
-      1. THEN [[You]] PROPOSE changes to [[User]]
-      2. AND [[You]] EXPLAIN reasoning
+3. DADO QUE [[evaluation]] ESTÁ completa
+   1. ENTÃO [[You]] DETERMINA próximos passos
+      1. E [[You]] VERIFICA se ajuste no plano é necessário
+      2. E [[You]] VERIFICA se correção de foco é necessária
+   2. SE [[adjustments]] SÃO necessários
+      1. ENTÃO [[You]] PROPÕE mudanças ao [[User]]
+      2. E [[You]] EXPLICA o raciocínio
 
-4. WHEN [[User]] REVIEWS assessment
-   1. IF [[User]] APPROVES changes
-      1. THEN [[You]] UPDATE [[your-todo-list]]
-      2. AND [[You]] ADJUST priorities if needed
-   2. IF [[User]] REJECTS changes
-      1. THEN [[You]] MAINTAIN current plan
-      2. AND [[You]] NOTE [[User]] feedback
+4. QUANDO [[User]] REVISA a avaliação
+   1. SE [[User]] APROVA as mudanças
+      1. ENTÃO [[You]] ATUALIZA [[your-todo-list]]
+      2. E [[You]] AJUSTA prioridades se necessário
+   2. SE [[User]] REJEITA as mudanças
+      1. ENTÃO [[You]] MANTÉM o plano atual
+      2. E [[You]] ANOTA o feedback do [[User]]
 
-5. WHEN [[refocus]] IS complete
-   1. THEN [[You]] RESUME work
-      1. AND [[You]] FOCUS on current task
-      2. AND [[You]] FOLLOW [[your-todo-list]]
-   2. IF [[focus]] IS restored
-      1. THEN [[You]] CONTINUE with clarity
-      2. AND [[You]] MAINTAIN alignment
+5. QUANDO [[refocus]] ESTÁ completo
+   1. ENTÃO [[You]] RETOMA o trabalho
+      1. E [[You]] FOCA na tarefa atual
+      2. E [[You]] SEGUE [[your-todo-list]]
+   2. SE [[focus]] É restaurado
+      1. ENTÃO [[You]] CONTINUA com clareza
+      2. E [[You]] MANTÉM o alinhamento

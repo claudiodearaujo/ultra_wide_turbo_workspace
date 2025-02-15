@@ -1,71 +1,71 @@
 ---
 document_type: protocol
-goal: create new document based on user input following framework rules
-gpt_action: follow these steps when creating new documents
+goal: criar novo documento baseado na entrada do usuário seguindo regras do framework
+gpt_action: seguir estes passos ao criar novos documentos
 ---
 
-CONTEXT: The [[User]] notices a new documentation file needs to be created and wants you to create it following the framework's documentation standards and protocols.
+CONTEXTO: O [[Usuário]] percebe que um novo arquivo de documentação precisa ser criado e quer que você o crie seguindo os padrões e protocolos de documentação do framework.
 
-1. GIVEN [[User]] RUNS plx-create-doc command
-   1. THEN [[You]] READ [[input]]
-      1. AND [[You]] FIND [[document]] type
-      2. AND [[You]] FIND [[document]] goal
-      3. AND [[You]] FIND [[action]]
-   2. IF [[input]] IS empty
-      1. THEN [[You]] ASK [[User]]
+1. DADO [[Usuário]] EXECUTA comando plx-create-doc
+   1. ENTÃO [[Você]] LÊ [[entrada]]
+      1. E [[Você]] ENCONTRA tipo de [[documento]]
+      2. E [[Você]] ENCONTRA objetivo do [[documento]]
+      3. E [[Você]] ENCONTRA [[ação]]
+   2. SE [[entrada]] ESTÁ vazia
+      1. ENTÃO [[Você]] PERGUNTA ao [[Usuário]]
 
-2. WHEN [[You]] STARTS creation
-   1. THEN [[You]] WRITE [[frontmatter]]
+2. QUANDO [[Você]] INICIA criação
+   1. ENTÃO [[Você]] ESCREVE [[frontmatter]]
       ```markdown
       ---
       document_type: [protocol|code-of-conduct|prompt|template]
-      goal: [clear goal statement]
-      gpt_action: [specific instruction for GPT]
+      goal: [declaração clara do objetivo]
+      gpt_action: [instrução específica para GPT]
       ---
       ```
-   2. IF [[frontmatter]] NEEDS review
-      1. THEN [[You]] CHECK format
-      2. AND [[You]] FIX errors
+   2. SE [[frontmatter]] PRECISA revisão
+      1. ENTÃO [[Você]] VERIFICA formato
+      2. E [[Você]] CORRIGE erros
 
-3. WHEN [[You]] BUILDS structure
-   1. THEN [[You]] CREATE sections
-   2. AND [[You]] ADD emoji
-   3. AND [[You]] WRITE headers
+3. QUANDO [[Você]] CONSTRÓI estrutura
+   1. ENTÃO [[Você]] CRIA seções
+   2. E [[Você]] ADICIONA emoji
+   3. E [[Você]] ESCREVE cabeçalhos
 
-4. GIVEN [[structure]] IS ready
-   1. THEN [[You]] WRITE content
-      1. AND [[You]] USE keywords
-         - Primary: GIVEN (precondition), WHEN (action), THEN (result)
-         - Flow: AND (additional), OR (alternative)
-         - Conditionals: IF/ELSE (branching), BUT (exception)
-      2. AND [[You]] FOLLOW rules
-         - UPPERCASE keywords
-         - [[Actor]] or [[Component]] in double brackets
-         - ONE uppercase VERB/STATE after actor
-         - Proper indentation for sub-steps
-      3. AND [[You]] USE code elements
-         - Inline code with backticks
-         - Code blocks properly indented
-         - Language-specific syntax highlighting
+4. DADO [[estrutura]] ESTÁ pronta
+   1. ENTÃO [[Você]] ESCREVE conteúdo
+      1. E [[Você]] USA palavras-chave
+         - Primárias: DADO (pré-condição), QUANDO (ação), ENTÃO (resultado)
+         - Fluxo: E (adicional), OU (alternativa)
+         - Condicionais: SE/SENÃO (ramificação), MAS (exceção)
+      2. E [[Você]] SEGUE regras
+         - MAIÚSCULAS em palavras-chave
+         - [[Ator]] ou [[Componente]] em colchetes duplos
+         - UM VERBO/ESTADO em maiúsculas após ator
+         - Indentação adequada para sub-passos
+      3. E [[Você]] USA elementos de código
+         - Código inline com backticks
+         - Blocos de código adequadamente indentados
+         - Realce de sintaxe específico da linguagem
 
-5. WHEN [[You]] ADDS code
-   1. THEN [[You]] USE markdown
-      ```example
-      ```language
-      code here
+5. QUANDO [[Você]] ADICIONA código
+   1. ENTÃO [[Você]] USA markdown
+      ```exemplo
+      ```linguagem
+      código aqui
       ```
       ```
-   2. IF [[code]] NEEDS context
-      1. THEN [[You]] ADD comments
+   2. SE [[código]] PRECISA contexto
+      1. ENTÃO [[Você]] ADICIONA comentários
 
-6. GIVEN [[document]] IS complete
-   1. THEN [[You]] CHECK quality
-      1. AND [[You]] CHECK format
-      2. AND [[You]] CHECK sections
-      3. AND [[You]] CHECK style
-   2. IF [[document]] HAS errors
-      1. THEN [[You]] FIX [[document]]
-      2. AND [[You]] CHECK again
-   3. IF [[document]] IS ready
-      1. THEN [[You]] SAVE [[document]]
-      2. AND [[You]] TELL [[User]] 
+6. DADO [[documento]] ESTÁ completo
+   1. ENTÃO [[Você]] VERIFICA qualidade
+      1. E [[Você]] VERIFICA formato
+      2. E [[Você]] VERIFICA seções
+      3. E [[Você]] VERIFICA estilo
+   2. SE [[documento]] TEM erros
+      1. ENTÃO [[Você]] CORRIGE [[documento]]
+      2. E [[Você]] VERIFICA novamente
+   3. SE [[documento]] ESTÁ pronto
+      1. ENTÃO [[Você]] SALVA [[documento]]
+      2. E [[Você]] INFORMA [[Usuário]] 

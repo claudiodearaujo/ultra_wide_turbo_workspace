@@ -1,14 +1,14 @@
 ---
 document_type: code of conduct
-goal: define process for performing first round of quality assurance on own code
-gpt_action: follow these steps when doing self QA on implemented features
+goal: definir processo para realizar primeira rodada de garantia de qualidade no próprio código
+gpt_action: siga estes passos ao fazer QA próprio em features implementadas
 ---
 
-# 🔍 Initial Review
+# 🔍 Revisão Inicial
 
-1. [[You]] [[verify code structure]]
-   1. [[verify code structure]]
-      1. Check file structure follows pattern:
+1. [[You]] [[verifica estrutura do código]]
+   1. [[verifica estrutura do código]]
+      1. Verifica se estrutura do arquivo segue o padrão:
 ```dart
 // 📍 LOCATOR ------------------------------------------------------------------------------- \\
 // 🧩 DEPENDENCIES -------------------------------------------------------------------------- \\
@@ -21,37 +21,37 @@ gpt_action: follow these steps when doing self QA on implemented features
 // 🏗️ HELPERS ------------------------------------------------------------------------------- \\
 // 🪄 MUTATORS ------------------------------------------------------------------------------ \\
 ```
-      2. Verify public/private access modifiers
-      3. Check method naming conventions
-      4. Sort items alphabetically where possible
-      5. Remove unused code
+      2. Verifica modificadores de acesso público/privado
+      3. Verifica convenções de nomenclatura de métodos
+      4. Ordena itens alfabeticamente quando possível
+      5. Remove código não utilizado
 
-2. [[You]] [[review methods]]
-   1. [[review methods]]
-      1. Check logging implementation
-      2. Verify analytics tracking
-      3. Review documentation
-      4. Validate busy states and user feedback
-      5. Check timeout implementations
-      6. Review error handling
-      7. Verify translations
-      8. Assess method size and complexity
+2. [[You]] [[revisa métodos]]
+   1. [[revisa métodos]]
+      1. Verifica implementação de logging
+      2. Verifica rastreamento de analytics
+      3. Revisa documentação
+      4. Valida estados ocupados e feedback do usuário
+      5. Verifica implementações de timeout
+      6. Revisa tratamento de erros
+      7. Verifica traduções
+      8. Avalia tamanho e complexidade dos métodos
 
-# 🛠️ Implementation Review
+# 🛠️ Revisão de Implementação
 
-1. [[You]] [[verify logging]]
-   1. [[verify logging]]
-      1. Check proper debug logging:
+1. [[You]] [[verifica logging]]
+   1. [[verifica logging]]
+      1. Verifica logging de debug adequado:
 ```dart
-// Good: Proper logging
+// Bom: Logging adequado
 Future<void> updateItem(ItemDto item) async {
-  log.debug('Updating item: ${item.id}');
+  log.debug('Atualizando item: ${item.id}');
   try {
     await _api.updateItem(item);
-    log.debug('Item updated successfully');
+    log.debug('Item atualizado com sucesso');
   } catch (error, stackTrace) {
     log.error(
-      'Error updating item',
+      'Erro ao atualizar item',
       error: error,
       stackTrace: stackTrace,
     );
@@ -60,11 +60,11 @@ Future<void> updateItem(ItemDto item) async {
 }
 ```
 
-2. [[You]] [[verify user feedback]]
-   1. [[verify user feedback]]
-      1. Check proper feedback implementation:
+2. [[You]] [[verifica feedback do usuário]]
+   1. [[verifica feedback do usuário]]
+      1. Verifica implementação adequada de feedback:
 ```dart
-// Good: Proper feedback
+// Bom: Feedback adequado
 Future<void> deleteItem(String id) async {
   if (gIsBusy) return;
 
@@ -77,7 +77,7 @@ Future<void> deleteItem(String id) async {
     );
   } catch (error, stackTrace) {
     log.error(
-      'Error deleting item',
+      'Erro ao excluir item',
       error: error,
       stackTrace: stackTrace,
     );
@@ -87,11 +87,11 @@ Future<void> deleteItem(String id) async {
 }
 ```
 
-3. [[You]] [[verify state management]]
-   1. [[verify state management]]
-      1. Check proper cleanup implementation:
+3. [[You]] [[verifica gerenciamento de estado]]
+   1. [[verifica gerenciamento de estado]]
+      1. Verifica implementação adequada de limpeza:
 ```dart
-// Good: Proper cleanup
+// Bom: Limpeza adequada
 class GoodViewModel extends BaseViewModel {
   final _subscription = StreamController<List<ItemDto>>();
   final _items = ValueNotifier<List<ItemDto>>([]);
@@ -105,27 +105,27 @@ class GoodViewModel extends BaseViewModel {
 }
 ```
 
-4. [[You]] [[verify error handling]]
-   1. [[verify error handling]]
-      1. Check proper error handling with timeouts:
+4. [[You]] [[verifica tratamento de erros]]
+   1. [[verifica tratamento de erros]]
+      1. Verifica tratamento adequado de erros com timeouts:
 ```dart
-// Good: Proper error handling with timeouts
+// Bom: Tratamento adequado de erros com timeouts
 Future<void> fetchData() async {
   try {
     final data = await _api.getData().timeout(
       const Duration(seconds: 10),
-      onTimeout: () => throw TimeoutException('Fetch data timeout'),
+      onTimeout: () => throw TimeoutException('Timeout ao buscar dados'),
     );
     _items.value = data;
   } on TimeoutException catch (error) {
-    log.error('Fetch data timeout', error: error);
+    log.error('Timeout ao buscar dados', error: error);
     gShowDialog(
       title: gStrings.error,
       message: gStrings.connectionTimeout,
     );
   } catch (error, stackTrace) {
     log.error(
-      'Error fetching data',
+      'Erro ao buscar dados',
       error: error,
       stackTrace: stackTrace,
     );
@@ -137,37 +137,37 @@ Future<void> fetchData() async {
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify code quality]]
-   1. [[verify code quality]]
-      1. Documentation is complete
-      2. No magic numbers/strings
-      3. Consistent naming conventions
-      4. No commented-out code
+1. [[You]] [[verifica qualidade do código]]
+   1. [[verifica qualidade do código]]
+      1. Documentação está completa
+      2. Sem números/strings mágicos
+      3. Convenções de nomenclatura consistentes
+      4. Sem código comentado
 
-2. [[You]] [[verify error handling]]
-   1. [[verify error handling]]
-      1. Try/catch blocks implemented
-      2. User feedback for all actions
-      3. Proper error logging
-      4. Timeouts where needed
+2. [[You]] [[verifica tratamento de erros]]
+   1. [[verifica tratamento de erros]]
+      1. Blocos try/catch implementados
+      2. Feedback do usuário para todas as ações
+      3. Logging de erros adequado
+      4. Timeouts onde necessário
 
-3. [[You]] [[verify state management]]
-   1. [[verify state management]]
-      1. All disposables cleaned up
-      2. No memory leaks
-      3. Efficient UI updates
+3. [[You]] [[verifica gerenciamento de estado]]
+   1. [[verifica gerenciamento de estado]]
+      1. Todos os disposables limpos
+      2. Sem vazamentos de memória
+      3. Atualizações de UI eficientes
 
-4. [[You]] [[verify performance]]
-   1. [[verify performance]]
-      1. No unnecessary rebuilds
-      2. Heavy operations off main thread
-      3. Proper resource caching
+4. [[You]] [[verifica performance]]
+   1. [[verifica performance]]
+      1. Sem reconstruções desnecessárias
+      2. Operações pesadas fora da thread principal
+      3. Cache adequado de recursos
 
-5. [[You]] [[verify security]]
-   1. [[verify security]]
-      1. No sensitive data in logs
-      2. All user input validated
-      3. Proper access control
-      4. No hardcoded credentials
+5. [[You]] [[verifica segurança]]
+   1. [[verifica segurança]]
+      1. Sem dados sensíveis nos logs
+      2. Toda entrada do usuário validada
+      3. Controle de acesso adequado
+      4. Sem credenciais hardcoded

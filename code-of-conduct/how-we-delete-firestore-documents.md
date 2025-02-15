@@ -1,49 +1,49 @@
 ---
 document_type: code of conduct
-goal: define process for deleting Firestore documents safely and consistently
-gpt_action: follow these steps when implementing Firestore document deletion
+goal: definir processo para excluir documentos do Firestore de forma segura e consistente
+gpt_action: siga estes passos ao implementar exclusão de documentos do Firestore
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify deletion requirements]]
-   1. [[verify deletion requirements]]
-      1. Check if document can be deleted
-      2. Verify any dependent documents
-      3. Check security rules for deletion
-      4. Review existing deletion patterns
+1. [[You]] [[verifica requisitos de exclusão]]
+   1. [[verifica requisitos de exclusão]]
+      1. Verifica se documento pode ser excluído
+      2. Verifica quaisquer documentos dependentes
+      3. Verifica regras de segurança para exclusão
+      4. Revisa padrões de exclusão existentes
 
-2. [[You]] [[confirm implementation details]]
-   1. [[confirm implementation details]]
-      1. Verify service layer implementation
-      2. Check UI requirements
-      3. Review error handling needs
-      4. Confirm logging requirements
+2. [[You]] [[confirma detalhes de implementação]]
+   1. [[confirma detalhes de implementação]]
+      1. Verifica implementação da camada de serviço
+      2. Verifica requisitos de UI
+      3. Revisa necessidades de tratamento de erros
+      4. Confirma requisitos de logging
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[implement service layer]]
-   1. [[implement service layer]]
-      1. Add delete functionality with validation:
+1. [[You]] [[implementa camada de serviço]]
+   1. [[implementa camada de serviço]]
+      1. Adiciona funcionalidade de exclusão com validação:
 ```dart
 Future<TurboResponse<void>> deleteItem(ItemDto item) async {
-  // Add validation logic
+  // Adiciona lógica de validação
   if (item.isProtected) {
-    log.debug('Cannot delete protected item');
+    log.debug('Não é possível excluir item protegido');
     return TurboResponse.error(
       title: gStrings.somethingWentWrong,
-      message: 'This item cannot be deleted.',
+      message: 'Este item não pode ser excluído.',
     );
   }
   
-  log.debug('Deleting item with id: ${item.id}');
+  log.debug('Excluindo item com id: ${item.id}');
   return deleteDoc(doc: item);
 }
 ```
 
-2. [[You]] [[implement UI]]
-   1. [[implement UI]]
-      1. Add delete button to view:
+2. [[You]] [[implementa UI]]
+   1. [[implementa UI]]
+      1. Adiciona botão de exclusão à view:
 ```dart
 BaseAppBar(
   context: context,
@@ -63,9 +63,9 @@ BaseAppBar(
 ),
 ```
 
-3. [[You]] [[implement view model]]
-   1. [[implement view model]]
-      1. Add deletion logic with confirmation:
+3. [[You]] [[implementa view model]]
+   1. [[implementa view model]]
+      1. Adiciona lógica de exclusão com confirmação:
 ```dart
 Future<void> onDeletePressed(BuildContext context) async {
   if (gIsBusy) return;
@@ -81,7 +81,7 @@ Future<void> onDeletePressed(BuildContext context) async {
     gSetBusy();
     final item = _item.value;
     if (item == null) {
-      throw const UnexpectedResultException(reason: 'Item not found');
+      throw const UnexpectedResultException(reason: 'Item não encontrado');
     }
     
     _ignoreChanges = true;
@@ -102,7 +102,7 @@ Future<void> onDeletePressed(BuildContext context) async {
     );
   } catch (error, stackTrace) {
     log.error(
-      '$error caught while deleting item',
+      '$error capturado durante exclusão do item',
       error: error,
       stackTrace: stackTrace,
     );
@@ -113,9 +113,9 @@ Future<void> onDeletePressed(BuildContext context) async {
 }
 ```
 
-4. [[You]] [[handle empty states]]
-   1. [[handle empty states]]
-      1. Implement empty state handling:
+4. [[You]] [[trata estados vazios]]
+   1. [[trata estados vazios]]
+      1. Implementa tratamento de estado vazio:
 ```dart
 ValueListenableBuilder<List<ItemDto>>(
   valueListenable: model.items,
@@ -139,25 +139,25 @@ ValueListenableBuilder<List<ItemDto>>(
 );
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify service layer]]
-   1. [[verify service layer]]
-      1. Validate deletion method works
-      2. Confirm TurboResponse handling
-      3. Check logging implementation
+1. [[You]] [[verifica camada de serviço]]
+   1. [[verifica camada de serviço]]
+      1. Valida se método de exclusão funciona
+      2. Confirma tratamento do TurboResponse
+      3. Verifica implementação de logging
 
-2. [[You]] [[verify UI layer]]
-   1. [[verify UI layer]]
-      1. Test delete widget functionality
-      2. Verify empty state handling
-      3. Check error state display
+2. [[You]] [[verifica camada de UI]]
+   1. [[verifica camada de UI]]
+      1. Testa funcionalidade do widget de exclusão
+      2. Verifica tratamento de estado vazio
+      3. Verifica exibição de estado de erro
 
-3. [[You]] [[verify view model]]
-   1. [[verify view model]]
-      1. Test busy state handling
-      2. Verify confirmation dialog
-      3. Check update blocking during deletion
-      4. Test error handling
-      5. Verify navigation after deletion
-      6. Confirm proper cleanup in dispose
+3. [[You]] [[verifica view model]]
+   1. [[verifica view model]]
+      1. Testa tratamento de estado ocupado
+      2. Verifica diálogo de confirmação
+      3. Verifica bloqueio de atualizações durante exclusão
+      4. Testa tratamento de erros
+      5. Verifica navegação após exclusão
+      6. Confirma limpeza adequada no dispose

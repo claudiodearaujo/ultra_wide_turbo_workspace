@@ -1,75 +1,75 @@
 ---
 document_type: code of conduct
-goal: define process for setting up Firebase in mono repo projects
-gpt_action: follow these steps when setting up Firebase for Flutter applications
+goal: definir processo para configurar Firebase em projetos mono repo
+gpt_action: siga estes passos ao configurar Firebase para aplicações Flutter
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify requirements]]
-   1. [[verify requirements]]
-      1. Check required Firebase services
-      2. Verify target platforms
-      3. Review development environment needs
-      4. Confirm mono repo structure:
+1. [[You]] [[verifica requisitos]]
+   1. [[verifica requisitos]]
+      1. Verifica serviços Firebase necessários
+      2. Verifica plataformas alvo
+      3. Revisa necessidades do ambiente de desenvolvimento
+      4. Confirma estrutura mono repo:
 ```
 project_mono/
   ├── project_firebase/
   └── project_flutter/
 ```
 
-2. [[You]] [[confirm setup details]]
-   1. [[confirm setup details]]
-      1. Verify Firebase CLI requirements
-      2. Check FlutterFire CLI needs
-      3. Review emulator requirements
-      4. Confirm environment switching needs
+2. [[You]] [[confirma detalhes de configuração]]
+   1. [[confirma detalhes de configuração]]
+      1. Verifica requisitos do Firebase CLI
+      2. Verifica necessidades do FlutterFire CLI
+      3. Revisa requisitos de emulador
+      4. Confirma necessidades de troca de ambiente
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[install prerequisites]]
-   1. [[install prerequisites]]
-      1. Install required CLIs:
+1. [[You]] [[instala pré-requisitos]]
+   1. [[instala pré-requisitos]]
+      1. Instala CLIs necessários:
 ```bash
-# Install Firebase CLI
+# Instala Firebase CLI
 npm install -g firebase-tools
 
-# Install FlutterFire CLI
+# Instala FlutterFire CLI
 dart pub global activate flutterfire_cli
 
-# Log in to Firebase
+# Faz login no Firebase
 firebase login
 ```
 
-2. [[You]] [[setup firebase project]]
-   1. [[setup firebase project]]
-      1. Create project in Firebase Console
-      2. Initialize Firebase:
+2. [[You]] [[configura projeto firebase]]
+   1. [[configura projeto firebase]]
+      1. Cria projeto no Console Firebase
+      2. Inicializa Firebase:
 ```bash
-# Navigate to Firebase directory
+# Navega para diretório Firebase
 cd your_project_firebase
 
-# Initialize Firebase
+# Inicializa Firebase
 firebase init
 
-# Select required features:
+# Seleciona recursos necessários:
 # - Firestore
 # - Authentication
 # - Storage
 # - Emulators
 ```
 
-3. [[You]] [[configure flutter]]
-   1. [[configure flutter]]
-      1. Run FlutterFire configuration:
+3. [[You]] [[configura flutter]]
+   1. [[configura flutter]]
+      1. Executa configuração FlutterFire:
 ```bash
-# Navigate to Flutter directory
+# Navega para diretório Flutter
 cd your_project_flutter
 
-# Run FlutterFire configure
+# Executa configuração FlutterFire
 flutterfire configure --project=your-firebase-project
 ```
-      2. Add environment configuration:
+      2. Adiciona configuração de ambiente:
 ```dart
 enum Environment {
   production,
@@ -81,7 +81,7 @@ enum Environment {
       : Environment.production;
 }
 ```
-      3. Initialize Firebase in app:
+      3. Inicializa Firebase no app:
 ```dart
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -98,33 +98,33 @@ Future<void> main() async {
 }
 ```
 
-4. [[You]] [[test setup]]
-   1. [[test setup]]
-      1. Run with emulators:
+4. [[You]] [[testa configuração]]
+   1. [[testa configuração]]
+      1. Executa com emuladores:
 ```bash
 flutter run --dart-define=env=emulators
 ```
-      2. Verify Firebase connection in logs
+      2. Verifica conexão Firebase nos logs
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify installation]]
-   1. [[verify installation]]
-      1. Firebase CLI installed and logged in
-      2. FlutterFire CLI installed
-      3. Project created in Firebase Console
-      4. Firebase initialized in project
+1. [[You]] [[verifica instalação]]
+   1. [[verifica instalação]]
+      1. Firebase CLI instalado e logado
+      2. FlutterFire CLI instalado
+      3. Projeto criado no Console Firebase
+      4. Firebase inicializado no projeto
 
-2. [[You]] [[verify configuration]]
-   1. [[verify configuration]]
-      1. FlutterFire configured in Flutter app
-      2. Environment configuration set up
-      3. Firebase initialization working
-      4. App connects to Firebase services
+2. [[You]] [[verifica configuração]]
+   1. [[verifica configuração]]
+      1. FlutterFire configurado no app Flutter
+      2. Configuração de ambiente estabelecida
+      3. Inicialização do Firebase funcionando
+      4. App conecta aos serviços Firebase
 
-3. [[You]] [[verify emulators]]
-   1. [[verify emulators]]
-      1. Emulator configuration working
-      2. App connects to emulators
-      3. Services accessible in emulator mode
-      4. Environment switching works 
+3. [[You]] [[verifica emuladores]]
+   1. [[verifica emuladores]]
+      1. Configuração de emulador funcionando
+      2. App conecta aos emuladores
+      3. Serviços acessíveis no modo emulador
+      4. Troca de ambiente funciona 

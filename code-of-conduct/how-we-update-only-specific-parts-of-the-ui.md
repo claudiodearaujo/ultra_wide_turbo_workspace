@@ -1,62 +1,62 @@
 ---
 document_type: code of conduct
-goal: define process for implementing granular UI updates
-gpt_action: follow these steps when implementing UI updates that need to be optimized
+goal: definir processo para implementação de atualizações granulares da UI
+gpt_action: siga estes passos ao implementar atualizações de UI que precisam ser otimizadas
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify update needs]]
-   1. [[verify update needs]]
-      1. Check if simple value updates
-      2. Check if collection updates
-      3. Review UI rebuild scope
-      4. Identify state management needs
+1. [[You]] [[verifica necessidades de atualização]]
+   1. [[verifica necessidades de atualização]]
+      1. Verifica se são atualizações simples de valor
+      2. Verifica se são atualizações de coleção
+      3. Revisa escopo de reconstrução da UI
+      4. Identifica necessidades de gerenciamento de estado
 
-2. [[You]] [[confirm approach]]
-   1. [[confirm approach]]
-      1. Check if ValueNotifier sufficient
-      2. Check if Informer needed
-      3. Review collection handling needs
-      4. Verify encapsulation requirements
+2. [[You]] [[confirma abordagem]]
+   1. [[confirma abordagem]]
+      1. Verifica se ValueNotifier é suficiente
+      2. Verifica se Informer é necessário
+      3. Revisa necessidades de manipulação de coleção
+      4. Verifica requisitos de encapsulamento
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[implement value updates]]
-   1. [[implement value updates]]
-      1. Basic ValueNotifier implementation:
+1. [[You]] [[implementa atualizações de valor]]
+   1. [[implementa atualizações de valor]]
+      1. Implementação básica de ValueNotifier:
 ```dart
-// Basic example of ValueNotifier
+// Exemplo básico de ValueNotifier
 final counter = ValueNotifier<int>(0);
 
-// Using ValueListenableBuilder for granular updates
+// Usando ValueListenableBuilder para atualizações granulares
 ValueListenableBuilder<int>(
   valueListenable: counter,
   builder: (context, value, child) {
-    return Text('Count: $value');
+    return Text('Contagem: $value');
   },
 )
 ```
 
-2. [[You]] [[implement informer]]
-   1. [[implement informer]]
-      1. Create Informer with collection support:
+2. [[You]] [[implementa informer]]
+   1. [[implementa informer]]
+      1. Cria Informer com suporte a coleção:
 ```dart
 class InvitesService {
-  // Private Informer
+  // Informer privado
   final _invites = Informer<List<InviteModel>>(
     [],
     forceUpdate: true,
   );
 
-  // Public ValueListenable
+  // ValueListenable público
   ValueListenable<List<InviteModel>> get invites => _invites;
 }
 ```
 
-3. [[You]] [[implement real world example]]
-   1. [[implement real world example]]
-      1. Team invites implementation:
+3. [[You]] [[implementa exemplo real]]
+   1. [[implementa exemplo real]]
+      1. Implementação de convites de equipe:
 ```dart
 class InvitesService {
   final _sentInvites = Informer<List<InviteModel>>(
@@ -74,7 +74,7 @@ class InvitesService {
   @override
   Future<void> afterSyncNotifyUpdate(List<InviteDto> docs) async {
     final inviteModels = <InviteModel>[];
-    // Process docs...
+    // Processa docs...
 
     final currentUserId = gUserId;
     final sent = <InviteModel>[];
@@ -95,42 +95,42 @@ class InvitesService {
 }
 ```
 
-4. [[You]] [[implement update methods]]
-   1. [[implement update methods]]
-      1. Use appropriate update method:
+4. [[You]] [[implementa métodos de atualização]]
+   1. [[implementa métodos de atualização]]
+      1. Usa método de atualização apropriado:
 ```dart
-// Replace current value
+// Substitui valor atual
 _invites.update(newValue);
 
-// Modify current value in-place
+// Modifica valor atual in-place
 _invites.updateCurrent((current) => current..add(newItem));
 
-// Update without notifying
+// Atualiza sem notificar
 _invites.silentUpdate(newValue);
 
-// Force notify without value change
+// Força notificação sem mudança de valor
 _invites.rebuild();
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify update control]]
-   1. [[verify update control]]
-      1. Update methods work correctly
-      2. Silent updates don't trigger rebuilds
-      3. Force updates work for collections
-      4. Rebuilds happen when needed
+1. [[You]] [[verifica controle de atualização]]
+   1. [[verifica controle de atualização]]
+      1. Métodos de atualização funcionam corretamente
+      2. Atualizações silenciosas não disparam reconstruções
+      3. Atualizações forçadas funcionam para coleções
+      4. Reconstruções acontecem quando necessário
 
-2. [[You]] [[verify encapsulation]]
-   1. [[verify encapsulation]]
-      1. Informers are private
-      2. Only ValueListenable exposed
-      3. Collection updates reliable
-      4. State properly isolated
+2. [[You]] [[verifica encapsulamento]]
+   1. [[verifica encapsulamento]]
+      1. Informers são privados
+      2. Apenas ValueListenable é exposto
+      3. Atualizações de coleção são confiáveis
+      4. Estado está adequadamente isolado
 
-3. [[You]] [[verify best practices]]
-   1. [[verify best practices]]
-      1. ValueListenableBuilder placed deep in tree
-      2. forceUpdate enabled for collections
-      3. Clean separation of data and UI
-      4. Proper update method selection
+3. [[You]] [[verifica melhores práticas]]
+   1. [[verifica melhores práticas]]
+      1. ValueListenableBuilder colocado profundamente na árvore
+      2. forceUpdate habilitado para coleções
+      3. Separação limpa de dados e UI
+      4. Seleção adequada do método de atualização

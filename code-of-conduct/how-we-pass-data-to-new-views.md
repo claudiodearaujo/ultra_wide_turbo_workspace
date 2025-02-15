@@ -1,30 +1,30 @@
 ---
 document_type: code of conduct
-goal: define process for passing data between views using ViewArguments and routing
-gpt_action: follow these steps when implementing data passing between views
+goal: definir processo para passar dados entre views usando ViewArguments e routing
+gpt_action: siga estes passos ao implementar passagem de dados entre views
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify requirements]]
-   1. [[verify requirements]]
-      1. Check if data needs to be passed via URL parameters
-      2. Verify if complex objects need to be passed
-      3. Review required vs optional parameters
-      4. Check existing argument patterns
+1. [[You]] [[verifica requisitos]]
+   1. [[verifica requisitos]]
+      1. Verifica se dados precisam ser passados via parâmetros de URL
+      2. Verifica se objetos complexos precisam ser passados
+      3. Revisa parâmetros obrigatórios vs opcionais
+      4. Verifica padrões de argumentos existentes
 
-2. [[You]] [[confirm implementation details]]
-   1. [[confirm implementation details]]
-      1. Verify view-specific argument needs
-      2. Check routing requirements
-      3. Review state management needs
-      4. Confirm default values
+2. [[You]] [[confirma detalhes de implementação]]
+   1. [[confirma detalhes de implementação]]
+      1. Verifica necessidades específicas de argumentos da view
+      2. Verifica requisitos de routing
+      3. Revisa necessidades de gerenciamento de estado
+      4. Confirma valores padrão
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[create view arguments]]
-   1. [[create view arguments]]
-      1. Create view-specific arguments class:
+1. [[You]] [[cria argumentos da view]]
+   1. [[cria argumentos da view]]
+      1. Cria classe de argumentos específica da view:
 ```dart
 class MyViewArguments extends ViewArguments {
   MyViewArguments({
@@ -42,11 +42,11 @@ class MyViewArguments extends ViewArguments {
   };
 }
 ```
-      2. Update ViewArgumentsImpl:
+      2. Atualiza ViewArgumentsImpl:
 ```dart
 class ViewArgumentsImpl extends ViewArguments {
   ViewArgumentsImpl({
-    // ... existing fields
+    // ... campos existentes
     this.requiredField,
     this.optionalField,
   });
@@ -56,20 +56,20 @@ class ViewArgumentsImpl extends ViewArguments {
 }
 ```
 
-2. [[You]] [[implement state extension]]
-   1. [[implement state extension]]
-      1. Add getters to GoRouterState:
+2. [[You]] [[implementa extensão de estado]]
+   1. [[implementa extensão de estado]]
+      1. Adiciona getters ao GoRouterState:
 ```dart
 extension on GoRouterState {
   ViewArgumentsImpl? arguments() => extra?.asType<ViewArgumentsImpl>();
   
-  // Required field with default
+  // Campo obrigatório com valor padrão
   String get requiredField => arguments()?.requiredField ?? '';
   
-  // Optional field
+  // Campo opcional
   String? get optionalField => arguments()?.optionalField;
   
-  // URL parameter example
+  // Exemplo de parâmetro URL
   String? get itemId => 
       pathParameters[kKeysItemId] ?? 
       uri.queryParameters[kKeysItemId] ?? 
@@ -77,9 +77,9 @@ extension on GoRouterState {
 }
 ```
 
-3. [[You]] [[configure routing]]
-   1. [[configure routing]]
-      1. Create route in BaseRouter:
+3. [[You]] [[configura routing]]
+   1. [[configura routing]]
+      1. Cria rota no BaseRouter:
 ```dart
 static GoRoute get myView => GoRoute(
   path: MyView.path.asRootPath,
@@ -93,19 +93,19 @@ static GoRoute get myView => GoRoute(
   ),
 );
 ```
-      2. Add to router's routes:
+      2. Adiciona às rotas do router:
 ```dart
 final coreRouter = GoRouter(
   routes: [
-    // ... existing routes
+    // ... rotas existentes
     myView,
   ],
 );
 ```
 
-4. [[You]] [[implement navigation]]
-   1. [[implement navigation]]
-      1. Create navigation method:
+4. [[You]] [[implementa navegação]]
+   1. [[implementa navegação]]
+      1. Cria método de navegação:
 ```dart
 Future<void> pushMyView({
   required String requiredField,
@@ -120,25 +120,25 @@ Future<void> pushMyView({
     );
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify argument handling]]
-   1. [[verify argument handling]]
-      1. Check required fields are non-nullable in view arguments
-      2. Verify optional fields are nullable in ViewArgumentsImpl
-      3. Confirm default values in state extension
-      4. Test argument passing with different data types
+1. [[You]] [[verifica manipulação de argumentos]]
+   1. [[verifica manipulação de argumentos]]
+      1. Verifica se campos obrigatórios são não-nulos nos argumentos da view
+      2. Verifica se campos opcionais são nulos no ViewArgumentsImpl
+      3. Confirma valores padrão na extensão de estado
+      4. Testa passagem de argumentos com diferentes tipos de dados
 
-2. [[You]] [[verify routing]]
-   1. [[verify routing]]
-      1. Test URL parameter handling
-      2. Verify route registration
-      3. Check navigation methods
-      4. Test argument preservation during navigation
+2. [[You]] [[verifica routing]]
+   1. [[verifica routing]]
+      1. Testa manipulação de parâmetros URL
+      2. Verifica registro de rota
+      3. Verifica métodos de navegação
+      4. Testa preservação de argumentos durante navegação
 
-3. [[You]] [[verify naming]]
-   1. [[verify naming]]
-      1. View arguments class follows `[ViewName]Arguments` pattern
-      2. Route getter follows `get [viewName]` pattern
-      3. Path constant follows `path = '[view-name]'` pattern
-      4. Navigation methods follow established naming conventions 
+3. [[You]] [[verifica nomenclatura]]
+   1. [[verifica nomenclatura]]
+      1. Classe de argumentos da view segue padrão `[ViewName]Arguments`
+      2. Getter de rota segue padrão `get [viewName]`
+      3. Constante de path segue padrão `path = '[view-name]'`
+      4. Métodos de navegação seguem convenções de nomenclatura estabelecidas 

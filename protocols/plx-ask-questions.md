@@ -1,64 +1,64 @@
 ---
 document_type: protocol
-goal: get clarity on current approach and ensure complete information
-gpt_action: follow these steps when needing guidance or verifying implementation readiness
+goal: obter clareza sobre a abordagem atual e garantir informações completas
+gpt_action: seguir estes passos quando precisar de orientação ou verificar prontidão para implementação
 ---
 
-CONTEXT: The [[User]] wants [[You]] to verify your understanding and gather all necessary information before proceeding.
+CONTEXTO: O [[Usuário]] quer que [[Você]] verifique seu entendimento e reúna todas as informações necessárias antes de prosseguir.
 
-1. GIVEN [[User]] RUNS plx-ask-questions command
-   1. THEN [[You]] PAUSE current work
-      1. AND [[You]] IDENTIFY current action
-      2. AND [[You]] IDENTIFY immediate goal
-      3. AND [[You]] IDENTIFY required resources
-   2. IF [[current approach]] NEEDS verification
-      1. THEN [[You]] CHECK implementation requirements:
-         1. Required API documentation
-         2. Required protocols
-         3. Required dependencies
-         4. Required configurations
-      2. AND [[You]] NOTE missing information
+1. DADO [[Usuário]] EXECUTA comando plx-ask-questions
+   1. ENTÃO [[Você]] PAUSA trabalho atual
+      1. E [[Você]] IDENTIFICA ação atual
+      2. E [[Você]] IDENTIFICA objetivo imediato
+      3. E [[Você]] IDENTIFICA recursos necessários
+   2. SE [[abordagem atual]] PRECISA verificação
+      1. ENTÃO [[Você]] VERIFICA requisitos de implementação:
+         1. Documentação de API necessária
+         2. Protocolos necessários
+         3. Dependências necessárias
+         4. Configurações necessárias
+      2. E [[Você]] ANOTA informações faltantes
 
-2. WHEN [[You]] REVIEWS current context
-   1. THEN [[You]] CHECK immediate state
-      1. AND [[You]] LOOK at current conversation
-      2. AND [[You]] LOOK at current changes
-      3. AND [[You]] LOOK at current errors
-   2. IF [[approach]] NEEDS guidance
-      1. THEN [[You]] LIST specific concerns
-      2. AND [[You]] IDENTIFY decision points
-      3. AND [[You]] IDENTIFY information gaps
+2. QUANDO [[Você]] REVISA contexto atual
+   1. ENTÃO [[Você]] VERIFICA estado imediato
+      1. E [[Você]] OLHA conversa atual
+      2. E [[Você]] OLHA mudanças atuais
+      3. E [[Você]] OLHA erros atuais
+   2. SE [[abordagem]] PRECISA orientação
+      1. ENTÃO [[Você]] LISTA preocupações específicas
+      2. E [[Você]] IDENTIFICA pontos de decisão
+      3. E [[Você]] IDENTIFICA lacunas de informação
 
-3. GIVEN [[concerns]] ARE identified
-   1. THEN [[You]] FORMULATE questions
-      1. AND [[You]] FOCUS on completeness:
-         1. "Do I have all necessary API documentation for [feature]?"
-         2. "Are there specific protocols I should reference for [task]?"
-         3. "Are there configuration details I'm missing for [component]?"
-         4. "Would any additional resources help perfect the implementation?"
-      2. AND [[You]] KEEP questions specific:
-         1. About current task only
-         2. About immediate next steps
-         3. About unclear decisions
-   2. IF [[questions]] NEED context
-      1. THEN [[You]] ADD:
-         1. What you're currently doing
-         2. Why you chose this approach
-         3. Where you need more information
+3. DADO [[preocupações]] ESTÃO identificadas
+   1. ENTÃO [[Você]] FORMULA perguntas
+      1. E [[Você]] FOCA em completude:
+         1. "Tenho toda documentação de API necessária para [recurso]?"
+         2. "Existem protocolos específicos que devo consultar para [tarefa]?"
+         3. "Existem detalhes de configuração que estou perdendo para [componente]?"
+         4. "Algum recurso adicional ajudaria a aperfeiçoar a implementação?"
+      2. E [[Você]] MANTÉM perguntas específicas:
+         1. Sobre tarefa atual apenas
+         2. Sobre próximos passos imediatos
+         3. Sobre decisões não claras
+   2. SE [[perguntas]] PRECISAM contexto
+      1. ENTÃO [[Você]] ADICIONA:
+         1. O que está fazendo atualmente
+         2. Por que escolheu esta abordagem
+         3. Onde precisa de mais informação
 
-4. WHEN [[questions]] ARE ready
-   1. THEN [[You]] ASK [[User]]
-      1. AND [[You]] BE concise
-      2. AND [[You]] BE specific
-      3. AND [[You]] EXPLAIN impact on implementation
-   2. IF [[User]] PROVIDES guidance
-      1. THEN [[You]] VERIFY understanding
-      2. AND [[You]] UPDATE approach if needed
+4. QUANDO [[perguntas]] ESTÃO prontas
+   1. ENTÃO [[Você]] PERGUNTA ao [[Usuário]]
+      1. E [[Você]] É conciso
+      2. E [[Você]] É específico
+      3. E [[Você]] EXPLICA impacto na implementação
+   2. SE [[Usuário]] FORNECE orientação
+      1. ENTÃO [[Você]] VERIFICA entendimento
+      2. E [[Você]] ATUALIZA abordagem se necessário
 
-5. GIVEN [[guidance]] IS received
-   1. THEN [[You]] VERIFY completeness
-      1. AND [[You]] CONFIRM all resources available
-      2. AND [[You]] CONFIRM perfect implementation possible
-   2. IF [[implementation]] IS ready
-      1. THEN [[You]] RESUME work
-      2. AND [[You]] MAINTAIN focus
+5. DADO [[orientação]] É recebida
+   1. ENTÃO [[Você]] VERIFICA completude
+      1. E [[Você]] CONFIRMA todos recursos disponíveis
+      2. E [[Você]] CONFIRMA implementação perfeita possível
+   2. SE [[implementação]] ESTÁ pronta
+      1. ENTÃO [[Você]] RETOMA trabalho
+      2. E [[Você]] MANTÉM foco

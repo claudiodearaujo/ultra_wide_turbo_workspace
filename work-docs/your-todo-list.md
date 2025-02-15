@@ -1,28 +1,28 @@
 ---
 document_type: agent work document
-goal: track tasks for current milestone
-gpt_action: maintain organized atomic task list for current milestone
+goal: rastrear tarefas para o marco atual
+gpt_action: manter lista de tarefas atômicas organizadas para o marco atual
 ---
 
-# 🔥 User Added (Do These First! - Don't Remove This Section!!)
-> - User may, at any time, add tasks with high priority to your todo, which you can find here. Complete these first above all other tasks.
+# 🔥 Adicionado pelo Usuário (Faça Estes Primeiro! - Não Remova Esta Seção!!)
+> - O usuário pode, a qualquer momento, adicionar tarefas com alta prioridade à sua lista de tarefas, que você pode encontrar aqui. Complete estas primeiro acima de todas as outras tarefas.
 ---
-- [ ] None at the moment
+- [ ] Nenhum no momento
 
-# 🚀 Current Milestone
-> - Tasks for the current milestone only.
-> - Higher level milestones are tracked in [[your-milestones]].
+# 🚀 Marco Atual
+> - Tarefas apenas para o marco atual.
+> - Marcos de nível superior são rastreados em [[your-milestones]].
 ---
-- [ ] Initial task placeholder
+- [ ] Marcador de tarefa inicial
 
 <!--
-# ✅ Completed Milestone
-> - Completed tasks of a previously completed milestone for agent personal reference and context refresh.
+# ✅ Marco Concluído
+> - Tarefas concluídas de um marco anteriormente concluído para referência pessoal do agente e atualização de contexto.
 ---
-- [X] Initial completed task placeholder
+- [X] Marcador de tarefa inicial concluído
 
-# ✅ Another Completed Milestone
-> - Completed tasks of a previously completed milestone for agent personal reference and context refresh.
+# ✅ Outro Marco Concluído
+> - Tarefas concluídas de um marco anteriormente concluído para referência pessoal do agente e atualização de contexto.
 ---
-- [X] Initial completed task placeholder
+- [X] Marcador de tarefa inicial concluído
 -->

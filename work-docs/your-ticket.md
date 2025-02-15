@@ -1,70 +1,70 @@
 ---
 document_type: agent work document
-goal: document and track implementation details, requirements, and acceptance criteria
-gpt_action: use as reference for documenting details and defining acceptance criteria
+goal: documentar e rastrear detalhes de implementação, requisitos e critérios de aceitação
+gpt_action: usar como referência para documentar detalhes e definir critérios de aceitação
 ---
 
-# 🔖 Description
-> 💡 *A short and descriptive introduction of the problem we are going to solve.*
+# 🔖 Descrição
+> 💡 *Uma introdução curta e descritiva do problema que vamos resolver.*
 ---
 
-# 🗣 User Story
-> 💡 ***As a*** *ROLE* ***I want*** *BEHAVIOUR* ***so that*** *REASON.*
+# 🗣 História do Usuário
+> 💡 ***Como um*** *PAPEL* ***eu quero*** *COMPORTAMENTO* ***para que*** *RAZÃO.*
 ---
 
-# ⚙️ Requirements
-> 💡 *Add a link to your-requirements.md here*
+# ⚙️ Requisitos
+> 💡 *Adicione um link para your-requirements.md aqui*
 ---
 
-# 💾 Data Model
-> 💡 *Old and new data models that will be created and/or altered when this feature is added.*
+# 💾 Modelo de Dados
+> 💡 *Modelos de dados antigos e novos que serão criados e/ou alterados quando este recurso for adicionado.*
 ---
 
-# 🔒 Security Rules
-> 💡 *Old and new security rules with roles and access that should be created and/or altered. Include create, read, update and delete.*
+# 🔒 Regras de Segurança
+> 💡 *Regras de segurança antigas e novas com papéis e acessos que devem ser criados e/ou alterados. Inclua criar, ler, atualizar e excluir.*
 ---
 
 # 🐒 API
-> 💡 *Old and new API calls that should be created and/or altered.*
+> 💡 *Chamadas de API antigas e novas que devem ser criadas e/ou alteradas.*
 ---
 
-# 📊 Analytics
-> 💡 *Old and new analytics that should be created and/or altered when this feature is added. Include a name, when it’s fired and optional properties.*
+# 📊 Análises
+> 💡 *Análises antigas e novas que devem ser criadas e/ou alteradas quando este recurso for adicionado. Inclua um nome, quando é disparado e propriedades opcionais.*
 ---
 
-# ☎️ Impact Communication
-> 💡 *Who / which teams should we inform about the impact of releasing this ticket? Sales, marketing, data, CS, other?*
+# ☎️ Comunicação de Impacto
+> 💡 *Quem / quais equipes devemos informar sobre o impacto de liberar este ticket? Vendas, marketing, dados, CS, outros?*
 ---
 
-# 🧪 Tests
-> 💡 *Components/flows/code that would benefit from tests and which scenario's should be tested.*
+# 🧪 Testes
+> 💡 *Componentes/fluxos/código que se beneficiariam de testes e quais cenários devem ser testados.*
 ---
 
-# 🤝 Acceptance Test
-> 💡 *Which scenario’s should we test in the acceptance test? So that we can make sure that this ticket does what it is supposed to do without any unexpected errors.*
+# 🤝 Teste de Aceitação
+> 💡 *Quais cenários devemos testar no teste de aceitação? Para que possamos garantir que este ticket faz o que se propõe a fazer sem erros inesperados.*
 ---
 
-# 🎨 UI/UX Behaviour
-> 💡 *Anything to take note of regarding the behaviour of UI/UX elements (if applicable). Think of position, behaviour when elements do not fit the screen, feedback on elements and properties of animations.*
+# 🎨 Comportamento UI/UX
+> 💡 *Algo a ser observado em relação ao comportamento dos elementos UI/UX (se aplicável). Pense em posição, comportamento quando elementos não cabem na tela, feedback em elementos e propriedades de animações.*
 ---
 
-# 📝 Suggested Approach
-> 💡 *With knowledge of the current codebase, try to define a best suggested approach. Think of current components used, flow of data and UI elements.*
+# 📝 Abordagem Sugerida
+> 💡 *Com conhecimento da base de código atual, tente definir uma melhor abordagem sugerida. Pense nos componentes atuais usados, fluxo de dados e elementos UI.*
 ---
 
-# 👉️ Final Remarks
-> 💡 *Anything to take note off that is not properly defined yet. Think of out of scope notes, dependencies, anything to be extra cautious about and/or information about related issues.*
+# 👉️ Observações Finais
+> 💡 *Algo a ser observado que ainda não está devidamente definido. Pense em notas fora do escopo, dependências, algo para ter cuidado extra e/ou informações sobre problemas relacionados.*
 ---
 
-# ✅ Pull Request Checklist
-> 💡 *Before submitting your PR make sure you've gone through this checklist carefully. Each item represents a crucial aspect of code quality and reliability. Take your time to verify each point - your thoroughness here helps maintain our high standards and makes the review process smoother.*
+# ✅ Lista de Verificação de Pull Request
+> 💡 *Antes de enviar seu PR, certifique-se de ter passado por esta lista de verificação cuidadosamente. Cada item representa um aspecto crucial da qualidade e confiabilidade do código. Leve seu tempo para verificar cada ponto - sua minuciosidade aqui ajuda a manter nossos altos padrões e torna o processo de revisão mais suave.*
 ---
 
-- [ ] I have read the 'Description' and 'Requirements'/'Expected Result' one last time and confirm to have tested the functionality/fix of this ticket thoroughly, and everything is working exactly as described in those sections.
-- [ ] I have tested the functionality on both Android and iOS.
-- [ ] I have double-checked the design file and confirm that the current implementation is a pixel-perfect clone of the original design.
-- [ ] I considered any security risks and took the appropriate actions accordingly, such as placing the right security tag and defining and/or implementing any actions under the heading 'Security'.
-- [ ] I have added short, descriptive, and maintainable documentation to all new classes and methods.
-- [ ] I have added short, descriptive, and maintainable logging to each new piece of code where it seems logical to do so for debugging/crash reporting purposes.
-- [ ] I have added sensible error handling using try/catch statements and optional custom exceptions where needed.
-- [ ] I did a full round of QA of my own code and can confirm that the upcoming PR contains my best possible version of this ticket.
+- [ ] Eu li a 'Descrição' e 'Requisitos'/'Resultado Esperado' uma última vez e confirmo ter testado a funcionalidade/correção deste ticket minuciosamente, e tudo está funcionando exatamente como descrito nessas seções.
+- [ ] Eu testei a funcionalidade em ambos Android e iOS.
+- [ ] Eu verifiquei o arquivo de design e confirmo que a implementação atual é uma cópia fiel do design original.
+- [ ] Considerei quaisquer riscos de segurança e tomei as ações apropriadas, como colocar a tag de segurança correta e definir e/ou implementar quaisquer ações sob o título 'Segurança'.
+- [ ] Adicionei documentação curta, descritiva e sustentável a todas as novas classes e métodos.
+- [ ] Adicionei logs curtos, descritivos e sustentáveis a cada novo pedaço de código onde parece lógico fazer isso para fins de depuração/relatório de falhas.
+- [ ] Adicionei tratamento de erros sensato usando instruções try/catch e exceções personalizadas opcionais onde necessário.
+- [ ] Fiz uma rodada completa de QA do meu próprio código e posso confirmar que o próximo PR contém minha melhor versão possível deste ticket.

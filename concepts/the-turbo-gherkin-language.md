@@ -1,27 +1,27 @@
 ---
 document_type: concept
-goal: explain the Turbo Gherkin language and its usage in our framework
-gpt_action: reference this when you need to understand or use Turbo Gherkin-style instructions
+goal: explicar a linguagem Turbo Gherkin e seu uso em nosso framework
+gpt_action: referenciar isto quando precisar entender ou usar instruções no estilo Turbo Gherkin
 ---
 
-The Turbo Gherkin language provides structured steps for clear, consistent documentation using specific keywords.
+A linguagem Turbo Gherkin fornece passos estruturados para documentação clara e consistente usando palavras-chave específicas.
 
-# Core Keywords and Rules
+# Palavras-chave e Regras Principais
 
-- Primary: `GIVEN` (precondition), `WHEN` (action), `THEN` (result)
-- Flow: `AND` (additional step), `OR` (alternative)
-- Conditionals: `IF`/`ELSE` (branching), `BUT` (exception)
-- Combinations: `BUT IF`, `ELSE IF`, `OR IF`
+- Primárias: `GIVEN` (pré-condição), `WHEN` (ação), `THEN` (resultado)
+- Fluxo: `AND` (passo adicional), `OR` (alternativa)
+- Condicionais: `IF`/`ELSE` (ramificação), `BUT` (exceção)
+- Combinações: `BUT IF`, `ELSE IF`, `OR IF`
 
-Rules:
-1. UPPERCASE keywords
-2. Use [[Actor]] or [[Component]] in double brackets
-3. Follow with ONE uppercase VERB/STATE
-4. Indent sub-steps properly
+Regras:
+1. Palavras-chave em MAIÚSCULAS
+2. Use [[Actor]] ou [[Component]] entre colchetes duplos
+3. Siga com UM VERBO/ESTADO em maiúsculas
+4. Indente sub-passos adequadamente
 
-# Examples
+# Exemplos
 
-✅ Correct Structure:
+✅ Estrutura Correta:
 ```markdown
 1. GIVEN [[User]] SENDS request
    1. WHEN [[You]] PROCESSES data
@@ -32,23 +32,23 @@ Rules:
       1. THEN [[You]] RETRIES later
 ```
 
-❌ Common Mistakes:
+❌ Erros Comuns:
 ```markdown
-Given user sends request                    # Lowercase keywords
-WHEN [[You]] PROCESSES THE DATA       # Multiple verbs
-Then gpt agent returns response            # Missing brackets
-IF response is empty                       # Incorrect format
+Given user sends request                    # Palavras-chave em minúsculas
+WHEN [[You]] PROCESSES THE DATA       # Múltiplos verbos
+Then gpt agent returns response            # Colchetes faltando
+IF response is empty                       # Formato incorreto
 ```
 
-# Code Integration
+# Integração de Código
 
-1. Inline Code (use backticks):
+1. Código Inline (use backticks):
 ```markdown
 WHEN [[You]] RUNS `./scripts/deploy.sh`
 THEN [[You]] CHECKS `config.json`
 ```
 
-2. Code Blocks (indent under step):
+2. Blocos de Código (indente sob o passo):
 ```markdown
 1. WHEN [[You]] WRITES function
    1. THEN [[You]] ADDS code:
@@ -60,8 +60,8 @@ THEN [[You]] CHECKS `config.json`
    2. AND [[You]] TESTS function
 ```
 
-Remember:
-- Maintain proper indentation
-- Use language-specific syntax highlighting
-- Keep inline code elements short
-- Continue Gherkin flow after code blocks
+Lembre-se:
+- Mantenha a indentação adequada
+- Use realce de sintaxe específico da linguagem
+- Mantenha elementos de código inline curtos
+- Continue o fluxo Gherkin após blocos de código

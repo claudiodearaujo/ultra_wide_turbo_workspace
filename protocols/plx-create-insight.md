@@ -1,136 +1,136 @@
 ---
 document_type: protocol
-goal: create clear, concise insight content that explains concepts or processes in a digestible format
-gpt_action: follow these steps to create structured insight content
+goal: criar conteúdo de insight claro e conciso que explica conceitos ou processos em um formato digerível
+gpt_action: seguir estes passos para criar conteúdo de insight estruturado
 ---
 
-# 📖 Context
+# 📖 Contexto
 
-This protocol helps create clear, concise insight content that breaks down complex topics into digestible pieces. The focus is on maintaining a professional yet approachable tone while delivering practical value.
+Este protocolo ajuda a criar conteúdo de insight claro e conciso que decompõe tópicos complexos em partes digeríveis. O foco é manter um tom profissional mas acessível enquanto entrega valor prático.
 
-# 🎯 Command Types
+# 🎯 Tipos de Comando
 
-1. CREATE insight content:
-   - Title: "How We [Action] [Topic]"
-   - Format: Markdown with clear sections
-   - Length: 3-7 key points
-   - Tone: Professional, clear, helpful
-   - Location: `insights/[topic-name].md`
+1. CRIAR conteúdo de insight:
+   - Título: "Como Nós [Ação] [Tópico]"
+   - Formato: Markdown com seções claras
+   - Extensão: 3-7 pontos principais
+   - Tom: Profissional, claro, útil
+   - Localização: `insights/[nome-do-topico].md`
 
-2. STRUCTURE insight content:
-   - Introduction (what & why)
-   - Key points (how)
-   - Examples (show)
-   - Key takeaways
+2. ESTRUTURAR conteúdo de insight:
+   - Introdução (o que & por quê)
+   - Pontos principais (como)
+   - Exemplos (mostrar)
+   - Principais aprendizados
 
-# ⚙️ Parameters
+# ⚙️ Parâmetros
 
-Required:
-- topic: The subject to explain
-- format: Markdown sections
-- goal: What the reader should learn
+Obrigatórios:
+- topic: O assunto a explicar
+- format: Seções em Markdown
+- goal: O que o leitor deve aprender
 
-Optional:
-- code_examples: Relevant code snippets
-- diagrams: Visual explanations
-- references: Related documentation
+Opcionais:
+- code_examples: Snippets de código relevantes
+- diagrams: Explicações visuais
+- references: Documentação relacionada
 
-# 📝 Process
+# 📝 Processo
 
-1. WHEN [[User]] REQUESTS insight content
-   1. THEN [[You]] ANALYZES topic requirements
-      1. AND [[You]] IDENTIFIES key learning points
-      2. AND [[You]] PLANS content structure
-      3. AND [[You]] CREATES insights directory if not exists
+1. QUANDO [[Usuário]] SOLICITA conteúdo de insight
+   1. ENTÃO [[Você]] ANALISA requisitos do tópico
+      1. E [[Você]] IDENTIFICA pontos-chave de aprendizado
+      2. E [[Você]] PLANEJA estrutura do conteúdo
+      3. E [[Você]] CRIA diretório insights se não existir
 
-2. THEN [[You]] CREATES content in `insights/[topic-name].md`:
+2. ENTÃO [[Você]] CRIA conteúdo em `insights/[nome-do-topico].md`:
    ```markdown
-   # How We [Action] [Topic]
-   > Quick one-line summary of what we'll learn
+   # Como Nós [Ação] [Tópico]
+   > Resumo rápido de uma linha do que aprenderemos
 
-   ## Why This Matters
-   - Clear benefit statement
-   - Practical application
+   ## Por Que Isso Importa
+   - Declaração clara do benefício
+   - Aplicação prática
 
-   ## Key Points
-   1. First important concept
-      - Clear explanation
-      - Practical example
+   ## Pontos Principais
+   1. Primeiro conceito importante
+      - Explicação clara
+      - Exemplo prático
 
-   2. Second important concept
-      - Clear explanation
-      - Practical example
+   2. Segundo conceito importante
+      - Explicação clara
+      - Exemplo prático
 
-   ## Example in Practice
-   ```code or step-by-step```
+   ## Exemplo na Prática
+   ```código ou passo-a-passo```
 
-   ## Key Takeaways
-   - Practical insights
-   - Next steps
+   ## Principais Aprendizados
+   - Insights práticos
+   - Próximos passos
    ```
 
-3. WHEN [[You]] COMPLETES content
-   1. THEN [[You]] VERIFIES:
-      - Clear value proposition
-      - Professional tone
-      - Actionable steps
-      - Practical examples
-      - Concise format
+3. QUANDO [[Você]] COMPLETA conteúdo
+   1. ENTÃO [[Você]] VERIFICA:
+      - Proposta de valor clara
+      - Tom profissional
+      - Passos acionáveis
+      - Exemplos práticos
+      - Formato conciso
 
-4. IF content needs visuals
-   1. THEN [[You]] ADDS:
-      - Code snippets (if relevant)
-      - Simple diagrams (if helpful)
-      - Step numbers (if sequential)
+4. SE conteúdo precisa de visuais
+   1. ENTÃO [[Você]] ADICIONA:
+      - Snippets de código (se relevante)
+      - Diagramas simples (se útil)
+      - Números de passos (se sequencial)
 
-# ✅ Verification
+# ✅ Verificação
 
-Content should:
-- Maintain professional tone
-- Focus on practical value
-- Include clear examples
-- Be concise and focused
-- Follow consistent structure
-- Use proper formatting
+Conteúdo deve:
+- Manter tom profissional
+- Focar em valor prático
+- Incluir exemplos claros
+- Ser conciso e focado
+- Seguir estrutura consistente
+- Usar formatação adequada
 
-# 🎨 Style Guide
+# 🎨 Guia de Estilo
 
-DO:
-- Use clear, direct language
-- Include practical examples
-- Start with the benefit
-- Break into digestible points
-- End with practical insights
+FAZER:
+- Usar linguagem clara e direta
+- Incluir exemplos práticos
+- Começar com o benefício
+- Dividir em pontos digeríveis
+- Terminar com insights práticos
 
-DON'T:
-- Use overly casual language
-- Include unnecessary details
-- Make assumptions about knowledge
-- Skip practical examples
-- Use complex jargon
+NÃO FAZER:
+- Usar linguagem excessivamente casual
+- Incluir detalhes desnecessários
+- Fazer suposições sobre conhecimento
+- Pular exemplos práticos
+- Usar jargão complexo
 
-# 📋 Example Structure
+# 📋 Exemplo de Estrutura
 
 ```markdown
-# How We Structure Dart Classes for Maximum Maintainability
+# Como Nós Estruturamos Classes Dart para Máxima Manutenibilidade
 
-> Learn our proven approach to creating clean, maintainable Dart classes that scale with your project.
+> Aprenda nossa abordagem comprovada para criar classes Dart limpas e manuteníveis que escalam com seu projeto.
 
-## Why This Matters
-- Reduces technical debt
-- Makes code easier to test
-- Improves team collaboration
+## Por Que Isso Importa
+- Reduz dívida técnica
+- Torna o código mais fácil de testar
+- Melhora colaboração da equipe
 
-## Key Points
-1. Clear Responsibility
-   - One class, one core purpose
-   - Example: UserRepository handles only user data operations
+## Pontos Principais
+1. Responsabilidade Clara
+   - Uma classe, um propósito central
+   - Exemplo: UserRepository lida apenas com operações de dados do usuário
 
-2. Consistent Interface
-   - Public methods tell a story
-   - Example: fetchUser(), updateUser(), deleteUser()
+2. Interface Consistente
+   - Métodos públicos contam uma história
+   - Exemplo: fetchUser(), updateUser(), deleteUser()
 
-## Example in Practice
+## Exemplo na Prática
 ```dart
 class UserRepository {
   final Database db;
@@ -138,22 +138,22 @@ class UserRepository {
   UserRepository(this.db);
   
   Future<User> fetchUser(String id) async {
-    // Implementation
+    // Implementação
   }
 }
 ```
 
-## Key Takeaways
-- Single responsibility principle leads to maintainable code
-- Consistent interfaces make code predictable
-- Documentation is part of good design
+## Principais Aprendizados
+- Princípio de responsabilidade única leva a código manutenível
+- Interfaces consistentes tornam o código previsível
+- Documentação é parte do bom design
 ```
 
-# 🎯 Success Criteria
+# 🎯 Critérios de Sucesso
 
-Content is successful when it:
-- Clearly explains the concept
-- Provides practical value
-- Uses consistent structure
-- Maintains professional tone
-- Includes actionable examples 
+Conteúdo é bem-sucedido quando:
+- Explica claramente o conceito
+- Fornece valor prático
+- Usa estrutura consistente
+- Mantém tom profissional
+- Inclui exemplos acionáveis 

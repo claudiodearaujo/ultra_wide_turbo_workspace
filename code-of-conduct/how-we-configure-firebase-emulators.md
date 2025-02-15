@@ -1,42 +1,42 @@
 ---
 document_type: code of conduct
-goal: define process for configuring Firebase emulators in mono repo structure
-gpt_action: follow these steps when setting up Firebase emulators for local development
+goal: definir processo para configurar emuladores Firebase em estrutura mono repo
+gpt_action: siga estes passos ao configurar emuladores Firebase para desenvolvimento local
 ---
 
-# 🔍 Initial Setup
+# 🔍 Configuração Inicial
 
-1. [[You]] [[verify project structure]]
-   1. [[verify project structure]]
-      1. Check for mono repo structure
-      2. Verify Firebase project location
-      3. Verify Flutter project location
-      4. Confirm scripts directory exists
+1. [[You]] [[verifica estrutura do projeto]]
+   1. [[verifica estrutura do projeto]]
+      1. Verifica estrutura mono repo
+      2. Verifica localização do projeto Firebase
+      3. Verifica localização do projeto Flutter
+      4. Confirma existência do diretório scripts
 
-2. [[You]] [[confirm requirements]]
-   1. [[confirm requirements]]
-      1. Check Firebase CLI installation
-      2. Verify Node.js installation
-      3. Check Flutter SDK installation
-      4. Confirm port availability
+2. [[You]] [[confirma requisitos]]
+   1. [[confirma requisitos]]
+      1. Verifica instalação do Firebase CLI
+      2. Verifica instalação do Node.js
+      3. Verifica instalação do Flutter SDK
+      4. Confirma disponibilidade de portas
 
-# 🛠️ Configuration
+# 🛠️ Configuração
 
-1. [[You]] [[setup project structure]]
-   1. [[setup project structure]]
-      1. Create Firebase project structure:
+1. [[You]] [[configura estrutura do projeto]]
+   1. [[configura estrutura do projeto]]
+      1. Cria estrutura do projeto Firebase:
 ```
 project_mono/
-  ├── project_firebase/        # Firebase project
-  │   ├── firebase.json            # Firebase configuration
-  │   ├── firestore.rules          # Firestore security rules
-  │   ├── storage.rules            # Storage security rules
+  ├── project_firebase/        # Projeto Firebase
+  │   ├── firebase.json            # Configuração Firebase
+  │   ├── firestore.rules          # Regras de segurança Firestore
+  │   ├── storage.rules            # Regras de segurança Storage
   │   ├── functions/               # Cloud Functions
-  │   └── scripts/                 # Emulator scripts
+  │   └── scripts/                 # Scripts de emulador
   │       ├── run_emulators.sh
   │       └── export_emulators_firebase_data.sh
   │
-  └── project_flutter/        # Flutter project
+  └── project_flutter/        # Projeto Flutter
       ├── lib/
       │   └── core/
       │       ├── config/
@@ -48,9 +48,9 @@ project_mono/
           └── run_emulators.sh
 ```
 
-2. [[You]] [[configure firebase]]
-   1. [[configure firebase]]
-      1. Set up emulator ports in `firebase.json`:
+2. [[You]] [[configura firebase]]
+   1. [[configura firebase]]
+      1. Configura portas do emulador em `firebase.json`:
 ```json
 {
   "functions": [
@@ -96,21 +96,21 @@ project_mono/
 }
 ```
 
-3. [[You]] [[create scripts]]
-   1. [[create scripts]]
-      1. Create Firebase emulator script:
+3. [[You]] [[cria scripts]]
+   1. [[cria scripts]]
+      1. Cria script do emulador Firebase:
 ```bash
 #!/bin/bash
 
-# Kill any running firebase emulators
-echo "Killing any running firebase emulators..."
+# Mata quaisquer emuladores Firebase em execução
+echo "Matando quaisquer emuladores firebase em execução..."
 lsof -t -i:9099 -i:5001 -i:8080 -i:9199 -i:4000 | while read -r pid; do
     if ps -p $pid -o command | grep -q "firebase"; then
         kill -9 $pid 2>/dev/null || true
     fi
 done
 
-# Navigate to functions directory and do a clean build
+# Navega para o diretório functions e faz uma build limpa
 cd ../functions || exit
 rm -rf lib/
 npm run build
@@ -118,33 +118,33 @@ npm run build
 cd ../ || exit
 
 if [ -d "exports/firestore_export" ] || [ -f "exports/auth_export.json" ]; then
-    echo "Starting emulators with data import..."
+    echo "Iniciando emuladores com importação de dados..."
     firebase emulators:start --import=exports
 else
-    echo "No exports found, starting clean emulators..."
+    echo "Nenhum export encontrado, iniciando emuladores limpos..."
     firebase emulators:start
 fi
 ```
-      2. Create data export script:
+      2. Cria script de exportação de dados:
 ```bash
 #!/bin/bash
 
 cd ../ || exit
 
-echo "Exporting emulator data..."
+echo "Exportando dados do emulador..."
 firebase emulators:export exports
 ```
-      3. Create Flutter emulator script:
+      3. Cria script do emulador Flutter:
 ```bash
 #!/bin/bash
 
-# Navigate to firebase scripts directory and run emulators
+# Navega para o diretório de scripts do firebase e executa emuladores
 cd ../../project_firebase/scripts && ./run_emulators.sh
 ```
 
-4. [[You]] [[implement flutter config]]
-   1. [[implement flutter config]]
-      1. Create environment configuration:
+4. [[You]] [[implementa configuração flutter]]
+   1. [[implementa configuração flutter]]
+      1. Cria configuração de ambiente:
 ```dart
 abstract class Environment {
   static String? currentVersion;
@@ -181,7 +181,7 @@ enum EnvironmentType {
   prod;
 }
 ```
-      2. Create emulator configuration:
+      2. Cria configuração do emulador:
 ```dart
 class EmulatorConfig {
   static const _localhost = 'localhost';
@@ -195,44 +195,44 @@ class EmulatorConfig {
   static void configureEmulators() {
     if (kDebugMode && Environment.isEmulators) {
       final host = kIsWeb ? _localhost : _host;
-      log.debug('Configuring Firebase emulators on $host');
+      log.debug('Configurando emuladores Firebase em $host');
 
       FirebaseAuth.instance.useAuthEmulator(host, _portAuth);
       FirebaseFirestore.instance.useFirestoreEmulator(host, _portFirestore);
       FirebaseFunctions.instance.useFunctionsEmulator(host, _portFunctions);
       FirebaseStorage.instance.useStorageEmulator(host, _portStorage);
 
-      log.debug('Firebase emulators configured successfully');
+      log.debug('Emuladores Firebase configurados com sucesso');
     }
   }
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify setup]]
-   1. [[verify setup]]
-      1. Make scripts executable:
+1. [[You]] [[verifica configuração]]
+   1. [[verifica configuração]]
+      1. Torna scripts executáveis:
 ```bash
 chmod +x scripts/run_emulators.sh
 cd ../../project_firebase/scripts
 chmod +x run_emulators.sh
 chmod +x export_emulators_firebase_data.sh
 ```
-      2. Start emulators:
+      2. Inicia emuladores:
 ```bash
 cd project_mono/project_flutter/scripts
 ./run_emulators.sh
 ```
-      3. Run Flutter app:
+      3. Executa app Flutter:
 ```bash
 flutter run --dart-define=env=emulators
 ```
 
-2. [[You]] [[confirm functionality]]
-   1. [[confirm functionality]]
-      1. Verify emulator startup logs
-      2. Check emulator UI at localhost:4000
-      3. Confirm Firebase services connect to emulators
-      4. Test basic operations in emulator environment
-      5. Verify data persistence with export/import
+2. [[You]] [[confirma funcionalidade]]
+   1. [[confirma funcionalidade]]
+      1. Verifica logs de inicialização do emulador
+      2. Verifica UI do emulador em localhost:4000
+      3. Confirma que serviços Firebase conectam aos emuladores
+      4. Testa operações básicas no ambiente do emulador
+      5. Verifica persistência de dados com exportação/importação

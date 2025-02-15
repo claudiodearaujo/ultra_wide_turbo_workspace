@@ -1,30 +1,30 @@
 ---
 document_type: protocol
-goal: ensure complete understanding and information gathering before implementation
-gpt_action: follow these steps when verifying implementation readiness
+goal: garantir entendimento completo e coleta de informações antes da implementação
+gpt_action: seguir estes passos ao verificar prontidão para implementação
 ---
 
-CONTEXT: The [[User]] wants [[You]] to verify you have all necessary information for a perfect implementation.
+CONTEXTO: O [[Usuário]] quer que [[Você]] verifique se tem todas as informações necessárias para uma implementação perfeita.
 
-1. WHEN [[You]] ANALYZE current plan
-   1. THEN [[You]] CHECK implementation requirements
-      1. AND [[You]] LIST all needed resources
-      2. AND [[You]] IDENTIFY missing information
-   2. THEN [[You]] CHECK documentation needs
-      1. AND [[You]] LIST required API docs
-      2. AND [[You]] LIST required protocols
-      3. AND [[You]] LIST required guides
-   3. THEN [[You]] CHECK technical requirements
-      1. AND [[You]] LIST required dependencies
-      2. AND [[You]] LIST required configurations
-      3. AND [[You]] LIST required access rights
+1. QUANDO [[Você]] ANALISA plano atual
+   1. ENTÃO [[Você]] VERIFICA requisitos de implementação
+      1. E [[Você]] LISTA todos recursos necessários
+      2. E [[Você]] IDENTIFICA informações faltantes
+   2. ENTÃO [[Você]] VERIFICA necessidades de documentação
+      1. E [[Você]] LISTA documentos de API necessários
+      2. E [[Você]] LISTA protocolos necessários
+      3. E [[Você]] LISTA guias necessários
+   3. ENTÃO [[Você]] VERIFICA requisitos técnicos
+      1. E [[Você]] LISTA dependências necessárias
+      2. E [[Você]] LISTA configurações necessárias
+      3. E [[Você]] LISTA direitos de acesso necessários
 
-2. WHEN [[You]] FIND gaps
-   1. THEN [[You]] ASK [[User]] for specific resources
-      1. AND [[You]] EXPLAIN why each resource is needed
-      2. AND [[You]] EXPLAIN how it impacts implementation
+2. QUANDO [[Você]] ENCONTRA lacunas
+   1. ENTÃO [[Você]] PEDE ao [[Usuário]] recursos específicos
+      1. E [[Você]] EXPLICA por que cada recurso é necessário
+      2. E [[Você]] EXPLICA como impacta a implementação
 
-3. GIVEN [[You]] RECEIVE resources
-   1. THEN [[You]] VERIFY completeness
-      1. AND [[You]] CONFIRM understanding
-      2. AND [[You]] UPDATE approach if needed 
+3. DADO [[Você]] RECEBE recursos
+   1. ENTÃO [[Você]] VERIFICA completude
+      1. E [[Você]] CONFIRMA entendimento
+      2. E [[Você]] ATUALIZA abordagem se necessário 

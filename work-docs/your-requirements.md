@@ -1,78 +1,78 @@
 ---
 document_type: agent work document
-goal: getting as clear as possible what needs to be done
-gpt_action: use as a reference work to understand exactly what (still) needs to be done and document progress
+goal: obter o mais claro possível o que precisa ser feito
+gpt_action: usar como referência de trabalho para entender exatamente o que (ainda) precisa ser feito e documentar o progresso
 ---
 
-# 👤 Actors & 🧩 Components (Who or what)
-> - Someone or something that can perform actions or be interacted with (examples include User, Button, Screen, Input Field, Message, System, API, Database, and they can be a person, service, visual or non-visual).
-> - Possible Parents: Itself
----
-
-- [ ]
-
-# 🎬 Activities (Who or what does what?)
-> - Actions that an Actor or Component performs (examples include Create List, Delete Item, Sync Data, and they must always contain a verb + action).
-> - Possible Parents: Actors, Components
+# 👤 Atores & 🧩 Componentes (Quem ou o quê)
+> - Alguém ou algo que pode realizar ações ou ser interagido (exemplos incluem Usuário, Botão, Tela, Campo de Entrada, Mensagem, Sistema, API, Banco de Dados, e podem ser uma pessoa, serviço, visual ou não-visual).
+> - Possíveis Pais: Ele mesmo
 ---
 
 - [ ]
 
-## 🌊 Activity Flows & Scenarios (What in which order?)
-> - Sequences of Atomic Actions (like "Tap button") that map out the steps to complete an Activity. May have optional paths for both successful completion (Happy Flow), errors (Error Flow), and scenarios like no connection, empty states, loading states, etc.
-> - Possible Parents: Activities, Itself
+# 🎬 Atividades (Quem ou o quê faz o quê?)
+> - Ações que um Ator ou Componente realiza (exemplos incluem Criar Lista, Excluir Item, Sincronizar Dados, e devem sempre conter um verbo + ação).
+> - Possíveis Pais: Atores, Componentes
 ---
 
 - [ ]
 
-# 📝 Properties (Which values?)
-> - Describes a value or configuration that belongs to an object (examples include width, color, id, name).
-> - Possible Parents: Actors, Components, Activities, Activity Flows, Scenarios, Atomic Actions, Scenarios, Behaviours
+## 🌊 Fluxos de Atividade & Cenários (O que em qual ordem?)
+> - Sequências de Ações Atômicas (como "Tocar botão") que mapeiam os passos para completar uma Atividade. Podem ter caminhos opcionais para conclusão bem-sucedida (Fluxo Feliz), erros (Fluxo de Erro), e cenários como sem conexão, estados vazios, estados de carregamento, etc.
+> - Possíveis Pais: Atividades, Ele mesmo
 ---
 
 - [ ]
 
-# 🛠️ Behaviours (How does it act when.. in terms of.. ?)
-> - Defines how something looks, works and performs Examples include ui/ux, rules & limits, data & analytics, security, performance and scalability.
-> - Possible Parents: Anything
+# 📝 Propriedades (Quais valores?)
+> - Descreve um valor ou configuração que pertence a um objeto (exemplos incluem largura, cor, id, nome).
+> - Possíveis Pais: Atores, Componentes, Atividades, Fluxos de Atividade, Cenários, Ações Atômicas, Cenários, Comportamentos
 ---
 
 - [ ]
 
-# 💡 Ideas & 🪵 Backlog
-> - Anything that could be added later, too complex now, needs more research, would be nice to have, or alternative approaches.
-> - Possible Parents: Anything (optional)
+# 🛠️ Comportamentos (Como age quando.. em termos de.. ?)
+> - Define como algo parece, funciona e executa Exemplos incluem ui/ux, regras & limites, dados & análises, segurança, desempenho e escalabilidade.
+> - Possíveis Pais: Qualquer coisa
 ---
 
 - [ ]
 
-# 🔖 Context
-> - Optional extra information about certain concepts used to clarify 
-
-# ❓ Questions
-> - Questions that need to be answered to clarify requirements.
-> - Possible Parents: Anything (optional)
+# 💡 Ideias & 🪵 Backlog
+> - Qualquer coisa que poderia ser adicionada mais tarde, muito complexa agora, precisa de mais pesquisa, seria bom ter, ou abordagens alternativas.
+> - Possíveis Pais: Qualquer coisa (opcional)
 ---
 
 - [ ]
 
-# 🧪 Unit & Integration Tests  
-> - Tests that verify the implementation and verifies an item as completed.
-> - Possible Parents: Activities, Activity Flows, Properties, Behaviours, Tasks
+# 🔖 Contexto
+> - Informação extra opcional sobre certos conceitos usados para esclarecer 
+
+# ❓ Perguntas
+> - Perguntas que precisam ser respondidas para esclarecer requisitos.
+> - Possíveis Pais: Qualquer coisa (opcional)
+---
+
+- [ ]
+
+# 🧪 Testes de Unidade & Integração  
+> - Testes que verificam a implementação e verificam um item como concluído.
+> - Possíveis Pais: Atividades, Fluxos de Atividade, Propriedades, Comportamentos, Tarefas
 ---
 
 - [ ]
 
 
-# 🎯 Roles, 📝 Tasks & 🎓 Suggested Approach
-> - Each behaviour, property, activity (flow), scenario, atomic action, actor, component must directly or indirectly (by parents) cascade down to a todo with assigned role. Creating a task for a parent and completing it automatically covers its children unless children have open tasks themselves.
-> - Possible Parents: Anything (optional)
+# 🎯 Papéis, 📝 Tarefas & 🎓 Abordagem Sugerida
+> - Cada comportamento, propriedade, atividade (fluxo), cenário, ação atômica, ator, componente deve direta ou indiretamente (por pais) se desdobrar em uma tarefa com papel atribuído. Criar uma tarefa para um pai e completá-la automaticamente cobre seus filhos, a menos que os filhos tenham tarefas abertas.
+> - Possíveis Pais: Qualquer coisa (opcional)
 ---
 
-- [ ] UI/UX Designer
-- [ ] Frontend Developer
-- [ ] Backend Developer
-- [ ] Data Engineer
-- [ ] DevOps Engineer
-- [ ] Project Manager
-- [ ] Marketeer
+- [ ] Designer UI/UX
+- [ ] Desenvolvedor Frontend
+- [ ] Desenvolvedor Backend
+- [ ] Engenheiro de Dados
+- [ ] Engenheiro DevOps
+- [ ] Gerente de Projeto
+- [ ] Profissional de Marketing

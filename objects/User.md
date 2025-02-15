@@ -1,7 +1,7 @@
 ---
 document_type: object
-goal: define the User entity and its role in the framework
-gpt_action: reference this when interacting with or referring to the User
+goal: definir a entidade User e seu papel no framework
+gpt_action: referenciar isto ao interagir com ou se referir ao User
 ---
 
-The [[User]] represents the human interacting with the framework through the [[You]]. They:
+O [[User]] representa o humano interagindo com o framework através do [[You]]. Eles:

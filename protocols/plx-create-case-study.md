@@ -1,126 +1,126 @@
 ---
 document_type: protocol
-goal: create engaging and valuable case studies that showcase project success and learnings
-gpt_action: follow these steps when user wants to create a case study
+goal: criar estudos de caso envolventes e valiosos que demonstrem sucesso e aprendizados do projeto
+gpt_action: seguir estes passos quando o usuário quer criar um estudo de caso
 ---
 
-CONTEXT: The [[User]] wants to create a case study to showcase a client project or technical implementation, highlighting key learnings and value delivered.
+CONTEXTO: O [[Usuário]] quer criar um estudo de caso para demonstrar um projeto de cliente ou implementação técnica, destacando principais aprendizados e valor entregue.
 
-1. GIVEN [[User]] RUNS plx-create-case-study command
-   1. THEN [[You]] READ [[input]]
-      1. AND [[You]] CHECK case study type
+1. DADO [[Usuário]] EXECUTA comando plx-create-case-study
+   1. ENTÃO [[Você]] LÊ [[entrada]]
+      1. E [[Você]] VERIFICA tipo de estudo de caso
          ```markdown
-         # Case Study Types
-         - client      : Client project showcase
-         - technical   : Technical implementation deep-dive
-         - process     : Process improvement story
-         - innovation  : New solution or approach
+         # Tipos de Estudo de Caso
+         - client      : Demonstração de projeto de cliente
+         - technical   : Análise profunda de implementação técnica
+         - process     : História de melhoria de processo
+         - innovation  : Nova solução ou abordagem
          ```
-      2. AND [[You]] CHECK required parameters
+      2. E [[Você]] VERIFICA parâmetros necessários
          ```markdown
-         # Required Parameters
-         - title          : Name in Title Case
-         - type          : One of the case study types above
-         - industry      : Client's industry or tech domain
-         - duration      : Project timeframe
-         - target        : Target audience (clients/developers/etc)
-         - platforms     : Where to publish (website/LinkedIn/etc)
+         # Parâmetros Necessários
+         - title          : Nome em Title Case
+         - type          : Um dos tipos de estudo de caso acima
+         - industry      : Indústria do cliente ou domínio técnico
+         - duration      : Período do projeto
+         - target        : Público-alvo (clientes/desenvolvedores/etc)
+         - platforms     : Onde publicar (website/LinkedIn/etc)
          ```
-   2. IF [[input]] IS empty
-      1. THEN [[You]] ASK [[User]] for case study type
-      2. AND [[You]] ASK for required parameters
+   2. SE [[entrada]] ESTÁ vazia
+      1. ENTÃO [[Você]] PERGUNTA ao [[Usuário]] tipo de estudo de caso
+      2. E [[Você]] PERGUNTA parâmetros necessários
 
-2. WHEN [[You]] CREATES case study
-   1. THEN [[You]] CREATE file in case-studies directory
+2. QUANDO [[Você]] CRIA estudo de caso
+   1. ENTÃO [[Você]] CRIA arquivo no diretório case-studies
       ```markdown
-      # File Location
-      case-studies/title-in-kebab-case.md
+      # Localização do Arquivo
+      case-studies/titulo-em-kebab-case.md
       ```
-   2. THEN [[You]] ADD frontmatter
+   2. ENTÃO [[Você]] ADICIONA frontmatter
       ```markdown
-      # Frontmatter Format
+      # Formato do Frontmatter
       ---
       document_type: case-study
-      title: Title In Title Case
+      title: Título Em Title Case
       type: client | technical | process | innovation
-      industry: Client Industry or Domain
-      duration: Project Duration
-      target_audience: Target Readers
+      industry: Indústria do Cliente ou Domínio
+      duration: Duração do Projeto
+      target_audience: Leitores Alvo
       platforms: [Website, LinkedIn]
-      gpt_action: follow these steps to document [title] case study
+      gpt_action: seguir estes passos para documentar [título] do estudo de caso
       ---
       ```
-   3. THEN [[You]] CREATE sections
-      1. AND [[You]] ADD "🎯 Executive Summary"
-      2. AND [[You]] ADD "🔍 Challenge"
-      3. AND [[You]] ADD "💡 Solution"
-      4. AND [[You]] ADD "⚙️ Implementation"
-      5. AND [[You]] ADD "📊 Results"
-      6. AND [[You]] ADD "🎓 Key Learnings"
-      7. AND [[You]] ADD "👥 Testimonials"
+   3. ENTÃO [[Você]] CRIA seções
+      1. E [[Você]] ADICIONA "🎯 Resumo Executivo"
+      2. E [[Você]] ADICIONA "🔍 Desafio"
+      3. E [[Você]] ADICIONA "💡 Solução"
+      4. E [[Você]] ADICIONA "⚙️ Implementação"
+      5. E [[Você]] ADICIONA "📊 Resultados"
+      6. E [[Você]] ADICIONA "🎓 Principais Aprendizados"
+      7. E [[Você]] ADICIONA "👥 Depoimentos"
 
-3. WHEN [[You]] FILLS sections
-   1. THEN [[You]] WRITE Executive Summary
-      1. AND [[You]] HIGHLIGHT key achievements
-      2. AND [[You]] ADD compelling metrics
-      3. AND [[You]] INCLUDE value proposition
-   2. THEN [[You]] WRITE Challenge
-      1. AND [[You]] DESCRIBE initial situation
-      2. AND [[You]] EXPLAIN pain points
-      3. AND [[You]] ADD business impact
-      4. AND [[You]] INCLUDE constraints
-   3. THEN [[You]] WRITE Solution
-      1. AND [[You]] OUTLINE approach
-      2. AND [[You]] EXPLAIN key decisions
-      3. AND [[You]] ADD solution architecture
-      4. AND [[You]] HIGHLIGHT innovations
-   4. THEN [[You]] WRITE Implementation
-      1. AND [[You]] DESCRIBE process
-      2. AND [[You]] ADD technical details
-      3. AND [[You]] INCLUDE challenges overcome
-      4. AND [[You]] ADD code examples if relevant
-   5. THEN [[You]] WRITE Results
-      1. AND [[You]] LIST achievements
-      2. AND [[You]] ADD metrics and KPIs
-      3. AND [[You]] INCLUDE business impact
-      4. AND [[You]] ADD ROI if applicable
-   6. THEN [[You]] WRITE Key Learnings
-      1. AND [[You]] SHARE insights gained
-      2. AND [[You]] ADD best practices
-      3. AND [[You]] INCLUDE tips for others
-   7. THEN [[You]] ADD Testimonials
-      1. AND [[You]] INCLUDE client quotes
-      2. AND [[You]] ADD team feedback
-      3. AND [[You]] HIGHLIGHT satisfaction
+3. QUANDO [[Você]] PREENCHE seções
+   1. ENTÃO [[Você]] ESCREVE Resumo Executivo
+      1. E [[Você]] HIGHLIGHT principais conquistas
+      2. E [[Você]] ADICIONA métricas convincentes
+      3. E [[Você]] INCLUI proposta de valor
+   2. ENTÃO [[Você]] ESCREVE Desafio
+      1. E [[Você]] DESCREVE situação inicial
+      2. E [[Você]] EXPLICA pontos de dor
+      3. E [[Você]] ADICIONA impacto no negócio
+      4. E [[Você]] INCLUI restrições
+   3. ENTÃO [[Você]] ESCREVE Solução
+      1. E [[Você]] DESCREVE abordagem
+      2. E [[Você]] EXPLICA decisões-chave
+      3. E [[Você]] ADICIONA arquitetura da solução
+      4. E [[Você]] HIGHLIGHT inovações
+   4. ENTÃO [[Você]] ESCREVE Implementação
+      1. E [[Você]] DESCREVE processo
+      2. E [[Você]] ADICIONA detalhes técnicos
+      3. E [[Você]] INCLUI desafios superados
+      4. E [[Você]] ADICIONA exemplos de código se relevantes
+   5. ENTÃO [[Você]] ESCREVE Resultados
+      1. E [[Você]] LISTA conquistas
+      2. E [[Você]] ADICIONA métricas e KPIs
+      3. E [[Você]] INCLUI impacto no negócio
+      4. E [[Você]] ADICIONA ROI se aplicável
+   6. ENTÃO [[Você]] ESCREVE Principais Aprendizados
+      1. E [[Você]] COMPARTILHAR insights obtidos
+      2. E [[Você]] ADICIONAR boas práticas
+      3. E [[Você]] INCLUIR dicas para outros
+   7. ENTÃO [[Você]] ADICIONAR Depoimentos
+      1. E [[Você]] INCLUIR cotações de cliente
+      2. E [[Você]] ADICIONAR feedback de equipe
+      3. E [[Você]] HIGHLIGHT satisfação
 
-4. WHEN [[You]] OPTIMIZES for platforms
-   1. THEN [[You]] CREATE platform variants
-      1. IF [[platform]] IS website
-         1. THEN [[You]] USE full format
-         2. AND [[You]] ADD rich media
-      2. IF [[platform]] IS LinkedIn
-         1. THEN [[You]] CREATE summary version
-         2. AND [[You]] ADD key highlights
-         3. AND [[You]] INCLUDE link to full case study
+4. QUANDO [[Você]] OPTIMIZA para plataformas
+   1. ENTÃO [[Você]] CRIA variantes de plataforma
+      1. SE [[plataforma]] FOR website
+         1. ENTÃO [[Você]] USA formato completo
+         2. E [[Você]] ADICIONA mídia rica
+      2. SE [[plataforma]] FOR LinkedIn
+         1. ENTÃO [[Você]] CRIA versão resumida
+         2. E [[Você]] ADICIONA destaque
+         3. E [[Você]] INCLUIR link para estudo de caso completo
 
-5. GIVEN [[case study]] IS ready
-   1. THEN [[You]] ADD media elements
-      1. AND [[You]] USE format
+5. DADO [[estudo de caso]] ESTÁ pronto
+   1. ENTÃO [[Você]] ADICIONA elementos de mídia
+      1. E [[Você]] USA formato
          ```markdown
-         [SCREENSHOT: Solution in action]
-         [DIAGRAM: Architecture overview]
-         [CHART: Key metrics and results]
-         [PHOTO: Team or client]
+         [SCREENSHOT: Solução em ação]
+         [DIAGRAM: Visão geral da arquitetura]
+         [CHART: Métricas e resultados principais]
+         [PHOTO: Equipe ou cliente]
          ```
-   2. THEN [[You]] VERIFY content quality
-      1. AND [[You]] CHECK value proposition
-      2. AND [[You]] CHECK metrics accuracy
-      3. AND [[You]] CHECK technical details
-      4. AND [[You]] CHECK testimonials
-   3. THEN [[You]] OPTIMIZE for readability
-      1. AND [[You]] ADD subheadings
-      2. AND [[You]] USE bullet points
-      3. AND [[You]] INCLUDE callouts
-      4. AND [[You]] CHECK formatting
+   2. ENTÃO [[Você]] VERIFICA qualidade do conteúdo
+      1. E [[Você]] VERIFICA proposta de valor
+      2. E [[Você]] VERIFICA precisão das métricas
+      3. E [[Você]] VERIFICA detalhes técnicos
+      4. E [[Você]] VERIFICA depoimentos
+   3. ENTÃO [[Você]] OPTIMIZA para legibilidade
+      1. E [[Você]] ADICIONA subcabeçalhos
+      2. E [[Você]] USA pontos de chamada
+      3. E [[Você]] INCLUIR destaques
+      4. E [[Você]] VERIFICA formatação
 
-NOTE: Remember to maintain a professional yet engaging tone, focus on concrete value and results, and include specific, measurable outcomes. The case study should be valuable both as a marketing tool and as a learning resource. Always respect client confidentiality and get approval for sharing specific details. 
+NOTA: Lembre-se de manter um tom profissional e envolvente, focar em valor concreto e resultados, e incluir resultados específicos, mensuráveis. O estudo de caso deve ser valioso tanto como ferramenta de marketing quanto como recurso de aprendizado. Sempre respeite a confidencialidade do cliente e obtenha aprovação para compartilhar detalhes específicos. 

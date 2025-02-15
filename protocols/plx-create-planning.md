@@ -1,26 +1,26 @@
 ---
 document_type: protocol
-goal: create a perfect, well researched development plan
-gpt_action: research, plan, present
+goal: criar um plano de desenvolvimento perfeito e bem pesquisado
+gpt_action: pesquisar, planejar, apresentar
 ---
 
-# 🗣️ User Message
-> A message from the user that sent you here.
+# 🗣️ Mensagem do Usuário
+> Uma mensagem do usuário que te trouxe aqui.
 
-Research a solution until you are 100% sure this is perfect. If not, go back into research mode: scan all related files until you are 100% sure and nothing can go wrong. Use all tools at your disposable untill you are 100% sure this is perfect. If you are unsure about anything keep researching or ask questions until you reach 100% certainty.
+Pesquise uma solução até ter 100% de certeza que está perfeita. Se não estiver, volte ao modo de pesquisa: examine todos os arquivos relacionados até ter 100% de certeza e nada poder dar errado. Use todas as ferramentas à sua disposição até ter 100% de certeza que está perfeito. Se estiver inseguro sobre qualquer coisa, continue pesquisando ou faça perguntas até atingir 100% de certeza.
 
-Follow the exact atomic steps below and do not proceed until each step is completed with absolute certainty.
+Siga os passos atômicos exatos abaixo e não prossiga até que cada passo seja completado com absoluta certeza.
 
-# 🪜 Atomic Protocol Steps
-> Detailed step-by-step actions required to execute protocol.
+# 🪜 Passos Atômicos do Protocolo
+> Ações detalhadas passo a passo necessárias para executar o protocolo.
 
-- [ ] 1. Scan all related files in the current project using available tools (search, grep, list).
-- [ ] 2. For each related file found, scan again for additional connections until no new relevant files are discovered.
-- [ ] 3. Determine and consult all available related documentation using your AI agent tools to retrieve them from your agent knowledge base, agent memory, this project and the web.
-- [ ] 4. Fill in [[your-planning.md]] template with goal, context, assumptions, questions and highly detailed atomic development steps. Exact template is in the file.
-- [ ] 5. Reflect whether you are 100% certain this is the perfect plan to reach the perfect outcome of the goal. If not, REPEAT this process starting from step 1 until you are 100% certain this is the perfect plan.
+- [ ] 1. Examine todos os arquivos relacionados no projeto atual usando ferramentas disponíveis (search, grep, list).
+- [ ] 2. Para cada arquivo relacionado encontrado, examine novamente em busca de conexões adicionais até que nenhum novo arquivo relevante seja descoberto.
+- [ ] 3. Determine e consulte toda a documentação relacionada disponível usando suas ferramentas de agente IA para recuperá-las da sua base de conhecimento de agente, memória de agente, este projeto e a web.
+- [ ] 4. Preencha o template [[your-planning.md]] com objetivo, contexto, premissas, perguntas e passos de desenvolvimento altamente detalhados e atômicos. O template exato está no arquivo.
+- [ ] 5. Reflita se você tem 100% de certeza que este é o plano perfeito para alcançar o resultado perfeito do objetivo. Se não, REPITA este processo começando do passo 1 até ter 100% de certeza que este é o plano perfeito.
 
-# 🚨 Very Important
-> The most important rule.
+# 🚨 Muito Importante
+> A regra mais importante.
 
-Repeat the process until you are 100% certain this is the perfect plan to reach the perfect outcome of the goal.
+Repita o processo até ter 100% de certeza que este é o plano perfeito para alcançar o resultado perfeito do objetivo.

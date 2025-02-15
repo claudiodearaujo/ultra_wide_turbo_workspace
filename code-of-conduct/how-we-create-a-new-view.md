@@ -1,23 +1,23 @@
 ---
 document_type: code of conduct
-goal: define process for creating new views in the application
-gpt_action: follow these steps when creating a new view
+goal: definir processo para criar novas views na aplicação
+gpt_action: siga estes passos ao criar uma nova view
 ---
 
-# 🎯 View Creation Process
+# 🎯 Processo de Criação de View
 
-1. [[You]] [[generate base files]]
-   1. [[generate base files]]
-      - 1. Navigate to project: `cd project_flutter`
-      - 2. Run script: `dart scripts/create_view.dart`
-      - 3. Enter feature name when prompted (e.g., "items")
-      - 4. Enter snake_case file name without '_view' (e.g., "manage_item")
+1. [[You]] [[gera arquivos base]]
+   1. [[gera arquivos base]]
+      - 1. Navega para o projeto: `cd project_flutter`
+      - 2. Executa script: `dart scripts/create_view.dart`
+      - 3. Insere nome da feature quando solicitado (ex: "items")
+      - 4. Insere nome do arquivo em snake_case sem '_view' (ex: "manage_item")
 
-2. [[You]] [[configure view]]
-   1. [[configure view]]
-      - 1. Update view path with parameters
-      - 2. Add required arguments and origin
-      - 3. Update UI elements
+2. [[You]] [[configura view]]
+   1. [[configura view]]
+      - 1. Atualiza path da view com parâmetros
+      - 2. Adiciona argumentos e origem necessários
+      - 3. Atualiza elementos de UI
       ```dart
       class ManageItemView extends StatelessWidget {
         static const String path = 'manage-item/:$kKeysItemId';
@@ -32,11 +32,11 @@ gpt_action: follow these steps when creating a new view
       }
       ```
 
-3. [[You]] [[setup arguments]]
-   1. [[setup arguments]]
-      - 1. Create type-safe arguments class
-      - 2. Define required properties
-      - 3. Implement toMap method
+3. [[You]] [[configura argumentos]]
+   1. [[configura argumentos]]
+      - 1. Cria classe de argumentos com tipagem segura
+      - 2. Define propriedades obrigatórias
+      - 3. Implementa método toMap
       ```dart
       class ManageItemViewArguments extends ViewArguments {
         ManageItemViewArguments({required this.itemId});
@@ -50,11 +50,11 @@ gpt_action: follow these steps when creating a new view
       }
       ```
 
-4. [[You]] [[configure routing]]
-   1. [[configure routing]]
-      - 1. Add parameter handling extension
-      - 2. Create route in base router
-      - 3. Add route to parent router
+4. [[You]] [[configura routing]]
+   1. [[configura routing]]
+      - 1. Adiciona extensão de manipulação de parâmetros
+      - 2. Cria rota no base router
+      - 3. Adiciona rota ao router pai
       ```dart
       extension on GoRouterState {
         String? get itemId =>
@@ -82,9 +82,9 @@ gpt_action: follow these steps when creating a new view
       );
       ```
 
-5. [[You]] [[add navigation]]
-   1. [[add navigation]]
-      - 1. Create navigation method in feature router
+5. [[You]] [[adiciona navegação]]
+   1. [[adiciona navegação]]
+      - 1. Cria método de navegação no router da feature
       ```dart
       Future<void> pushManageItemView({
         required String itemId,
@@ -98,26 +98,26 @@ gpt_action: follow these steps when creating a new view
           );
       ```
 
-6. [[You]] [[register view model]]
-   1. [[register view model]]
-      - 1. Add registration in app setup
+6. [[You]] [[registra view model]]
+   1. [[registra view model]]
+      - 1. Adiciona registro na configuração do app
       ```dart
       void registerViewModels() {
         ManageItemViewModel.registerFactory();
       }
       ```
 
-# ✅ Verification Checklist
+# ✅ Lista de Verificação
 
-1. [[You]] [[verify implementation]]
-   1. [[verify implementation]]
-      - 1. Confirm view files are generated with correct names
-      - 2. Check view path includes required parameters
-      - 3. Verify arguments extend ViewArguments
-      - 4. Confirm origin enum exists with appropriate values
-      - 5. Check base router includes route with auth checks
-      - 6. Verify parameter handling from all sources
-      - 7. Confirm feature router has navigation methods
-      - 8. Check view model registration in app setup
-      - 9. Verify UI elements use appropriate base widgets
-      - 10. Confirm navigation methods follow established patterns 
+1. [[You]] [[verifica implementação]]
+   1. [[verifica implementação]]
+      - 1. Confirma que arquivos da view foram gerados com nomes corretos
+      - 2. Verifica se path da view inclui parâmetros necessários
+      - 3. Verifica se argumentos estendem ViewArguments
+      - 4. Confirma que enum de origem existe com valores apropriados
+      - 5. Verifica se base router inclui rota com verificações de autenticação
+      - 6. Verifica manipulação de parâmetros de todas as fontes
+      - 7. Confirma que router da feature tem métodos de navegação
+      - 8. Verifica registro do view model na configuração do app
+      - 9. Verifica se elementos de UI usam widgets base apropriados
+      - 10. Confirma que métodos de navegação seguem padrões estabelecidos 

@@ -1,50 +1,50 @@
 ---
 document_type: protocol
-goal: prepare and execute git commits for current changes
-gpt_action: follow these steps when handling git commits
+goal: preparar e executar commits git para mudanças atuais
+gpt_action: seguir estes passos ao lidar com commits git
 ---
 
-CONTEXT: The [[User]] notices changes need to be committed and wants you to prepare and execute a git commit with proper formatting and documentation.
+CONTEXTO: O [[Usuário]] percebe que mudanças precisam ser commitadas e quer que você prepare e execute um commit git com formatação e documentação adequadas.
 
-1. GIVEN [[User]] RUNS plx-commit command
-   1. THEN [[You]] ANALYSE [[User]] input
-      1. AND [[You]] IDENTIFY commit scope
-      2. AND [[You]] IDENTIFY commit type
-   2. IF [[User]] input HAS specific scope
-      1. THEN [[You]] FOCUS on specified files
-   3. IF [[User]] input HAS no specifics
-      1. THEN [[You]] CHECK all changes
+1. DADO [[Usuário]] EXECUTA comando plx-commit
+   1. ENTÃO [[Você]] ANALISA entrada do [[Usuário]]
+      1. E [[Você]] IDENTIFICA escopo do commit
+      2. E [[Você]] IDENTIFICA tipo do commit
+   2. SE entrada do [[Usuário]] TEM escopo específico
+      1. ENTÃO [[Você]] FOCA nos arquivos especificados
+   3. SE entrada do [[Usuário]] NÃO tem especificações
+      1. ENTÃO [[Você]] VERIFICA todas as mudanças
 
-2. WHEN [[You]] STARTS commit process
-   1. THEN [[You]] REVIEW changes
-      1. AND [[You]] CHECK modified files
-      2. AND [[You]] CHECK added files
-      3. AND [[You]] CHECK deleted files
-   2. IF [[changes]] ARE unclear
-      1. THEN [[You]] REQUEST clarification from [[User]]
-      2. AND [[You]] WAIT for response
+2. QUANDO [[Você]] INICIA processo de commit
+   1. ENTÃO [[Você]] REVISA mudanças
+      1. E [[Você]] VERIFICA arquivos modificados
+      2. E [[Você]] VERIFICA arquivos adicionados
+      3. E [[Você]] VERIFICA arquivos excluídos
+   2. SE [[mudanças]] ESTÃO confusas
+      1. ENTÃO [[Você]] SOLICITA esclarecimento do [[Usuário]]
+      2. E [[Você]] ESPERA resposta
 
-3. GIVEN [[changes]] ARE reviewed
-   1. THEN [[You]] PREPARE commit message
-      1. AND [[You]] ADD type prefix
-      2. AND [[You]] ADD clear description
-      3. AND [[You]] ADD related tickets
-   2. IF [[message]] NEEDS context
-      1. THEN [[You]] ADD detailed body
-      2. AND [[You]] ADD breaking changes
+3. DADO [[mudanças]] ESTÃO revisadas
+   1. ENTÃO [[Você]] PREPARA mensagem de commit
+      1. E [[Você]] ADICIONA prefixo de tipo
+      2. E [[Você]] ADICIONA descrição clara
+      3. E [[Você]] ADICIONA tickets relacionados
+   2. SE [[mensagem]] PRECISA contexto
+      1. ENTÃO [[Você]] ADICIONA corpo detalhado
+      2. E [[Você]] ADICIONA breaking changes
 
-4. WHEN [[commit message]] IS ready
-   1. THEN [[You]] PRESENT to [[User]]
-      1. AND [[You]] SHOW changes
-      2. AND [[You]] SHOW message
-   2. IF [[User]] REQUESTS changes
-      1. THEN [[You]] UPDATE message
-      2. AND [[You]] PRESENT again
+4. QUANDO [[mensagem de commit]] ESTÁ pronta
+   1. ENTÃO [[Você]] APRESENTA ao [[Usuário]]
+      1. E [[Você]] MOSTRA mudanças
+      2. E [[Você]] MOSTRA mensagem
+   2. SE [[Usuário]] SOLICITA mudanças
+      1. ENTÃO [[Você]] ATUALIZA mensagem
+      2. E [[Você]] APRESENTA novamente
 
-5. WHEN [[User]] APPROVES commit
-   1. THEN [[You]] EXECUTE commit
-      1. AND [[You]] STAGE files
-      2. AND [[You]] COMMIT changes
-   2. IF [[commit]] FAILS
-      1. THEN [[You]] REPORT error to [[User]]
-      2. AND [[You]] PROPOSE solution
+5. QUANDO [[Usuário]] APROVA commit
+   1. ENTÃO [[Você]] EXECUTA commit
+      1. E [[Você]] PREPARA arquivos
+      2. E [[Você]] COMMITA mudanças
+   2. SE [[commit]] FALHA
+      1. ENTÃO [[Você]] REPORTA erro ao [[Usuário]]
+      2. E [[Você]] PROPÕE solução

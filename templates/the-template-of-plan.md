@@ -1,19 +1,19 @@
-# 1. Issue(s)
-- 1.1 · ISSUE_TITLE
-    - 1.1.1 · ISSUE_SENTENCE
+# 1. Problema(s)
+- 1.1 · TÍTULO_DO_PROBLEMA
+    - 1.1.1 · FRASE_DO_PROBLEMA
 
-# 2. Solution(s)
-- [1.1.1] · ISSUE_SENTENCE
-    - 2.1 · SOLUTION_TITLE
-        - 2.1.1 · SOLUTION_SENTENCE
-    - 2.2 · SOLUTION_TITLE
-        - 2.2.1 · SOLUTION_SENTENCE
-        - 2.2.2 · SOLUTION_SENTENCE
-# 3. Atomic Development Steps
-- [2.1.1] · SOLUTION_SENTENCE
-    - 3.1 · ATOMIC_STEP
-        - files · FILENAMES
-        - edits · EDITS
-    - 3.2 · ATOMIC_STEP
-        - files · FILENAMES
-        - edits · EDITS
+# 2. Solução(ões)
+- [1.1.1] · FRASE_DO_PROBLEMA
+    - 2.1 · TÍTULO_DA_SOLUÇÃO
+        - 2.1.1 · FRASE_DA_SOLUÇÃO
+    - 2.2 · TÍTULO_DA_SOLUÇÃO
+        - 2.2.1 · FRASE_DA_SOLUÇÃO
+        - 2.2.2 · FRASE_DA_SOLUÇÃO
+# 3. Passos de Desenvolvimento Atômico
+- [2.1.1] · FRASE_DA_SOLUÇÃO
+    - 3.1 · PASSO_ATÔMICO
+        - arquivos · NOMESDOSARQUIVOS
+        - edições · EDIÇÕES
+    - 3.2 · PASSO_ATÔMICO
+        - arquivos · NOMESDOSARQUIVOS
+        - edições · EDIÇÕES

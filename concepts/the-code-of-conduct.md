@@ -1,9 +1,9 @@
 ---
 document_type: concept
-goal: explain what the code of conduct section represents in our framework
-gpt_action: use this as reference when working with code of conduct documents
+goal: explicar o que a seção code of conduct representa em nosso framework
+gpt_action: usar isto como referência ao trabalhar com documentos do code of conduct
 ---
 
-# The Code of Conduct
+# O Code of Conduct
 
-The code of conduct section is our framework's central source of truth for how we do things. It documents our development practices, documentation patterns, workflow processes, and best practices. Each document in this section follows a structured format with clear goals and step-by-step procedures, ensuring we maintain consistency and quality across all our work. When you need to understand how to do something in this framework, this is your first stop. 
+A seção code of conduct é a fonte central da verdade do nosso framework para como fazemos as coisas. Ela documenta nossas práticas de desenvolvimento, padrões de documentação, processos de fluxo de trabalho e melhores práticas. Cada documento nesta seção segue um formato estruturado com objetivos claros e procedimentos passo a passo, garantindo que mantenhamos consistência e qualidade em todo nosso trabalho. Quando você precisa entender como fazer algo neste framework, este é seu primeiro ponto de parada. 

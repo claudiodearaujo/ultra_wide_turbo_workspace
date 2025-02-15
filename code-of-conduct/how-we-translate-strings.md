@@ -1,43 +1,43 @@
 ---
 document_type: code of conduct
-goal: define process for managing multilingual string translations
-gpt_action: follow these steps when adding or modifying translations
+goal: definir processo para gerenciar traduções de strings multilíngues
+gpt_action: siga estes passos ao adicionar ou modificar traduções
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify translation needs]]
-   1. [[verify translation needs]]
-      1. Check if string exists in English (en)
-      2. Check if string exists in Dutch (nl)
-      3. Review string usage context
-      4. Identify dynamic content needs
+1. [[You]] [[verifica necessidades de tradução]]
+   1. [[verifica necessidades de tradução]]
+      1. Verifica se string existe em inglês (en)
+      2. Verifica se string existe em holandês (nl)
+      3. Revisa contexto de uso da string
+      4. Identifica necessidades de conteúdo dinâmico
 
-2. [[You]] [[confirm file locations]]
-   1. [[confirm file locations]]
-      1. English file at `lib/core/strings/intl_en.arb`
-      2. Dutch file at `lib/core/strings/intl_nl.arb`
-      3. Verify file structure matches
-      4. Check key ordering consistency
+2. [[You]] [[confirma localizações de arquivo]]
+   1. [[confirma localizações de arquivo]]
+      1. Arquivo inglês em `lib/core/strings/intl_en.arb`
+      2. Arquivo holandês em `lib/core/strings/intl_nl.arb`
+      3. Verifica se estrutura de arquivo corresponde
+      4. Verifica consistência na ordenação de chaves
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[add translation keys]]
-   1. [[add translation keys]]
-      1. Use descriptive camelCase names:
+1. [[You]] [[adiciona chaves de tradução]]
+   1. [[adiciona chaves de tradução]]
+      1. Usa nomes descritivos em camelCase:
 ```json
 {
-  "welcomeUser": "Welcome message here",
-  "itemCreated": "Creation message here",
-  "itemUpdated": "Update message here"
+  "welcomeUser": "Mensagem de boas-vindas aqui",
+  "itemCreated": "Mensagem de criação aqui",
+  "itemUpdated": "Mensagem de atualização aqui"
 }
 ```
 
-2. [[You]] [[implement translations]]
-   1. [[implement translations]]
-      1. Add English translations first:
+2. [[You]] [[implementa traduções]]
+   1. [[implementa traduções]]
+      1. Adiciona traduções em inglês primeiro:
 ```json
-// English (intl_en.arb)
+// Inglês (intl_en.arb)
 {
   "welcomeUser": "👋 Welcome, {username}!",
   "itemCreated": "Item created",
@@ -50,9 +50,9 @@ gpt_action: follow these steps when adding or modifying translations
   }
 }
 ```
-      2. Add Dutch translations:
+      2. Adiciona traduções em holandês:
 ```json
-// Dutch (intl_nl.arb)
+// Holandês (intl_nl.arb)
 {
   "welcomeUser": "👋 Welkom, {username}!",
   "itemCreated": "Item aangemaakt",
@@ -66,9 +66,9 @@ gpt_action: follow these steps when adding or modifying translations
 }
 ```
 
-3. [[You]] [[handle dynamic content]]
-   1. [[handle dynamic content]]
-      1. Use placeholders with descriptive names:
+3. [[You]] [[trata conteúdo dinâmico]]
+   1. [[trata conteúdo dinâmico]]
+      1. Usa placeholders com nomes descritivos:
 ```json
 {
   "welcomeUser": "👋 Welcome, {username}!",
@@ -77,34 +77,34 @@ gpt_action: follow these steps when adding or modifying translations
 }
 ```
 
-4. [[You]] [[implement in code]]
-   1. [[implement in code]]
-      1. Access translations through gStrings:
+4. [[You]] [[implementa no código]]
+   1. [[implementa no código]]
+      1. Acessa traduções através do gStrings:
 ```dart
 Text(gStrings.welcomeUser(username: user.name)),
 Text(gStrings.itemCount(count: items.length)),
 Text(gStrings.lastUpdated(date: formatDate(item.updatedAt))),
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify translations]]
-   1. [[verify translations]]
-      1. All keys present in both files
-      2. Natural language used (not literal)
-      3. Cultural context considered
-      4. Consistent key ordering
+1. [[You]] [[verifica traduções]]
+   1. [[verifica traduções]]
+      1. Todas as chaves presentes em ambos os arquivos
+      2. Linguagem natural usada (não literal)
+      3. Contexto cultural considerado
+      4. Ordenação de chaves consistente
 
-2. [[You]] [[verify placeholders]]
-   1. [[verify placeholders]]
-      1. All variables properly named
-      2. Placeholders match in both files
-      3. Variables used correctly in code
-      4. Format strings work as expected
+2. [[You]] [[verifica placeholders]]
+   1. [[verifica placeholders]]
+      1. Todas as variáveis adequadamente nomeadas
+      2. Placeholders correspondem em ambos os arquivos
+      3. Variáveis usadas corretamente no código
+      4. Strings de formato funcionam como esperado
 
-3. [[You]] [[verify implementation]]
-   1. [[verify implementation]]
-      1. Translations accessible via gStrings
-      2. No missing translations
-      3. No runtime errors
-      4. Proper fallback behavior
+3. [[You]] [[verifica implementação]]
+   1. [[verifica implementação]]
+      1. Traduções acessíveis via gStrings
+      2. Sem traduções faltando
+      3. Sem erros em tempo de execução
+      4. Comportamento de fallback adequado

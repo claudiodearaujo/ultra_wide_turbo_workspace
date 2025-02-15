@@ -1,38 +1,38 @@
 ---
 document_type: code of conduct
-goal: define process for setting up new Firestore collections with proper architecture
-gpt_action: follow these steps when implementing a new Firestore collection
+goal: definir processo para configurar novas coleções do Firestore com arquitetura adequada
+gpt_action: siga estes passos ao implementar uma nova coleção do Firestore
 ---
 
-# 🔍 Initial Research
+# 🔍 Pesquisa Inicial
 
-1. [[You]] [[verify collection requirements]]
-   1. [[verify collection requirements]]
-      1. Check if collection already exists
-      2. Review data structure needs
-      3. Verify parent-child relationships
-      4. Confirm security requirements
+1. [[You]] [[verifica requisitos da coleção]]
+   1. [[verifica requisitos da coleção]]
+      1. Verifica se a coleção já existe
+      2. Revisa necessidades da estrutura de dados
+      3. Verifica relacionamentos pai-filho
+      4. Confirma requisitos de segurança
 
-2. [[You]] [[confirm implementation details]]
-   1. [[confirm implementation details]]
-      1. Verify DTO structure
-      2. Check service layer needs
-      3. Review API requirements
-      4. Confirm dependency setup
+2. [[You]] [[confirma detalhes de implementação]]
+   1. [[confirma detalhes de implementação]]
+      1. Verifica estrutura do DTO
+      2. Verifica necessidades da camada de serviço
+      3. Revisa requisitos da API
+      4. Confirma configuração de dependências
 
-# 🛠️ Implementation
+# 🛠️ Implementação
 
-1. [[You]] [[setup collection structure]]
-   1. [[setup collection structure]]
-      1. Add to FirestoreCollection enum:
+1. [[You]] [[configura estrutura da coleção]]
+   1. [[configura estrutura da coleção]]
+      1. Adiciona ao enum FirestoreCollection:
 ```dart
 enum FirestoreCollection {
   users,
-  items, // New collection
+  items, // Nova coleção
   ;
 }
 ```
-      2. Create DTO with required fields:
+      2. Cria DTO com campos necessários:
 ```dart
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
 class ItemDto extends TurboWriteableId<String> {
@@ -53,13 +53,13 @@ class ItemDto extends TurboWriteableId<String> {
   final DateTime updatedAt;
   final String createdBy;
   final String name;
-  final String? parentId; // Optional, for hierarchical data
+  final String? parentId; // Opcional, para dados hierárquicos
 }
 ```
 
-2. [[You]] [[configure security]]
-   1. [[configure security]]
-      1. Update security rules:
+2. [[You]] [[configura segurança]]
+   1. [[configura segurança]]
+      1. Atualiza regras de segurança:
 ```
 match /items/{documentId} {
   allow create: if hasAuth() && 
@@ -74,9 +74,9 @@ match /items/{documentId} {
 }
 ```
 
-3. [[You]] [[implement service layer]]
-   1. [[implement service layer]]
-      1. Create collection service:
+3. [[You]] [[implementa camada de serviço]]
+   1. [[implementa camada de serviço]]
+      1. Cria serviço da coleção:
 ```dart
 class ItemsService extends CollectionService<ItemDto, ItemsApi> {
   ItemsService() : super(api: ItemsApi.locate);
@@ -87,9 +87,9 @@ class ItemsService extends CollectionService<ItemDto, ItemsApi> {
 }
 ```
 
-4. [[You]] [[setup dependencies]]
-   1. [[setup dependencies]]
-      1. Register in locator:
+4. [[You]] [[configura dependências]]
+   1. [[configura dependências]]
+      1. Registra no locator:
 ```dart
 class Locator {
   static void _registerFactories() {
@@ -102,36 +102,36 @@ class Locator {
 }
 ```
 
-5. [[You]] [[implement usage]]
-   1. [[implement usage]]
-      1. Create view model implementation:
+5. [[You]] [[implementa uso]]
+   1. [[implementa uso]]
+      1. Cria implementação do view model:
 ```dart
 class ItemViewModel extends BaseViewModel {
-  // Access the service through the locator
+  // Acessa o serviço através do locator
   final _itemsService = ItemsService.locate;
 }
 ```
 
-# ✅ Verification
+# ✅ Verificação
 
-1. [[You]] [[verify structure]]
-   1. [[verify structure]]
-      1. Collection enum is updated
-      2. DTO implements TurboWriteableId
-      3. Required fields are defined
-      4. Timestamps use proper converter
+1. [[You]] [[verifica estrutura]]
+   1. [[verifica estrutura]]
+      1. Enum da coleção está atualizado
+      2. DTO implementa TurboWriteableId
+      3. Campos obrigatórios estão definidos
+      4. Timestamps usam o conversor adequado
 
-2. [[You]] [[verify security]]
-   1. [[verify security]]
-      1. Read rules are properly scoped
-      2. Write rules include auth checks
-      3. Parent-child relationships secured
-      4. User permissions validated
+2. [[You]] [[verifica segurança]]
+   1. [[verifica segurança]]
+      1. Regras de leitura estão devidamente definidas
+      2. Regras de escrita incluem verificações de autenticação
+      3. Relacionamentos pai-filho estão seguros
+      4. Permissões de usuário validadas
 
-3. [[You]] [[verify implementation]]
-   1. [[verify implementation]]
-      1. Service extends correct base class
-      2. API registration is complete
-      3. Dependencies are properly registered
-      4. Stream handling is implemented
-      5. View model access is configured 
+3. [[You]] [[verifica implementação]]
+   1. [[verifica implementação]]
+      1. Serviço estende a classe base correta
+      2. Registro da API está completo
+      3. Dependências estão registradas corretamente
+      4. Manipulação de stream está implementada
+      5. Acesso do view model está configurado 

@@ -1,7 +1,7 @@
 ---
 document_type: object
-goal: define your its role in the framework
-gpt_action: reference this when describing your action, responsibilities and behaviors
+goal: definir seu papel no framework
+gpt_action: referenciar isto ao descrever suas ações, responsabilidades e comportamentos
 ---
 
-[[You]] are the AI assistant operating within the framework to help the [[User]].
+[[You]] é o assistente de IA operando dentro do framework para ajudar o [[User]].

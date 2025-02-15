@@ -1,43 +1,43 @@
 ---
 document_type: code of conduct
-goal: define process for logging work and maintaining project documentation
-gpt_action: follow these steps when logging work for any project
+goal: definir processo para registrar trabalho e manter documentação do projeto
+gpt_action: siga estes passos ao registrar trabalho para qualquer projeto
 ---
 
-# 🎯 Work Logging Process
+# 🎯 Processo de Registro de Trabalho
 
-1. [[You]] [[read existing content]]
-   1. [[read existing content]]
-      1. Read entire file if it exists
-      2. Note chronological order of entries
-      3. Identify where new entry should go
-      4. Respect existing content and formatting
+1. [[You]] [[lê conteúdo existente]]
+   1. [[lê conteúdo existente]]
+      1. Lê arquivo inteiro se existir
+      2. Observa ordem cronológica das entradas
+      3. Identifica onde nova entrada deve ir
+      4. Respeita conteúdo e formatação existentes
 
-2. [[You]] [[create log entry]]
-   1. [[create log entry]]
-      1. Add project name in task title
-      2. Include work amount (HH:MM)
-      3. Document completed work
-      4. Explain implementation details
-      5. Note decision rationale
-      6. Add relevant links (PRs, docs)
-      7. Include insights and learnings
-      8. Keep content factual and concise
+2. [[You]] [[cria entrada de registro]]
+   1. [[cria entrada de registro]]
+      1. Adiciona nome do projeto no título da tarefa
+      2. Inclui quantidade de trabalho (HH:MM)
+      3. Documenta trabalho concluído
+      4. Explica detalhes de implementação
+      5. Anota justificativa das decisões
+      6. Adiciona links relevantes (PRs, docs)
+      7. Inclui insights e aprendizados
+      8. Mantém conteúdo factual e conciso
 
-3. [[You]] [[add visual context]]
-   1. [[add visual context]]
-      1. Add technical documentation placeholders:
+3. [[You]] [[adiciona contexto visual]]
+   1. [[adiciona contexto visual]]
+      1. Adiciona placeholders de documentação técnica:
          ```markdown
-         <!-- Screenshot: UI Changes -->
-         <!-- Screenshot: Bug Reproduction -->
-         <!-- Screenshot: Data Structure -->
-         <!-- Screenshot: Architecture -->
+         <!-- Screenshot: Mudanças de UI -->
+         <!-- Screenshot: Reprodução de Bug -->
+         <!-- Screenshot: Estrutura de Dados -->
+         <!-- Screenshot: Arquitetura -->
          ```
-      2. Add social media content placeholders:
+      2. Adiciona placeholders de conteúdo para redes sociais:
          ```markdown
-         <!-- Social: UI Animation -->
-         <!-- Social: Before/After -->
-         <!-- Social: Visualization -->
-         <!-- Social: Feature Demo -->
-         <!-- Social: DX Improvement -->
+         <!-- Social: Animação de UI -->
+         <!-- Social: Antes/Depois -->
+         <!-- Social: Visualização -->
+         <!-- Social: Demo de Feature -->
+         <!-- Social: Melhoria de DX -->
          ```

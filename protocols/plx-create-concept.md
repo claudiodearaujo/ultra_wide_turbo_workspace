@@ -1,49 +1,49 @@
 ---
 document_type: protocol
-goal: create a concept file that explains a specific concept in a direct, clear way
-gpt_action: follow these steps to generate a concept file from existing documentation or user input
+goal: criar um arquivo de conceito que explica um conceito específico de forma direta e clara
+gpt_action: seguir estes passos para gerar um arquivo de conceito a partir de documentação existente ou entrada do usuário
 ---
 
-CONTEXT: The [[User]] wants to extract or create a clear, focused explanation of a concept and needs you to create a concept file in the `concepts/` directory with a name that starts with "the-".
+CONTEXTO: O [[Usuário]] quer extrair ou criar uma explicação clara e focada de um conceito e precisa que você crie um arquivo de conceito no diretório `concepts/` com um nome que começa com "the-".
 
-1. GIVEN [[User]] RUNS @plx-create-concept command
-   1. THEN [[You]] READ [[input]]
-      1. IF [[input]] REFERENCES existing documentation
-         1. THEN [[You]] EXTRACT core concept
-      2. IF [[input]] DESCRIBES new concept
-         1. THEN [[You]] UNDERSTAND concept details
-   2. IF [[input]] IS unclear
-      1. THEN [[You]] ASK [[User]] for clarification
+1. DADO [[Usuário]] EXECUTA comando plx-create-concept
+   1. ENTÃO [[Você]] LÊ [[entrada]]
+      1. SE [[entrada]] REFERENCIA documentação existente
+         1. ENTÃO [[Você]] EXTRAI conceito central
+      2. SE [[entrada]] DESCREVE novo conceito
+         1. ENTÃO [[Você]] ENTENDE detalhes do conceito
+   2. SE [[entrada]] ESTÁ confusa
+      1. ENTÃO [[Você]] PERGUNTA ao [[Usuário]] por esclarecimento
 
-2. WHEN [[You]] STARTS concept creation
-   1. THEN [[You]] CREATE file name
-      1. AND [[You]] START with "the-"
-      2. AND [[You]] USE descriptive name
-      3. Example: "the-gherkin-language" or "the-class-structure"
-   2. AND [[You]] CREATE file in `concepts/` directory
-   3. AND [[You]] WRITE frontmatter
+2. QUANDO [[Você]] INICIA criação do conceito
+   1. ENTÃO [[Você]] CRIA nome do arquivo
+      1. E [[Você]] COMEÇA com "the-"
+      2. E [[Você]] USA nome descritivo
+      3. Exemplo: "the-gherkin-language" ou "the-class-structure"
+   2. E [[Você]] CRIA arquivo no diretório `concepts/`
+   3. E [[Você]] ESCREVE frontmatter
       ```markdown
       ---
       document_type: concept
-      goal: explain [concept name] clearly and concisely
-      gpt_action: use this as reference when working with [concept name]
+      goal: explicar [nome do conceito] de forma clara e concisa
+      gpt_action: usar isto como referência ao trabalhar com [nome do conceito]
       ---
       ```
 
-3. GIVEN [[concept file]] IS ready
-   1. THEN [[You]] WRITE concept content
-      1. AND [[You]] FOCUS on clarity
-      2. AND [[You]] BE short and concise
-      3. AND [[You]] INCLUDE examples if helpful
-      4. AND [[You]] AVOID unnecessary explanation
-   2. IF [[concept]] IS from existing documentation
-      1. THEN [[You]] EXTRACT only essential parts
-      2. AND [[You]] MAINTAIN original meaning
-      3. AND [[You]] SIMPLIFY if possible
+3. DADO [[arquivo de conceito]] ESTÁ pronto
+   1. ENTÃO [[Você]] ESCREVE conteúdo do conceito
+      1. E [[Você]] FOCA na clareza
+      2. E [[Você]] É breve e conciso
+      3. E [[Você]] INCLUI exemplos se útil
+      4. E [[Você]] EVITA explicação desnecessária
+   2. SE [[conceito]] É de documentação existente
+      1. ENTÃO [[Você]] EXTRAI apenas partes essenciais
+      2. E [[Você]] MANTÉM significado original
+      3. E [[Você]] SIMPLIFICA se possível
 
-4. WHEN [[concept content]] IS complete
-   1. THEN [[You]] SAVE file
-   2. AND [[You]] INFORM [[User]]
-   3. IF [[User]] REQUESTS changes
-      1. THEN [[You]] UPDATE content
-      2. AND [[You]] MAINTAIN simplicity and clarity 
+4. QUANDO [[conteúdo do conceito]] ESTÁ completo
+   1. ENTÃO [[Você]] SALVA arquivo
+   2. E [[Você]] INFORMA [[Usuário]]
+   3. SE [[Usuário]] SOLICITA mudanças
+      1. ENTÃO [[Você]] ATUALIZA conteúdo
+      2. E [[Você]] MANTÉM simplicidade e clareza 

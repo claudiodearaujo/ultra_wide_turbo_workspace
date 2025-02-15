@@ -1,11 +1,11 @@
 ---
 document_type: work_document
-goal: track future work items in chronological order
-gpt_action: reference this document only when explicitly mentioned by the user
+goal: rastrear itens de trabalho futuros em ordem cronológica
+gpt_action: referenciar este documento apenas quando explicitamente mencionado pelo usuário
 ---
 
-# 📋 Your Backlog
+# 📋 Seu Backlog
 
-This document is populated by the user and contains a chronological list of work items. Items should only be referenced or modified when explicitly requested by the user.
+Este documento é preenchido pelo usuário e contém uma lista cronológica de itens de trabalho. Os itens só devem ser referenciados ou modificados quando explicitamente solicitados pelo usuário.
 
 - [ ] 

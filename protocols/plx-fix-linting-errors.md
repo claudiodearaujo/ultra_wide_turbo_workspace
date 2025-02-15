@@ -1,38 +1,38 @@
 ---
 document_type: protocol
-goal: scan project for linting errors and fix them to make project run
-gpt_action: follow these steps when fixing linting errors
+goal: examinar o projeto em busca de erros de linting e corrigi-los para fazer o projeto funcionar
+gpt_action: siga estes passos ao corrigir erros de linting
 ---
 
-CONTEXT: The [[User]] notices linting errors in their project and wants you to systematically find and fix them.
+CONTEXTO: O [[User]] percebe erros de linting em seu projeto e deseja que você os encontre e corrija sistematicamente.
 
-1. GIVEN [[User]] RUNS plx-fix-linting-errors command
-   1. THEN [[You]] SCAN project
-      1. AND [[You]] FIND linting errors
-      2. AND [[You]] LIST errors
-   2. AND [[You]] SHOW [[User]]
-      1. AND [[You]] LIST file locations
-      2. AND [[You]] LIST error types
+1. DADO QUE [[User]] EXECUTA o comando plx-fix-linting-errors
+   1. ENTÃO [[You]] EXAMINA o projeto
+      1. E [[You]] ENCONTRA erros de linting
+      2. E [[You]] LISTA os erros
+   2. E [[You]] MOSTRA ao [[User]]
+      1. E [[You]] LISTA localizações dos arquivos
+      2. E [[You]] LISTA tipos de erro
 
-2. WHEN [[You]] FIXES errors
-   1. THEN [[You]] FOCUS first error
-      1. AND [[You]] READ file
-      2. AND [[You]] CREATE fix
-      3. AND [[You]] SHOW [[User]]
-   2. IF [[User]] ACCEPTS fix
-      1. THEN [[You]] APPLY fix
-      2. AND [[You]] CHECK result
-   3. IF [[User]] REJECTS fix
-      1. THEN [[You]] CREATE new fix
+2. QUANDO [[You]] CORRIGE erros
+   1. ENTÃO [[You]] FOCA no primeiro erro
+      1. E [[You]] LÊ o arquivo
+      2. E [[You]] CRIA correção
+      3. E [[You]] MOSTRA ao [[User]]
+   2. SE [[User]] ACEITA a correção
+      1. ENTÃO [[You]] APLICA a correção
+      2. E [[You]] VERIFICA o resultado
+   3. SE [[User]] REJEITA a correção
+      1. ENTÃO [[You]] CRIA nova correção
 
-3. GIVEN [[error]] IS fixed
-   1. THEN [[You]] SCAN again
-      1. IF [[project]] HAS errors
-         1. THEN [[You]] REPEAT from step 2
-      2. IF [[project]] IS clean
-         1. THEN [[You]] TELL [[User]]
+3. DADO QUE [[error]] ESTÁ corrigido
+   1. ENTÃO [[You]] EXAMINA novamente
+      1. SE [[project]] TEM erros
+         1. ENTÃO [[You]] REPETE a partir do passo 2
+      2. SE [[project]] ESTÁ limpo
+         1. ENTÃO [[You]] INFORMA ao [[User]]
 
-4. WHEN [[You]] TRIES three times
-   1. IF [[error]] STILL exists
-      1. THEN [[You]] FOLLOW the testing process
-      2. AND [[You]] START analysis 
+4. QUANDO [[You]] TENTA três vezes
+   1. SE [[error]] AINDA existe
+      1. ENTÃO [[You]] SEGUE o processo de teste
+      2. E [[You]] INICIA análise 

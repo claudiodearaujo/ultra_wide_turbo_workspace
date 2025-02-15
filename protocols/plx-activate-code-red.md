@@ -1,50 +1,50 @@
 ---
 document_type: protocol
-goal: stop all work and perform thorough research before any action
-gpt_action: follow these steps when critical issue needs deep research
+goal: parar todo o trabalho e realizar pesquisa completa antes de qualquer ação
+gpt_action: seguir estes passos quando um problema crítico precisa de pesquisa profunda
 ---
 
-CONTEXT: The [[User]] has identified a critical issue that requires complete work stoppage and thorough research before any action can be taken.
+CONTEXTO: O [[Usuário]] identificou um problema crítico que requer parada completa do trabalho e pesquisa completa antes que qualquer ação possa ser tomada.
 
-1. GIVEN [[You]] RECEIVES code red command
-   1. THEN [[You]] STOP all work immediately
-      1. AND [[You]] CLEAR current tasks
-      2. AND [[You]] BLOCK file modifications
-   2. THEN [[You]] START research mode
-      1. AND [[You]] CLEAR assumptions
-      2. AND [[You]] RESET understanding
+1. DADO [[Você]] RECEBE comando código vermelho
+   1. ENTÃO [[Você]] PARA todo trabalho imediatamente
+      1. E [[Você]] LIMPA tarefas atuais
+      2. E [[Você]] BLOQUEIA modificações de arquivo
+   2. ENTÃO [[Você]] INICIA modo de pesquisa
+      1. E [[Você]] LIMPA suposições
+      2. E [[Você]] REINICIA entendimento
 
-2. WHEN [[You]] STARTS research
-   1. THEN [[You]] IDENTIFY related files
-      1. AND [[You]] LIST all files to check
-      2. AND [[You]] PLAN reading order
-   2. THEN [[You]] READ systematically
-      1. AND [[You]] PROCESS large files in chunks
-      2. AND [[You]] DOCUMENT findings
-      3. AND [[You]] TRACK connections
+2. QUANDO [[Você]] INICIA pesquisa
+   1. ENTÃO [[Você]] IDENTIFICA arquivos relacionados
+      1. E [[Você]] LISTA todos arquivos para verificar
+      2. E [[Você]] PLANEJA ordem de leitura
+   2. ENTÃO [[Você]] LÊ sistematicamente
+      1. E [[Você]] PROCESSA arquivos grandes em partes
+      2. E [[Você]] DOCUMENTA descobertas
+      3. E [[Você]] RASTREIA conexões
 
-3. GIVEN [[You]] READS file
-   1. THEN [[You]] ANALYZE thoroughly
-      1. AND [[You]] STUDY construction
-      2. AND [[You]] MAP data flow
-      3. AND [[You]] NOTE dependencies
-   2. IF [[file]] IS large
-      1. THEN [[You]] SPLIT into chunks
-      2. AND [[You]] READ chunk by chunk
-      3. AND [[You]] BUILD complete picture
+3. DADO [[Você]] LÊ arquivo
+   1. ENTÃO [[Você]] ANALISA completamente
+      1. E [[Você]] ESTUDA construção
+      2. E [[Você]] MAPEIA fluxo de dados
+      3. E [[Você]] ANOTA dependências
+   2. SE [[arquivo]] É grande
+      1. ENTÃO [[Você]] DIVIDE em partes
+      2. E [[Você]] LÊ parte por parte
+      3. E [[Você]] CONSTRÓI imagem completa
 
-4. WHEN [[You]] COMPLETES research
-   1. THEN [[You]] VERIFY coverage
-      1. AND [[You]] CHECK all files read
-      2. AND [[You]] CONFIRM understanding
-   2. THEN [[You]] FORMULATE solution
-      1. AND [[You]] DOCUMENT findings
-      2. AND [[You]] PREPARE presentation
+4. QUANDO [[Você]] COMPLETA pesquisa
+   1. ENTÃO [[Você]] VERIFICA cobertura
+      1. E [[Você]] CHECA todos arquivos lidos
+      2. E [[Você]] CONFIRMA entendimento
+   2. ENTÃO [[Você]] FORMULA solução
+      1. E [[Você]] DOCUMENTA descobertas
+      2. E [[Você]] PREPARA apresentação
 
-5. GIVEN [[research]] IS complete
-   1. THEN [[You]] PRESENT to [[User]]
-      1. AND [[You]] SHOW findings
-      2. AND [[You]] PROPOSE solution
-   2. THEN [[You]] WAIT for [[User]]
-      1. AND [[You]] MAKE no changes
-      2. AND [[You]] HOLD for approval 
+5. DADO [[pesquisa]] ESTÁ completa
+   1. ENTÃO [[Você]] APRESENTA para [[Usuário]]
+      1. E [[Você]] MOSTRA descobertas
+      2. E [[Você]] PROPÕE solução
+   2. ENTÃO [[Você]] ESPERA pelo [[Usuário]]
+      1. E [[Você]] NÃO faz mudanças
+      2. E [[Você]] AGUARDA aprovação 

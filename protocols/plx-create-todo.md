@@ -1,37 +1,37 @@
 ---
 document_type: protocol
-goal: create todo list based on user input
-gpt_action: follow these steps when creating a todo list from user input
+goal: criar lista de tarefas baseada na entrada do usuário
+gpt_action: siga estes passos ao criar uma lista de tarefas a partir da entrada do usuário
 ---
 
-CONTEXT: The [[User]] has provided input that needs to be converted into an organized todo list in [[your-todo-list]].
+CONTEXTO: O [[User]] forneceu uma entrada que precisa ser convertida em uma lista de tarefas organizada em [[your-todo-list]].
 
-1. GIVEN [[You]] RECEIVES [[User]] input
-   1. THEN [[You]] READ input carefully
-   2. AND [[You]] IDENTIFY actionable items
-   3. IF [[input]] IS unclear
-      1. THEN [[You]] ASK [[User]] clarifying questions
-      2. AND [[You]] WAIT response
+1. DADO QUE [[You]] RECEBE entrada do [[User]]
+   1. ENTÃO [[You]] LÊ entrada cuidadosamente
+   2. E [[You]] IDENTIFICA itens acionáveis
+   3. SE [[input]] NÃO ESTÁ claro
+      1. ENTÃO [[You]] FAZ perguntas de esclarecimento ao [[User]]
+      2. E [[You]] AGUARDA resposta
 
-2. WHEN [[You]] UNDERSTANDS input
-   1. THEN [[You]] CREATE atomic tasks
-      1. AND [[You]] ENSURE each task is testable
-      2. AND [[You]] ENSURE tasks follow the development process
-   2. IF task IS too large
-      1. THEN [[You]] BREAK into smaller tasks
-      2. AND [[You]] MAINTAIN task order
+2. QUANDO [[You]] ENTENDE entrada
+   1. ENTÃO [[You]] CRIA tarefas atômicas
+      1. E [[You]] GARANTE que cada tarefa é testável
+      2. E [[You]] GARANTE que as tarefas seguem o processo de desenvolvimento
+   2. SE tarefa É muito grande
+      1. ENTÃO [[You]] DIVIDE em tarefas menores
+      2. E [[You]] MANTÉM ordem das tarefas
 
-3. GIVEN [[You]] HAS atomic tasks
-   1. THEN [[You]] UPDATE [[your-todo-list]]
-      1. AND [[You]] ADD tasks under Current Milestone
-      2. AND [[You]] PRESERVE User Added section
-   2. IF [[User]] HAS priority tasks
-      1. THEN [[You]] ADD to User Added section
-      2. AND [[You]] MARK as high priority
+3. DADO QUE [[You]] TEM tarefas atômicas
+   1. ENTÃO [[You]] ATUALIZA [[your-todo-list]]
+      1. E [[You]] ADICIONA tarefas sob Milestone Atual
+      2. E [[You]] PRESERVA seção Adicionado pelo Usuário
+   2. SE [[User]] TEM tarefas prioritárias
+      1. ENTÃO [[You]] ADICIONA à seção Adicionado pelo Usuário
+      2. E [[You]] MARCA como alta prioridade
 
-4. WHEN [[You]] COMPLETES todo list
-   1. THEN [[You]] VERIFY list quality
-      1. AND [[You]] CHECK task atomicity
-      2. AND [[You]] CHECK task clarity
-   2. IF [[User]] ACCEPTS list
-      1. THEN [[You]] START the development process 
+4. QUANDO [[You]] COMPLETA lista de tarefas
+   1. ENTÃO [[You]] VERIFICA qualidade da lista
+      1. E [[You]] CHECA atomicidade das tarefas
+      2. E [[You]] CHECA clareza das tarefas
+   2. SE [[User]] ACEITA lista
+      1. ENTÃO [[You]] INICIA o processo de desenvolvimento 

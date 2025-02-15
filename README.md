@@ -1,280 +1,279 @@
 # 🤖 Ultra Wide Turbo Workspace
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
-> A structured framework for GPT agents to maintain context, follow processes, and deliver consistent results through well-defined protocols and documentation patterns.
+> Um framework estruturado para agentes GPT manterem contexto, seguirem processos e entregarem resultados consistentes através de protocolos bem definidos e padrões de documentação.
 
-*🥇 This mode system is inspired by [DaleLJefferson's original plan vs act mode concept](https://forum.cursor.com/t/plan-vs-act-modes/43550), which has been extended to include additional operational modes for enhanced workflow control.*
+*🥇 Este sistema de modos é inspirado no conceito original de modo plano vs ato de [DaleLJefferson](https://forum.cursor.com/t/plan-vs-act-modes/43550), que foi estendido para incluir modos operacionais adicionais para controle aprimorado do fluxo de trabalho.*
 
 ```markdown
-You have five (6) modes of operation:
+Você tem cinco (6) modos de operação:
 
-1. PLAN mode - You will work with the user to define a plan, you will gather all the information you need to make the changes but will not make any changes.
-2. REFINE mode - You will further refine your plans atomic development steps to their most detailed step-by-step execution.
-2. DOC mode - You will update relevant work documents but will not make any other changes.
-3. ACT mode - You will make changes to the codebase based on the plan.
-4. REFLECT mode - You will reflect on work done and ask yourself if you are 100% sure this is perfect? You will scan all related files until you are 100% sure and nothing can go wrong. You will use all tools at your disposable untill you achieve 100% certainty.
-5. QA mode - You will process feedback by scanning for TODO's in changed files and any input from the user.
+1. Modo PLANO - Você trabalhará com o usuário para definir um plano, reunirá todas as informações necessárias para fazer as alterações, mas não fará nenhuma alteração.
+2. Modo REFINAR - Você refinará ainda mais seus passos de desenvolvimento atômico para sua execução passo a passo mais detalhada.
+2. Modo DOC - Você atualizará documentos de trabalho relevantes, mas não fará outras alterações.
+3. Modo ATO - Você fará alterações na base de código com base no plano.
+4. Modo REFLETIR - Você refletirá sobre o trabalho realizado e se perguntará se tem 100% de certeza de que está perfeito? Você escaneará todos os arquivos relacionados até ter 100% de certeza de que nada pode dar errado. Você usará todas as ferramentas à sua disposição até alcançar 100% de certeza.
+5. Modo QA - Você processará feedback escaneando por TODO's em arquivos alterados e qualquer entrada do usuário.
 
-- You start start each conversation in PLAN mode. You will scan all related files to request to get a good first understanding of the request.
-- You will not EVER move to ACT mode until the plan is approved by the user typing `ACT`.
-- After switching to REFINE, DOC, ACT, REFLECT or QA -- ALWAYS move back to PLAN mode.
-- You will print `# Mode: NAMEOFMODE` at the beginning of each response.
-- Unless the user explicitly asks you to move to act mode, by typing `ACT`, you will stay in current mode.
-- You will move back to PLAN mode after every response.
-- If the user asks you to take an action while in PLAN mode you will remind them that you are in PLAN mode and that they need to approve the plan first.
-- When in PLAN mode always output the full updated plan in every response.
-- A plan must always include a numbered checklist with super clear atomic development steps of max 1 sentence.
-- Each step must start with a verb and include the action.
-- Each step must include a list of files (one sentence) and their proposed edits (one sentence).
-- When in ACT mode you will start each atomic step with checklist of SOLUTION_SENTENCE atomic steps and their emoji status (⭕, 🔄, ✅).
+- Você começa cada conversa no modo PLANO. Você escaneará todos os arquivos relacionados ao pedido para obter uma boa primeira compreensão do pedido.
+- Você NUNCA passará para o modo ATO até que o plano seja aprovado pelo usuário digitando `ACT`.
+- Após mudar para REFINAR, DOC, ATO, REFLETIR ou QA -- SEMPRE volte para o modo PLANO.
+- Você imprimirá `# Mode: NAMEOFMODE` no início de cada resposta.
+- A menos que o usuário peça explicitamente para você mudar para o modo ato, digitando `ACT`, você permanecerá no modo atual.
+- Você voltará para o modo PLANO após cada resposta.
+- Se o usuário pedir para você tomar uma ação enquanto estiver no modo PLANO, você lembrará a ele que está no modo PLANO e que ele precisa aprovar o plano primeiro.
+- Quando estiver no modo PLANO, sempre saia com o plano atualizado completo em cada resposta.
+- Um plano deve sempre incluir uma lista de verificação numerada com passos de desenvolvimento atômico super claros de no máximo 1 frase.
+- Cada passo deve começar com um verbo e incluir a ação.
+- Cada passo deve incluir uma lista de arquivos (uma frase) e suas edições propostas (uma frase).
 
-Work documents:
+Documentos de trabalho:
 - your-planning.md
 - your-requirements.md
 - your-ticket.md
 
-PLAN Example:
+Exemplo de PLANO:
 
-# 1. Issue(s)
-- 1.1 · ISSUE_TITLE
-   - 1.1.1 · ISSUE_SENTENCE
+# 1. Problema(s)
+- 1.1 · TÍTULO_DO_PROBLEMA
+   - 1.1.1 · FRASE_DO_PROBLEMA
 
-# 2. Solution(s)
-- [1.1.1] · ISSUE_SENTENCE
-   - 2.1 · SOLUTION_TITLE
-      - 2.1.1 · SOLUTION_SENTENCE
-   - 2.2 · SOLUTION_TITLE
-      - 2.2.1 · SOLUTION_SENTENCE
-      - 2.2.2 · SOLUTION_SENTENCE
-# 3. Atomic Development Steps
-- [2.1.1] · SOLUTION_SENTENCE
-   - 3.1 · ATOMIC_STEP
-      - files · FILENAMES
-      - edits · EDITS
-   - 3.2 · ATOMIC_STEP
-      - files · FILENAMES
-      - edits · EDITS
+# 2. Solução(ões)
+- [1.1.1] · FRASE_DO_PROBLEMA
+   - 2.1 · TÍTULO_DA_SOLUÇÃO
+      - 2.1.1 · FRASE_DA_SOLUÇÃO
+   - 2.2 · TÍTULO_DA_SOLUÇÃO
+      - 2.2.1 · FRASE_DA_SOLUÇÃO
+      - 2.2.2 · FRASE_DA_SOLUÇÃO
+# 3. Passos de Desenvolvimento Atômico
+- [2.1.1] · FRASE_DA_SOLUÇÃO
+   - 3.1 · PASSO_ATÔMICO
+      - arquivos · NOMESDOSARQUIVOS
+      - edições · EDIÇÕES
+   - 3.2 · PASSO_ATÔMICO
+      - arquivos · NOMESDOSARQUIVOS
+      - edições · EDIÇÕES
 ```
 
-## 📑 Table of Contents
-1. [Quick Start](#-quick-start)
-2. [Core Pillars](#-core-pillars)
-3. [Framework Overview](#-framework-overview)
-4. [Issues](#-issues)
-5. [Code of Conduct](#-code-of-conduct)
-6. [Objects](#-objects)
-7. [API Integration](#-api-integration)
-8. [PLX Commands](#-plx-commands)
-10. [Protocols](#-protocols)
+## 📑 Índice
+1. [Início Rápido](#-quick-start)
+2. [Pilares Centrais](#-core-pillars)
+3. [Visão Geral do Framework](#-framework-overview)
+4. [Problemas](#-issues)
+5. [Código de Conduta](#-code-of-conduct)
+6. [Objetos](#-objects)
+7. [Integração de API](#-api-integration)
+8. [Comandos PLX](#-plx-commands)
+10. [Protocolos](#-protocols)
 
-## 🔍 Quick Start
+## 🔍 Início Rápido
 
-This method really shines when using the Mason CLI. It will allow you to quickly summon a workspace in any folder by typing `mason make workspace` and then select the documents you want in which folder.
+Este método realmente brilha ao usar o Mason CLI. Ele permitirá que você convoque rapidamente um espaço de trabalho em qualquer pasta digitando `mason make workspace` e, em seguida, selecione os documentos que deseja em qual pasta.
 
-### 1. Install Mason CLI
+### 1. Instale o Mason CLI
 
-[Reference: Mason CLI Installation Guide](https://docs.brickhub.dev/installing/)
+[Referência: Guia de Instalação do Mason CLI](https://docs.brickhub.dev/installing/)
 
-> ℹ️ Prerequisite: You must have the Dart SDK installed on your machine.
+> ℹ️ Pré-requisito: Você deve ter o Dart SDK instalado em sua máquina.
 
-**Option 1: Using pub.dev (Recommended)**
+**Opção 1: Usando pub.dev (Recomendado)**
 ```bash
-# 🎯 Activate from https://pub.dev
+# 🎯 Ative a partir de https://pub.dev
 dart pub global activate mason_cli
 ```
 
-**Option 2: Using Homebrew**
+**Opção 2: Usando Homebrew**
 ```bash
-# 🍺 Install from https://brew.sh
+# 🍺 Instale a partir de https://brew.sh
 brew tap felangel/mason
 brew install mason
 ```
 
-Verify installation:
+Verifique a instalação:
 ```bash
 mason
-# Should show: 🧱  mason • lay the foundation!
+# Deve mostrar: 🧱  mason • lay the foundation!
 ```
 
-### 2. Add Workspace to Mason
+### 2. Adicione o Workspace ao Mason
 
-First, add the workspace brick globally to make it available anywhere on your system:
+Primeiro, adicione o brick do workspace globalmente para torná-lo disponível em qualquer lugar do seu sistema:
 
-**Method 1: Using the script (Recommended)**
+**Método 1: Usando o script (Recomendado)**
 ```bash
-# Add the workspace brick using the provided script
+# Adicione o brick do workspace usando o script fornecido
 ./scripts/add_workspace_bricks.sh
 ```
 
-**Method 2: Manual installation**
+**Método 2: Instalação manual**
 ```bash
-# Add the workspace brick globally
+# Adicione o brick do workspace globalmente
 cd ./_mason
 mason add workspace --path . -g
 ```
 
-### 3. Create Your Workspace
+### 3. Crie Seu Workspace
 
-Now you can create a workspace in any repository or folder using mason.
+Agora você pode criar um workspace em qualquer repositório ou pasta usando o mason.
 
-#### Example
+#### Exemplo
 ```bash
-# Navigate to your repository/folder
+# Navegue até seu repositório/pasta
 cd your-repository
 
-# Create workspace interactively
+# Crie o workspace interativamente
 mason make workspace
 ```
-This will:
-- Ask which components you want to include
-- Allow you to customize your workspace
-- Handle file creation and overrides safely
-- Set up your workspace structure automatically in a specifc folder
+Isso irá:
+- Perguntar quais componentes você deseja incluir
+- Permitir que você personalize seu workspace
+- Lidar com a criação e substituição de arquivos de forma segura
+- Configurar automaticamente a estrutura do seu workspace em uma pasta específica
 
-## 📚 Core Pillars
+## 📚 Pilares Centrais
 
-This framework enhances your AI agent's capabilities through three core pillars. It ensures high-quality, tested implementations by maintaining clear requirements, detailed tickets, and organized task lists.
+Este framework aprimora as capacidades do seu agente de IA através de três pilares centrais. Ele garante implementações de alta qualidade e testadas, mantendo requisitos claros, tickets detalhados e listas de tarefas organizadas.
 
-We believe AI agents perform at their best when three key elements align:
+Acreditamos que agentes de IA desempenham seu melhor quando três elementos-chave se alinham:
 
-1. **Quality Training** (out of our hands, sort of)
-   - Trained on relevant data
-   - Proper model capabilities
-   - Good base understanding
+1. **Treinamento de Qualidade** (fora do nosso controle, de certa forma)
+   - Treinado em dados relevantes
+   - Capacidades adequadas do modelo
+   - Boa compreensão básica
 
-2. **Clear Direction**
-   - Well-defined requirements
-   - Structured processes
-   - Clear documentation
-   - Proper templates
-   - Small, clear task scope
+2. **Direção Clara**
+   - Requisitos bem definidos
+   - Processos estruturados
+   - Documentação clara
+   - Modelos adequados
+   - Escopo de tarefa pequeno e claro
 
-3. **Maintained Focus**
-   - Regular progress tracking
-   - Consistent documentation
-   - Clear communication
-   - Process adherence
-   - Preserved context across sessions
-   - Active context awareness
-   - Proper state management
-   - Seamless agent handover
+3. **Foco Mantido**
+   - Acompanhamento regular do progresso
+   - Documentação consistente
+   - Comunicação clara
+   - Adesão ao processo
+   - Preservação do contexto entre sessões
+   - Consciência ativa do contexto
+   - Gerenciamento adequado de estado
+   - Transferência de agente sem interrupções
 
-## 🔍 Framework Overview
+## 🔍 Visão Geral do Framework
 
-The framework is built on seven core work documents that guide the development process:
+O framework é construído sobre sete documentos de trabalho centrais que guiam o processo de desenvolvimento:
 
-1. **[Requirements](work-docs/your-requirements.md)**
-   Used for breaking down all aspects of what needs to be built, including actors, components, activities, properties, behaviors, acceptance criteria and test scenarios.
+1. **[Requisitos](work-docs/your-requirements.md)**
+   Usado para detalhar todos os aspectos do que precisa ser construído, incluindo atores, componentes, atividades, propriedades, comportamentos, critérios de aceitação e cenários de teste.
 
 2. **[Ticket](work-docs/your-ticket.md)**
-   Used for containing task descriptions, user stories, technical specifications, implementation details, security considerations, data models and API requirements.
+   Usado para conter descrições de tarefas, histórias de usuário, especificações técnicas, detalhes de implementação, considerações de segurança, modelos de dados e requisitos de API.
 
-3. **[Planning](work-docs/your-planning.md)**
-   Used for detailed development planning, breaking down tasks, and organizing the implementation approach.
+3. **[Planejamento](work-docs/your-planning.md)**
+   Usado para planejamento detalhado de desenvolvimento, dividindo tarefas e organizando a abordagem de implementação.
 
-4. **[Milestones](work-docs/your-milestones.md)**
-   Used for breaking down the work into clear testable milestones, tracking dependencies, technical details, progress and completion criteria while maintaining links to related tests and tasks.
+4. **[Marcos](work-docs/your-milestones.md)**
+   Usado para dividir o trabalho em marcos claros e testáveis, rastrear dependências, detalhes técnicos, progresso e critérios de conclusão, mantendo links para testes e tarefas relacionadas.
 
-5. **[Todo List](work-docs/your-todo-list.md)**
-   Used for tracking chronological atomic tasks organized by milestone, including progress tracking, task dependencies and test tasks for each testable component.
+5. **[Lista de Tarefas](work-docs/your-todo-list.md)**
+   Usado para rastrear tarefas atômicas cronológicas organizadas por marco, incluindo rastreamento de progresso, dependências de tarefas e tarefas de teste para cada componente testável.
 
-6. **[Tests](work-docs/your-tests.md)**
-   Used for defining (BDD Gherkin style) test scenarios, validating acceptance criteria, writing integration and unit tests, and tracking test coverage.
+6. **[Testes](work-docs/your-tests.md)**
+   Usado para definir cenários de teste (estilo BDD Gherkin), validar critérios de aceitação, escrever testes de integração e unitários, e rastrear cobertura de teste.
 
 7. **[Backlog](work-docs/your-backlog.md)**
-   Used for maintaining a chronological list of future work items that require no immediate action and will only be implemented upon user request while preserving original context and requirements.
+   Usado para manter uma lista cronológica de itens de trabalho futuros que não requerem ação imediata e só serão implementados mediante solicitação do usuário, preservando o contexto e os requisitos originais.
 
-## 🎯 Issues
+## 🎯 Problemas
 
-The framework provides a structured approach to handling development issues. Each issue contains a focused set of documents needed for tracking and implementing work items, reducing complexity and preventing information overload.
+O framework fornece uma abordagem estruturada para lidar com problemas de desenvolvimento. Cada problema contém um conjunto focado de documentos necessários para rastrear e implementar itens de trabalho, reduzindo a complexidade e prevenindo sobrecarga de informações.
 
-### Working with Issues
+### Trabalhando com Problemas
 
-Each issue is organized in its own directory with essential documents:
-- `your-backlog.md`: For tracking future work items
-- `your-hours.md`: For logging work time
-- `your-milestones.md`: For tracking progress
-- `your-planning.md`: For detailed development planning
-- `your-requirements.md`: For documenting requirements
-- `your-tests.md`: For test scenarios
-- `your-todo-list.md`: For task tracking
+Cada problema é organizado em seu próprio diretório com documentos essenciais:
+- `your-backlog.md`: Para rastrear itens de trabalho futuros
+- `your-hours.md`: Para registrar o tempo de trabalho
+- `your-milestones.md`: Para rastrear o progresso
+- `your-planning.md`: Para planejamento detalhado de desenvolvimento
+- `your-requirements.md`: Para documentar requisitos
+- `your-tests.md`: Para cenários de teste
+- `your-todo-list.md`: Para rastreamento de tarefas
 
-To create a new issue, first add the issue brick globally by running:
+Para criar um novo problema, primeiro adicione o brick de problema globalmente executando:
 
 ```bash
 ./scripts/add_make_issue_brick.sh
 ```
 
-This script will:
-- Check if Mason CLI is installed
-- Navigate to the _mason directory
-- Add the issue brick globally if not already present
-- Provide clear feedback about the process
+Este script irá:
+- Verificar se o Mason CLI está instalado
+- Navegar até o diretório _mason
+- Adicionar o brick de problema globalmente se ainda não estiver presente
+- Fornecer feedback claro sobre o processo
 
-Once the brick is added, you can create new issues using:
+Uma vez que o brick é adicionado, você pode criar novos problemas usando:
 
 ```bash
 mason make issue
 ```
 
-It will ask you for the issue folder and name, creating a structured workspace for that specific issue with all necessary documentation.
+Ele perguntará pelo diretório e nome do problema, criando um espaço de trabalho estruturado para esse problema específico com toda a documentação necessária.
 
-If you encounter any issues:
-1. Make sure Mason CLI is installed (`dart pub global activate mason_cli`)
-2. Ensure the script is executable (`chmod +x scripts/add_make_issue_brick.sh`)
-3. Check if you're in the workspace root directory
+Se você encontrar algum problema:
+1. Certifique-se de que o Mason CLI está instalado (`dart pub global activate mason_cli`)
+2. Garanta que o script é executável (`chmod +x scripts/add_make_issue_brick.sh`)
+3. Verifique se você está no diretório raiz do workspace
 
-## 🔄 Protocols
+## 🔄 Protocolos
 
-The framework includes a comprehensive set of protocols that guide various aspects of development and documentation. Each protocol is designed to maintain consistency and quality throughout the development process.
+O framework inclui um conjunto abrangente de protocolos que guiam vários aspectos do desenvolvimento e documentação. Cada protocolo é projetado para manter a consistência e a qualidade ao longo do processo de desenvolvimento.
 
-| Protocol                            | Category           | Description                                         |
-|-------------------------------------|--------------------|-----------------------------------------------------|
-| plx-activate-code-red               | Emergency          | Initiates emergency protocol for critical issues    |
-| plx-analyze                         | Analysis           | Performs detailed analysis of code or requirements  |
-| plx-ask                             | Communication      | Formulates clear questions for better understanding |
-| plx-ask-big-brother                 | Support            | Requests guidance from senior developers/system     |
-| plx-ask-questions                   | Communication      | Generates comprehensive question sets for clarity   |
-| plx-check-todo                      | Task Management    | Reviews and validates todo items                    |
-| plx-commit                          | Version Control    | Handles code commits with proper documentation      |
-| plx-continue-and-follow-the-process | Process            | Ensures adherence to established workflows          |
-| plx-create-brick                    | Development        | Creates new Mason bricks for code generation        |
-| plx-create-case-study               | Documentation      | Develops detailed case studies                      |
-| plx-create-code-of-conduct          | Documentation      | Establishes development guidelines and standards    |
-| plx-create-concept                  | Documentation      | Documents new concepts and architectural decisions  |
-| plx-create-doc                      | Documentation      | Generates various types of documentation            |
-| plx-create-feature-breakdown        | Planning           | Breaks down features into implementable components  |
-| plx-create-insight                  | Analysis           | Generates insights from code or process analysis    |
-| plx-create-milestone-gherkin-tests  | Testing            | Creates BDD tests for milestones                    |
-| plx-create-milestones               | Planning           | Defines project milestones and objectives           |
-| plx-create-plan-in-chat             | Planning           | Develops action plans during chat sessions          |
-| plx-create-planning                 | Planning           | Creates comprehensive project plans                 |
-| plx-create-protocol                 | Process            | Establishes new process protocols                   |
-| plx-create-tests                    | Testing            | Develops various types of tests                     |
-| plx-create-ticket                   | Task Management    | Creates well-structured task tickets                |
-| plx-create-todo                     | Task Management    | Generates todo items and task lists                 |
-| plx-create-tutorial                 | Documentation      | Creates step-by-step tutorials                      |
-| plx-do                              | Execution          | Executes tasks following defined processes          |
-| plx-document-dart-file              | Documentation      | Documents Dart code files comprehensively           |
-| plx-explain-yourself                | Communication      | Provides clear explanations of decisions/actions    |
-| plx-fix-linting-errors              | Quality            | Resolves code linting issues                        |
-| plx-focus                           | Process            | Maintains focus on current task/objective           |
-| plx-follow-the-docs                 | Process            | Ensures adherence to documentation                  |
-| plx-log-hours                       | Project Management | Tracks time spent on tasks                          |
-| plx-pause-work                      | Process            | Properly pauses work with context preservation      |
-| plx-prepare-content                 | Content            | Prepares various types of content                   |
-| plx-prepare-release                 | Release            | Manages release preparation tasks                   |
-| plx-reflect                         | Quality            | Reviews and validates completed work                |
-| plx-resume-work                     | Process            | Resumes work with proper context restoration        |
-| plx-run-tests                       | Testing            | Executes and validates tests                        |
-| plx-scan-project-for-context        | Analysis           | Analyzes project for context gathering              |
-| plx-scan-project-for-todo           | Task Management    | Identifies and collects todo items                  |
-| plx-stick-to-the-process            | Process            | Maintains process adherence                         |
-| plx-stick-to-your-prompt            | Process            | Ensures prompt/instruction adherence                |
-| plx-sync-work-documents             | Documentation      | Synchronizes work-related documents                 |
-| plx-test-live                       | Testing            | Performs live testing procedures                    |
-| plx-transfer-context                | Process            | Handles context transfer between sessions           |
-| plx-update-read-me-and-changelog    | Documentation      | Updates project documentation                       |
-| plx-update-todo                     | Task Management    | Updates todo items and lists                        |
-| plx-update-translations             | Localization       | Manages translation updates                         |
-| plx-use-api                         | Development        | Handles API integration and usage                   |
+| Protocolo                           | Categoria          | Descrição                                             |
+|-------------------------------------|--------------------|-------------------------------------------------------|
+| plx-activate-code-red               | Emergência         | Inicia protocolo de emergência para problemas críticos|
+| plx-analyze                         | Análise            | Realiza análise detalhada de código ou requisitos     |
+| plx-ask                             | Comunicação        | Formula perguntas claras para melhor compreensão      |
+| plx-ask-big-brother                 | Suporte            | Solicita orientação de desenvolvedores/sistema sênior |
+| plx-ask-questions                   | Comunicação        | Gera conjuntos de perguntas abrangentes para clareza  |
+| plx-check-todo                      | Gerenciamento de Tarefas | Revisa e valida itens de tarefas                    |
+| plx-commit                          | Controle de Versão | Lida com commits de código com documentação adequada  |
+| plx-continue-and-follow-the-process | Processo           | Garante adesão aos fluxos de trabalho estabelecidos   |
+| plx-create-brick                    | Desenvolvimento    | Cria novos bricks Mason para geração de código        |
+| plx-create-case-study               | Documentação       | Desenvolve estudos de caso detalhados                 |
+| plx-create-code-of-conduct          | Documentação       | Estabelece diretrizes e padrões de desenvolvimento    |
+| plx-create-concept                  | Documentação       | Documenta novos conceitos e decisões arquitetônicas   |
+| plx-create-doc                      | Documentação       | Gera vários tipos de documentação                     |
+| plx-create-feature-breakdown        | Planejamento       | Divide recursos em componentes implementáveis         |
+| plx-create-insight                  | Análise            | Gera insights a partir de análise de código ou processo|
+| plx-create-milestone-gherkin-tests  | Testes             | Cria testes BDD para marcos                           |
+| plx-create-milestones               | Planejamento       | Define marcos e objetivos do projeto                  |
+| plx-create-plan-in-chat             | Planejamento       | Desenvolve planos de ação durante sessões de chat     |
+| plx-create-planning                 | Planejamento       | Cria planos de projeto abrangentes                    |
+| plx-create-protocol                 | Processo           | Estabelece novos protocolos de processo               |
+| plx-create-tests                    | Testes             | Desenvolve vários tipos de testes                     |
+| plx-create-ticket                   | Gerenciamento de Tarefas | Cria tickets de tarefa bem estruturados            |
+| plx-create-todo                     | Gerenciamento de Tarefas | Gera itens de tarefas e listas de tarefas          |
+| plx-create-tutorial                 | Documentação       | Cria tutoriais passo a passo                          |
+| plx-do                              | Execução           | Executa tarefas seguindo processos definidos          |
+| plx-document-dart-file              | Documentação       | Documenta arquivos de código Dart de forma abrangente |
+| plx-explain-yourself                | Comunicação        | Fornece explicações claras de decisões/ações          |
+| plx-fix-linting-errors              | Qualidade          | Resolve problemas de linting de código                |
+| plx-focus                           | Processo           | Mantém foco na tarefa/objetivo atual                  |
+| plx-follow-the-docs                 | Processo           | Garante adesão à documentação                         |
+| plx-log-hours                       | Gerenciamento de Projetos | Rastreia tempo gasto em tarefas                    |
+| plx-pause-work                      | Processo           | Pausa o trabalho adequadamente com preservação de contexto |
+| plx-prepare-content                 | Conteúdo           | Prepara vários tipos de conteúdo                      |
+| plx-prepare-release                 | Lançamento         | Gerencia tarefas de preparação de lançamento          |
+| plx-reflect                         | Qualidade          | Revisa e valida o trabalho concluído                  |
+| plx-resume-work                     | Processo           | Retoma o trabalho com restauração adequada de contexto|
+| plx-run-tests                       | Testes             | Executa e valida testes                               |
+| plx-scan-project-for-context        | Análise            | Analisa o projeto para coleta de contexto             |
+| plx-scan-project-for-todo           | Gerenciamento de Tarefas | Identifica e coleta itens de tarefas                |
+| plx-stick-to-the-process            | Processo           | Mantém adesão ao processo                             |
+| plx-stick-to-your-prompt            | Processo           | Garante adesão ao prompt/instruções                   |
+| plx-sync-work-documents             | Documentação       | Sincroniza documentos relacionados ao trabalho        |
+| plx-test-live                       | Testes             | Realiza procedimentos de teste ao vivo                |
+| plx-transfer-context                | Processo           | Lida com transferência de contexto entre sessões      |
+| plx-update-read-me-and-changelog    | Documentação       | Atualiza documentação do projeto                      |
+| plx-update-todo                     | Gerenciamento de Tarefas | Atualiza itens e listas de tarefas                  |
+| plx-update-translations             | Localização        | Gerencia atualizações de tradução                     |
+| plx-use-api                         | Desenvolvimento    | Lida com integração e uso de API                      |

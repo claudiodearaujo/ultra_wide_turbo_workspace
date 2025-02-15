@@ -1,67 +1,67 @@
 ---
 document_type: protocol
-goal: create new code of conduct document that defines standards, rules, and best practices
-gpt_action: follow these steps when user wants to create a new code of conduct document
+goal: criar novo documento de código de conduta que define padrões, regras e melhores práticas
+gpt_action: seguir estes passos quando o usuário quer criar um novo documento de código de conduta
 ---
 
-CONTEXT: The [[User]] wants to create a new code of conduct document that will serve as a source of truth for development practices, documentation patterns, development processes, or best practices.
+CONTEXTO: O [[Usuário]] quer criar um novo documento de código de conduta que servirá como fonte de verdade para práticas de desenvolvimento, padrões de documentação, processos de desenvolvimento ou melhores práticas.
 
-1. GIVEN [[User]] RUNS plx-create-code-of-conduct command
-   1. THEN [[You]] READ [[input]]
-      1. AND [[You]] IDENTIFY document purpose
-      2. AND [[You]] DETERMINE document scope
-   2. IF [[input]] IS unclear
-      1. THEN [[You]] ASK clarifying questions
-      2. AND [[You]] WAIT for response
+1. DADO [[Usuário]] EXECUTA comando plx-create-code-of-conduct
+   1. ENTÃO [[Você]] LÊ [[entrada]]
+      1. E [[Você]] IDENTIFICA propósito do documento
+      2. E [[Você]] DETERMINA escopo do documento
+   2. SE [[entrada]] ESTÁ confusa
+      1. ENTÃO [[Você]] FAZ perguntas esclarecedoras
+      2. E [[Você]] ESPERA resposta
 
-2. WHEN [[You]] CREATES document
-   1. THEN [[You]] ADD frontmatter:
+2. QUANDO [[Você]] CRIA documento
+   1. ENTÃO [[Você]] ADICIONA frontmatter:
       ```markdown
       ---
       document_type: code of conduct
-      goal: [clear goal statement about what this document defines]
-      gpt_action: [specific instruction for GPT about how to use this document]
+      goal: [declaração clara do objetivo sobre o que este documento define]
+      gpt_action: [instrução específica para GPT sobre como usar este documento]
       ---
       ```
-   2. AND [[You]] STRUCTURE content:
-      1. AND [[You]] USING Gherkin keywords:
-         - Primary: GIVEN (precondition), WHEN (action), THEN (result)
-         - Flow: AND (additional), OR (alternative)
-         - Conditionals: IF/ELSE (branching), BUT (exception)
-      2. AND [[You]] FOLLOWING rules:
-         - UPPERCASE all keywords
-         - [[Actor]] or [[Component]] in double brackets
-         - ONE uppercase VERB/STATE after actor
-         - Proper indentation for sub-steps
-      3. AND [[You]] USING code elements:
-         - Inline code with backticks
-         - Code blocks properly indented
-         - Language-specific syntax highlighting
+   2. E [[Você]] ESTRUTURA conteúdo:
+      1. E [[Você]] USANDO palavras-chave Gherkin:
+         - Primárias: DADO (pré-condição), QUANDO (ação), ENTÃO (resultado)
+         - Fluxo: E (adicional), OU (alternativa)
+         - Condicionais: SE/SENÃO (ramificação), MAS (exceção)
+      2. E [[Você]] SEGUINDO regras:
+         - MAIÚSCULAS em todas palavras-chave
+         - [[Ator]] ou [[Componente]] em colchetes duplos
+         - UM VERBO/ESTADO em maiúsculas após ator
+         - Indentação adequada para sub-passos
+      3. E [[Você]] USANDO elementos de código:
+         - Código inline com backticks
+         - Blocos de código adequadamente indentados
+         - Realce de sintaxe específico da linguagem
 
-3. WHEN [[You]] WRITES content
-   1. THEN [[You]] ENSURE each section:
-      1. DEFINES clear standards or rules
-      2. AND [[You]] USES consistent formatting
-      3. AND [[You]] INCLUDES practical examples
-      4. AND [[You]] REFERENCES related concepts
-   2. AND [[You]] FOLLOW writing rules:
-      1. ONE verb in CAPS after each actor
-      2. PROPER indentation for sub-steps
-      3. CLEAR step numbering
-      4. CONSISTENT use of [[double brackets]]
+3. QUANDO [[Você]] ESCREVE conteúdo
+   1. ENTÃO [[Você]] GARANTE que cada seção:
+      1. DEFINE padrões ou regras claras
+      2. E [[Você]] USA formatação consistente
+      3. E [[Você]] INCLUI exemplos práticos
+      4. E [[Você]] REFERENCIA conceitos relacionados
+   2. E [[Você]] SEGUE regras de escrita:
+      1. UM verbo em MAIÚSCULAS após cada ator
+      2. INDENTAÇÃO adequada para sub-passos
+      3. NUMERAÇÃO clara de passos
+      4. USO consistente de [[colchetes duplos]]
 
-4. WHEN [[You]] COMPLETES document
-   1. THEN [[You]] VERIFY:
-      1. ALL sections follow format
-      2. ALL actors properly bracketed
-      3. ALL steps properly numbered
-      4. ALL examples properly formatted
-   2. AND [[You]] SAVE in code-of-conduct folder
-   3. AND [[You]] INFORM [[User]]
+4. QUANDO [[Você]] COMPLETA documento
+   1. ENTÃO [[Você]] VERIFICA:
+      1. TODAS seções seguem formato
+      2. TODOS atores adequadamente entre colchetes
+      3. TODOS passos adequadamente numerados
+      4. TODOS exemplos adequadamente formatados
+   2. E [[Você]] SALVA na pasta code-of-conduct
+   3. E [[Você]] INFORMA [[Usuário]]
 
-5. GIVEN [[User]] REVIEWS document
-   1. IF [[User]] REQUESTS changes
-      1. THEN [[You]] UPDATE content
-      2. AND [[You]] PRESENT new version
-   2. IF [[User]] APPROVES
-      1. THEN [[You]] CONFIRM completion 
+5. DADO [[Usuário]] REVISA documento
+   1. SE [[Usuário]] SOLICITA mudanças
+      1. ENTÃO [[Você]] ATUALIZA conteúdo
+      2. E [[Você]] APRESENTA nova versão
+   2. SE [[Usuário]] APROVA
+      1. ENTÃO [[Você]] CONFIRMA conclusão 

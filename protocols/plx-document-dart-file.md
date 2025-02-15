@@ -1,98 +1,98 @@
 ---
 document_type: protocol
-goal: create or update Dart documentation following official standards and class structure guidelines
-gpt_action: follow these steps when working with Dart documentation
+goal: criar ou atualizar documentação Dart seguindo padrões oficiais e diretrizes de estrutura de classe
+gpt_action: siga estes passos ao trabalhar com documentação Dart
 ---
 
-1. GIVEN [[User]] RUNS plx-document-dart-file command
-   1. THEN [[You]] ANALYSE [[User]] input
-      1. AND [[You]] IDENTIFY documentation scope
-      2. AND [[You]] IDENTIFY documentation type
-   2. IF [[User]] input HAS specific file
-      1. THEN [[You]] FOCUS on file
-   3. IF [[User]] input HAS no specifics
-      1. THEN [[You]] SCAN project files
+1. DADO QUE [[User]] EXECUTA o comando plx-document-dart-file
+   1. ENTÃO [[You]] ANALISA entrada do [[User]]
+      1. E [[You]] IDENTIFICA escopo da documentação
+      2. E [[You]] IDENTIFICA tipo de documentação
+   2. SE entrada do [[User]] TEM arquivo específico
+      1. ENTÃO [[You]] FOCA no arquivo
+   3. SE entrada do [[User]] NÃO TEM especificações
+      1. ENTÃO [[You]] EXAMINA arquivos do projeto
 
-2. WHEN [[You]] STARTS documentation
-   1. THEN [[You]] ANALYSE code structure
-      1. AND [[You]] CHECK class sections:
-         1. 📍 LOCATOR section
-         2. 🧩 DEPENDENCIES section
-         3. 🎬 INIT & DISPOSE section
-         4. 👂 LISTENERS section
-         5. ⚡️ OVERRIDES section
-         6. 🎩 STATE section
-         7. 🛠 UTIL section
-         8. 🧲 FETCHERS section
-         9. 🏗️ HELPERS section
-         10. 🪄 MUTATORS section
-      2. AND [[You]] CHECK methods
-      3. AND [[You]] CHECK properties
-   2. IF [[documentation]] EXISTS
-      1. THEN [[You]] REVIEW existing docs
-      2. AND [[You]] IDENTIFY gaps
+2. QUANDO [[You]] INICIA documentação
+   1. ENTÃO [[You]] ANALISA estrutura do código
+      1. E [[You]] VERIFICA seções da classe:
+         1. 📍 Seção LOCATOR
+         2. 🧩 Seção DEPENDENCIES
+         3. 🎬 Seção INIT & DISPOSE
+         4. 👂 Seção LISTENERS
+         5. ⚡️ Seção OVERRIDES
+         6. 🎩 Seção STATE
+         7. 🛠 Seção UTIL
+         8. 🧲 Seção FETCHERS
+         9. 🏗️ Seção HELPERS
+         10. 🪄 Seção MUTATORS
+      2. E [[You]] VERIFICA métodos
+      3. E [[You]] VERIFICA propriedades
+   2. SE [[documentation]] EXISTE
+      1. ENTÃO [[You]] REVISA documentação existente
+      2. E [[You]] IDENTIFICA lacunas
 
-3. GIVEN [[analysis]] IS complete
-   1. THEN [[You]] CREATE documentation
-      1. AND [[You]] ADD class documentation:
-         1. /// A brief, single-line description
+3. DADO QUE [[analysis]] ESTÁ completa
+   1. ENTÃO [[You]] CRIA documentação
+      1. E [[You]] ADICIONA documentação da classe:
+         1. /// Uma breve descrição de uma linha
          2. /// 
-         3. /// A longer description that explains:
-         4. /// - The purpose of the class
-         5. /// - Key responsibilities
-         6. /// - Usage patterns
-         7. /// - Important notes
-      2. AND [[You]] ADD method documentation:
-         1. /// Brief description of what the method does
+         3. /// Uma descrição mais longa que explica:
+         4. /// - O propósito da classe
+         5. /// - Responsabilidades principais
+         6. /// - Padrões de uso
+         7. /// - Notas importantes
+      2. E [[You]] ADICIONA documentação do método:
+         1. /// Breve descrição do que o método faz
          2. /// 
-         3. /// Detailed explanation if needed
+         3. /// Explicação detalhada se necessário
          4. /// 
-         5. /// Parameters:
-         6. /// - [paramName]: what this parameter is for
+         5. /// Parâmetros:
+         6. /// - [paramName]: para que serve este parâmetro
          7. /// 
-         8. /// Returns: description of the return value
+         8. /// Retorna: descrição do valor retornado
          9. /// 
-         10. /// Throws: any exceptions that might be thrown
-      3. AND [[You]] ADD property documentation:
-         1. /// Brief description of what this property represents
+         10. /// Lança: quaisquer exceções que possam ser lançadas
+      3. E [[You]] ADICIONA documentação da propriedade:
+         1. /// Breve descrição do que esta propriedade representa
          2. /// 
-         3. /// Additional details about:
-         4. /// - Usage
-         5. /// - Constraints
-         6. /// - Side effects
-   2. IF [[code]] HAS examples
-      1. THEN [[You]] ADD example code:
-         1. /// Example:
+         3. /// Detalhes adicionais sobre:
+         4. /// - Uso
+         5. /// - Restrições
+         6. /// - Efeitos colaterais
+   2. SE [[code]] TEM exemplos
+      1. ENTÃO [[You]] ADICIONA código de exemplo:
+         1. /// Exemplo:
          2. /// ```dart
          3. /// final instance = MyClass();
          4. /// await instance.doSomething();
          5. /// ```
-      2. AND [[You]] EXPLAIN usage
+      2. E [[You]] EXPLICA uso
 
-4. WHEN [[documentation]] IS ready
-   1. THEN [[You]] VERIFY format
-      1. AND [[You]] CHECK Dart doc style:
-         1. Triple slashes ///
-         2. Proper markdown formatting
-         3. Consistent indentation
-         4. Line breaks between sections
-         5. Proper parameter references [paramName]
-      2. AND [[You]] CHECK completeness:
-         1. All public APIs documented
-         2. All parameters described
-         3. Return values explained
-         4. Exceptions documented
-   2. IF [[format]] IS incorrect
-      1. THEN [[You]] FIX formatting
-      2. AND [[You]] VERIFY again
+4. QUANDO [[documentation]] ESTÁ pronta
+   1. ENTÃO [[You]] VERIFICA formato
+      1. E [[You]] VERIFICA estilo Dart doc:
+         1. Três barras ///
+         2. Formatação markdown adequada
+         3. Indentação consistente
+         4. Quebras de linha entre seções
+         5. Referências adequadas de parâmetros [paramName]
+      2. E [[You]] VERIFICA completude:
+         1. Todas as APIs públicas documentadas
+         2. Todos os parâmetros descritos
+         3. Valores de retorno explicados
+         4. Exceções documentadas
+   2. SE [[format]] ESTÁ incorreto
+      1. ENTÃO [[You]] CORRIGE formatação
+      2. E [[You]] VERIFICA novamente
 
-5. GIVEN [[documentation]] IS complete
-   1. THEN [[You]] PRESENT to [[User]]
-      1. AND [[You]] EXPLAIN changes
-      2. AND [[You]] HIGHLIGHT improvements
-   2. IF [[User]] APPROVES changes
-      1. THEN [[You]] COMMIT changes
-      2. AND [[You]] UPDATE work documents
-   3. IF [[User]] REQUESTS changes
-      1. THEN [[You]] MODIFY documentation
-      2. AND [[You]] PRESENT again
+5. DADO QUE [[documentation]] ESTÁ completa
+   1. ENTÃO [[You]] APRESENTA ao [[User]]
+      1. E [[You]] EXPLICA mudanças
+      2. E [[You]] DESTACA melhorias
+   2. SE [[User]] APROVA mudanças
+      1. ENTÃO [[You]] CONFIRMA mudanças
+      2. E [[You]] ATUALIZA documentos de trabalho
+   3. SE [[User]] SOLICITA mudanças
+      1. ENTÃO [[You]] MODIFICA documentação
+      2. E [[You]] APRESENTA novamente

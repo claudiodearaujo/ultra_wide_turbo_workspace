@@ -1,34 +1,34 @@
 ---
 document_type: agent work document 
-goal: define and track BDD tests for each milestone
-gpt_action: maintain Gherkin style tests, run tests, fix failures
+goal: definir e rastrear testes BDD para cada marco
+gpt_action: manter testes no estilo Gherkin, executar testes, corrigir falhas
 ---
 <!--
-# 🚀 [M1] Milestone Title
+# 🚀 [M1] Título do Marco
 
-## Test Scenarios
+## Cenários de Teste
 
-### Scenario 1: Test Case Title
-- Given some initial context
-- When some action is taken
-- Then some result is expected
+### Cenário 1: Título do Caso de Teste
+- Dado algum contexto inicial
+- Quando alguma ação é realizada
+- Então algum resultado é esperado
 
-### Scenario 2: Test Case Title 
-- Given some initial context
-- When some action is taken 
-- Then some result is expected
+### Cenário 2: Título do Caso de Teste 
+- Dado algum contexto inicial
+- Quando alguma ação é realizada 
+- Então algum resultado é esperado
 
-# 🚀 [M2] Milestone Title
+# 🚀 [M2] Título do Marco
 
-## Test Scenarios
+## Cenários de Teste
 
-### Scenario 1: Test Case Title
-- Given some initial context
-- When some action is taken
-- Then some result is expected
+### Cenário 1: Título do Caso de Teste
+- Dado algum contexto inicial
+- Quando alguma ação é realizada
+- Então algum resultado é esperado
 
-### Scenario 2: Test Case Title
-- Given some initial context 
-- When some action is taken
-- Then some result is expected 
+### Cenário 2: Título do Caso de Teste
+- Dado algum contexto inicial 
+- Quando alguma ação é realizada
+- Então algum resultado é esperado 
 -->

@@ -1,62 +1,62 @@
 ---
 document_type: protocol
-goal: create BDD tests in your-tests.md based on user input
-gpt_action: follow these steps to generate tests for the specified content
+goal: criar testes BDD em your-tests.md baseado na entrada do usuário
+gpt_action: siga estes passos para gerar testes para o conteúdo especificado
 ---
 
-CONTEXT: The [[User]] wants to create BDD tests for a particular feature, requirement, or milestone and needs you to generate the test scenarios in the [[your-tests.md]] file.
+CONTEXTO: O [[User]] quer criar testes BDD para uma funcionalidade, requisito ou milestone específico e precisa que você gere os cenários de teste no arquivo [[your-tests.md]].
 
-1. GIVEN [[User]] RUNS @plx-create-tests command
-   1. THEN [[You]] READ [[input]]
-      1. IF [[input]] REFERENCES other files or milestones
-         1. THEN [[You]] SCAN referenced content
-         2. AND [[You]] EXTRACT relevant details
-      2. IF [[input]] DESCRIBES new feature or requirement
-         1. THEN [[You]] IDENTIFY testable scenarios
-      3. IF [[input]] PROVIDES specific test cases
-         1. THEN [[You]] USE provided scenarios
-   2. IF [[input]] IS empty or unclear
-      1. THEN [[You]] ASK [[User]] for clarification
+1. DADO QUE [[User]] EXECUTA o comando @plx-create-tests
+   1. ENTÃO [[You]] LÊ [[input]]
+      1. SE [[input]] REFERENCIA outros arquivos ou milestones
+         1. ENTÃO [[You]] EXAMINA conteúdo referenciado
+         2. E [[You]] EXTRAI detalhes relevantes
+      2. SE [[input]] DESCREVE nova funcionalidade ou requisito
+         1. ENTÃO [[You]] IDENTIFICA cenários testáveis
+      3. SE [[input]] FORNECE casos de teste específicos
+         1. ENTÃO [[You]] USA cenários fornecidos
+   2. SE [[input]] ESTÁ vazio ou não está claro
+      1. ENTÃO [[You]] PEDE esclarecimento ao [[User]]
 
-2. WHEN [[You]] STARTS test creation
-   1. THEN [[You]] DETERMINE relevant [[milestone]]
-      1. IF [[milestone]] EXISTS in [[your-milestones.md]]
-         1. THEN [[You]] USE existing [[milestone]]
-      2. IF [[milestone]] DOES NOT EXIST
-         1. THEN [[You]] CREATE new [[milestone]]
-         2. AND [[You]] UPDATE [[your-milestones.md]]
-   2. AND [[You]] OPEN [[your-tests.md]]
-      1. AND [[You]] FIND [[milestone]] section
-      2. IF [[milestone]] section DOES NOT EXIST
-         1. THEN [[You]] CREATE [[milestone]] section
+2. QUANDO [[You]] INICIA criação de teste
+   1. ENTÃO [[You]] DETERMINA [[milestone]] relevante
+      1. SE [[milestone]] EXISTE em [[your-milestones.md]]
+         1. ENTÃO [[You]] USA [[milestone]] existente
+      2. SE [[milestone]] NÃO EXISTE
+         1. ENTÃO [[You]] CRIA novo [[milestone]]
+         2. E [[You]] ATUALIZA [[your-milestones.md]]
+   2. E [[You]] ABRE [[your-tests.md]]
+      1. E [[You]] ENCONTRA seção do [[milestone]]
+      2. SE seção do [[milestone]] NÃO EXISTE
+         1. ENTÃO [[You]] CRIA seção do [[milestone]]
 
-3. GIVEN [[milestone]] section IS ready
-   1. THEN [[You]] WRITE test scenarios
-      1. AND [[You]] USE BDD Gherkin style
+3. DADO QUE seção do [[milestone]] ESTÁ pronta
+   1. ENTÃO [[You]] ESCREVE cenários de teste
+      1. E [[You]] USA estilo BDD Gherkin
          ```gherkin
-         ### Scenario: Test Case Title
-         - Given some initial context
-         - When some action is taken
-         - Then some expected result
+         ### Scenario: Título do Caso de Teste
+         - Given algum contexto inicial
+         - When alguma ação é tomada
+         - Then algum resultado esperado
          ```
-      2. AND [[You]] COVER happy paths
-      3. AND [[You]] COVER edge cases
-      4. AND [[You]] COVER error handling
-   2. IF [[test scenarios]] NEED refinement
-      1. THEN [[You]] REVIEW [[test scenarios]]
-      2. AND [[You]] CLARIFY steps
-      3. AND [[You]] ADD missing cases
+      2. E [[You]] COBRE caminhos felizes
+      3. E [[You]] COBRE casos de borda
+      4. E [[You]] COBRE tratamento de erros
+   2. SE [[test scenarios]] PRECISAM de refinamento
+      1. ENTÃO [[You]] REVISA [[test scenarios]]
+      2. E [[You]] CLARIFICA passos
+      3. E [[You]] ADICIONA casos faltantes
 
-4. WHEN [[test scenarios]] ARE complete
-   1. THEN [[You]] SAVE [[your-tests.md]]
-   2. AND [[You]] UPDATE [[your-todo-list.md]]
-      1. AND [[You]] ADD task to implement tests
-   3. AND [[You]] CONFIRM completion with [[User]]
+4. QUANDO [[test scenarios]] ESTÃO completos
+   1. ENTÃO [[You]] SALVA [[your-tests.md]]
+   2. E [[You]] ATUALIZA [[your-todo-list.md]]
+      1. E [[You]] ADICIONA tarefa para implementar testes
+   3. E [[You]] CONFIRMA conclusão com [[User]]
 
-5. GIVEN [[User]] ACCEPTS [[test scenarios]]
-   1. THEN [[You]] PROCEED with implementation
-   2. AND [[You]] FOLLOW the testing process
+5. DADO QUE [[User]] ACEITA [[test scenarios]]
+   1. ENTÃO [[You]] PROSSEGUE com implementação
+   2. E [[You]] SEGUE o processo de teste
 
-6. IF [[User]] REQUESTS changes to [[test scenarios]]
-   1. THEN [[You]] UPDATE [[your-tests.md]]
-   2. AND [[You]] REPEAT from step 4 
+6. SE [[User]] SOLICITA mudanças em [[test scenarios]]
+   1. ENTÃO [[You]] ATUALIZA [[your-tests.md]]
+   2. E [[You]] REPETE a partir do passo 4 

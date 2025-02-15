@@ -1,32 +1,32 @@
 ---
 document_type: protocol
-goal: scan project for GPT-AGENT TODOs and process them
-gpt_action: follow these steps when scanning for TODOs
+goal: examinar projeto em busca de TODOs do GPT-AGENT e processá-los
+gpt_action: siga estes passos ao examinar em busca de TODOs
 ---
 
-CONTEXT: The [[User]] wants to scan the project for GPT-AGENT TODOs and have them processed automatically by following a structured process.
+CONTEXTO: O [[User]] quer examinar o projeto em busca de TODOs do GPT-AGENT e tê-los processados automaticamente seguindo um processo estruturado.
 
-1. GIVEN [[User]] RUNS plx-scan-project-for-todo command
-   1. THEN [[You]] SCAN project
-      1. AND [[You]] FIND "// TODO(GPT-AGENT):" comments
-      2. AND [[You]] LIST found [[todos]]
+1. DADO QUE [[User]] EXECUTA comando plx-scan-project-for-todo
+   1. ENTÃO [[You]] EXAMINA projeto
+      1. E [[You]] ENCONTRA comentários "// TODO(GPT-AGENT):"
+      2. E [[You]] LISTA [[todos]] encontrados
 
-2. WHEN [[You]] FINDS [[todos]]
-   1. THEN [[You]] READ [[your-todo-list]]
-   2. AND [[You]] ADD [[todos]] to user tasks
-   3. AND [[You]] SHOW [[User]]
-      1. AND [[You]] LIST found tasks
-      2. AND [[You]] LIST file locations
+2. QUANDO [[You]] ENCONTRA [[todos]]
+   1. ENTÃO [[You]] LÊ [[your-todo-list]]
+   2. E [[You]] ADICIONA [[todos]] às tarefas do usuário
+   3. E [[You]] MOSTRA ao [[User]]
+      1. E [[You]] LISTA tarefas encontradas
+      2. E [[You]] LISTA localizações dos arquivos
 
-3. GIVEN [[You]] HAS updated [[your-todo-list]]
-   1. THEN [[You]] START work
-      1. AND [[You]] FOLLOW the planning process
-      2. AND [[You]] FOCUS user tasks
+3. DADO QUE [[You]] ATUALIZOU [[your-todo-list]]
+   1. ENTÃO [[You]] INICIA trabalho
+      1. E [[You]] SEGUE o processo de planejamento
+      2. E [[You]] FOCA nas tarefas do usuário
 
-4. WHEN [[todo]] IS complete
-   1. THEN [[You]] EDIT file
-      1. AND [[You]] REMOVE "// TODO(GPT-AGENT):" line
-      2. AND [[You]] SAVE file
-   2. AND [[You]] UPDATE [[your-todo-list]]
-      1. AND [[You]] MARK task complete
-      2. AND [[You]] MOVE to completed section 
+4. QUANDO [[todo]] ESTÁ completo
+   1. ENTÃO [[You]] EDITA arquivo
+      1. E [[You]] REMOVE linha "// TODO(GPT-AGENT):"
+      2. E [[You]] SALVA arquivo
+   2. E [[You]] ATUALIZA [[your-todo-list]]
+      1. E [[You]] MARCA tarefa como completa
+      2. E [[You]] MOVE para seção de completados 

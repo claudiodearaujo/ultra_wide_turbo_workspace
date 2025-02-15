@@ -1,29 +1,29 @@
 ---
 document_type: protocol
-goal: check todo list to understand next required actions
-gpt_action: follow these steps when checking what to do next
+goal: verificar lista de tarefas para entender próximas ações necessárias
+gpt_action: seguir estes passos ao verificar o que fazer em seguida
 ---
 
-CONTEXT: The [[User]] notices you need direction and wants you to check your todo list for next actions.
+CONTEXTO: O [[Usuário]] percebe que você precisa de direção e quer que você verifique sua lista de tarefas para as próximas ações.
 
-1. GIVEN [[User]] RUNS plx-check-todo command
-   1. THEN [[You]] READ [[your-todo-list]]
-      1. AND [[You]] CHECK user tasks
-      2. AND [[You]] CHECK current [[milestone]]
-      3. AND [[You]] CHECK completed tasks
+1. DADO [[Usuário]] EXECUTA comando plx-check-todo
+   1. ENTÃO [[Você]] LÊ [[your-todo-list]]
+      1. E [[Você]] VERIFICA tarefas do usuário
+      2. E [[Você]] VERIFICA [[milestone]] atual
+      3. E [[Você]] VERIFICA tarefas completadas
 
-2. WHEN [[You]] FINDS tasks
-   1. IF [[your-todo-list]] HAS user tasks
-      1. THEN [[You]] FOCUS user tasks
-      2. AND [[You]] TELL [[User]]
-   2. IF [[your-todo-list]] HAS milestone tasks
-      1. THEN [[You]] FOCUS current task
-      2. AND [[You]] TELL [[User]]
-   3. IF [[your-todo-list]] IS empty
-      1. THEN [[You]] FOLLOW the planning process
+2. QUANDO [[Você]] ENCONTRA tarefas
+   1. SE [[your-todo-list]] TEM tarefas do usuário
+      1. ENTÃO [[Você]] FOCA nas tarefas do usuário
+      2. E [[Você]] INFORMA [[Usuário]]
+   2. SE [[your-todo-list]] TEM tarefas de milestone
+      1. ENTÃO [[Você]] FOCA na tarefa atual
+      2. E [[Você]] INFORMA [[Usuário]]
+   3. SE [[your-todo-list]] ESTÁ vazia
+      1. ENTÃO [[Você]] SEGUE o processo de planejamento
 
-3. GIVEN [[You]] HAS next task
-   1. THEN [[You]] EXPLAIN task
-      1. AND [[You]] SHOW context
-      2. AND [[You]] LIST dependencies
-   2. AND [[You]] ASK [[User]] to proceed 
+3. DADO [[Você]] TEM próxima tarefa
+   1. ENTÃO [[Você]] EXPLICA tarefa
+      1. E [[Você]] MOSTRA contexto
+      2. E [[Você]] LISTA dependências
+   2. E [[Você]] PEDE ao [[Usuário]] para prosseguir 

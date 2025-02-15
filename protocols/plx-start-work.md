@@ -1,43 +1,43 @@
 ---
 document_type: protocol
-goal: start work by building context and following development process
-gpt_action: follow these steps when starting work on a project
+goal: iniciar trabalho construindo contexto e seguindo processo de desenvolvimento
+gpt_action: siga estes passos ao iniciar trabalho em um projeto
 ---
 
-CONTEXT: The [[User]] wants to start a new development task and needs you to build context and follow the structured development process.
+CONTEXTO: O [[User]] quer iniciar uma nova tarefa de desenvolvimento e precisa que você construa contexto e siga o processo estruturado de desenvolvimento.
 
-1. GIVEN [[User]] RUNS plx-start-work command
-   1. THEN [[You]] SCAN project
-      1. AND [[You]] READ codebase
-      2. AND [[You]] READ documentation
-      3. AND [[You]] BUILD context
+1. DADO QUE [[User]] EXECUTA comando plx-start-work
+   1. ENTÃO [[You]] EXAMINA projeto
+      1. E [[You]] LÊ base de código
+      2. E [[You]] LÊ documentação
+      3. E [[You]] CONSTRÓI contexto
 
-2. WHEN [[You]] CHECKS [[the-work-documents]]
-   1. IF [[your-requirements]] EXISTS
-      1. THEN [[You]] READ [[your-requirements]]
-   2. IF [[your-ticket]] EXISTS
-      1. THEN [[You]] READ [[your-ticket]]
-   3. THEN [[You]] READ [[your-milestones]]
-      1. IF [[your-milestones]] IS empty
-         1. THEN [[You]] FOLLOW the planning process
-         2. AND [[You]] CREATE [[clear testable milestones]]
-   4. THEN [[You]] READ [[your-todo-list]]
-      1. IF [[your-todo-list]] IS empty
-         1. THEN [[You]] FOLLOW the planning process
-         2. AND [[You]] CREATE [[step-by-step atomic development tasks]]
+2. QUANDO [[You]] VERIFICA [[the-work-documents]]
+   1. SE [[your-requirements]] EXISTE
+      1. ENTÃO [[You]] LÊ [[your-requirements]]
+   2. SE [[your-ticket]] EXISTE
+      1. ENTÃO [[You]] LÊ [[your-ticket]]
+   3. ENTÃO [[You]] LÊ [[your-milestones]]
+      1. SE [[your-milestones]] ESTÁ vazio
+         1. ENTÃO [[You]] SEGUE o processo de planejamento
+         2. E [[You]] CRIA [[clear testable milestones]]
+   4. ENTÃO [[You]] LÊ [[your-todo-list]]
+      1. SE [[your-todo-list]] ESTÁ vazio
+         1. ENTÃO [[You]] SEGUE o processo de planejamento
+         2. E [[You]] CRIA [[step-by-step atomic development tasks]]
 
-3. GIVEN [[You]] HAS context
-   1. THEN [[You]] CHECK [[your-todo-list]]
-      1. IF [[your-todo-list]] HAS tasks
-         1. THEN [[You]] START development process
-      2. IF [[your-todo-list]] NEEDS tasks
-         1. THEN [[You]] FOLLOW the planning process
-         2. AND [[You]] SHOW [[User]]
-            1. IF [[User]] ACCEPTS tasks
-               1. THEN [[You]] START development process
-            2. IF [[User]] REJECTS tasks
-               1. THEN [[You]] UPDATE tasks
+3. DADO QUE [[You]] TEM contexto
+   1. ENTÃO [[You]] VERIFICA [[your-todo-list]]
+      1. SE [[your-todo-list]] TEM tarefas
+         1. ENTÃO [[You]] INICIA processo de desenvolvimento
+      2. SE [[your-todo-list]] PRECISA de tarefas
+         1. ENTÃO [[You]] SEGUE o processo de planejamento
+         2. E [[You]] MOSTRA ao [[User]]
+            1. SE [[User]] ACEITA tarefas
+               1. ENTÃO [[You]] INICIA processo de desenvolvimento
+            2. SE [[User]] REJEITA tarefas
+               1. ENTÃO [[You]] ATUALIZA tarefas
 
-4. WHEN [[You]] STARTS work
-   1. THEN [[You]] FOLLOW development process
-   2. AND [[You]] TELL [[User]] 
+4. QUANDO [[You]] INICIA trabalho
+   1. ENTÃO [[You]] SEGUE processo de desenvolvimento
+   2. E [[You]] INFORMA [[User]] 

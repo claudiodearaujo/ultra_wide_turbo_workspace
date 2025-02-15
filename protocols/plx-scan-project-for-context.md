@@ -1,59 +1,59 @@
 ---
 document_type: protocol
-goal: analyze and understand project content and structure
-gpt_action: follow these steps when scanning project context
+goal: analisar e entender o conteúdo e estrutura do projeto
+gpt_action: siga estes passos ao examinar o contexto do projeto
 ---
 
-CONTEXT: The [[User]] needs you to analyze and update your understanding of the project's content and structure.
+CONTEXTO: O [[User]] precisa que você analise e atualize seu entendimento do conteúdo e estrutura do projeto.
 
-1. GIVEN [[User]] RUNS plx-context command
-   1. THEN [[You]] ANALYZE project scope
-      1. AND [[You]] IDENTIFY main components
-      2. AND [[You]] IDENTIFY project structure
-   2. IF [[User]] input HAS specific focus
-      1. THEN [[You]] FOCUS on component
-   3. IF [[User]] input HAS no specifics
-      1. THEN [[You]] SCAN entire project
+1. DADO QUE [[User]] EXECUTA comando plx-context
+   1. ENTÃO [[You]] ANALISA escopo do projeto
+      1. E [[You]] IDENTIFICA componentes principais
+      2. E [[You]] IDENTIFICA estrutura do projeto
+   2. SE entrada do [[User]] TEM foco específico
+      1. ENTÃO [[You]] FOCA no componente
+   3. SE entrada do [[User]] NÃO TEM especificações
+      1. ENTÃO [[You]] EXAMINA projeto inteiro
 
-2. WHEN [[You]] START project review
-   1. THEN [[You]] ANALYZE project structure
-      1. AND [[You]] CHECK source code
-      2. AND [[You]] CHECK configuration files
-      3. AND [[You]] CHECK documentation
-   2. IF project HAS work files
-      1. THEN [[You]] INCLUDE relevant ones
-   3. IF [[gaps]] ARE found
-      1. THEN [[You]] DOCUMENT gaps
-      2. AND [[You]] REQUEST information
+2. QUANDO [[You]] INICIA revisão do projeto
+   1. ENTÃO [[You]] ANALISA estrutura do projeto
+      1. E [[You]] VERIFICA código fonte
+      2. E [[You]] VERIFICA arquivos de configuração
+      3. E [[You]] VERIFICA documentação
+   2. SE projeto TEM arquivos de trabalho
+      1. ENTÃO [[You]] INCLUI os relevantes
+   3. SE [[gaps]] SÃO encontradas
+      1. ENTÃO [[You]] DOCUMENTA gaps
+      2. E [[You]] SOLICITA informações
 
-3. GIVEN [[analysis]] IS complete
-   1. THEN [[You]] PREPARE project overview
-      1. AND [[You]] SUMMARIZE architecture
-      2. AND [[You]] LIST key components
-      3. AND [[You]] IDENTIFY dependencies
-   2. IF [[understanding]] NEEDS clarification
-      1. THEN [[You]] ASK specific questions
-      2. AND [[You]] WAIT for responses
+3. DADO QUE [[analysis]] ESTÁ completa
+   1. ENTÃO [[You]] PREPARA visão geral do projeto
+      1. E [[You]] RESUME arquitetura
+      2. E [[You]] LISTA componentes principais
+      3. E [[You]] IDENTIFICA dependências
+   2. SE [[understanding]] PRECISA de esclarecimento
+      1. ENTÃO [[You]] FAZ perguntas específicas
+      2. E [[You]] AGUARDA respostas
 
-4. WHEN [[overview]] IS ready
-   1. THEN [[You]] PRESENT to [[User]]
-      1. AND [[You]] EXPLAIN project structure
-      2. AND [[You]] HIGHLIGHT key features
-   2. IF [[User]] CONFIRMS understanding
-      1. THEN [[You]] SAVE context
-      2. AND [[You]] UPDATE knowledge base
-   3. IF [[User]] PROVIDES corrections
-      1. THEN [[You]] INCORPORATE feedback
-      2. AND [[You]] UPDATE understanding
+4. QUANDO [[overview]] ESTÁ pronta
+   1. ENTÃO [[You]] APRESENTA ao [[User]]
+      1. E [[You]] EXPLICA estrutura do projeto
+      2. E [[You]] DESTACA recursos principais
+   2. SE [[User]] CONFIRMA entendimento
+      1. ENTÃO [[You]] SALVA contexto
+      2. E [[You]] ATUALIZA base de conhecimento
+   3. SE [[User]] FORNECE correções
+      1. ENTÃO [[You]] INCORPORA feedback
+      2. E [[You]] ATUALIZA entendimento
 
-5. GIVEN [[context]] IS established
-   1. THEN [[You]] VERIFY comprehension
-      1. AND [[You]] CHECK architectural understanding
-      2. AND [[You]] CHECK component relationships
-      3. AND [[You]] CHECK technical constraints
-   2. IF [[issues]] ARE found
-      1. THEN [[You]] RESOLVE misunderstandings
-      2. AND [[You]] VERIFY again
-   3. IF [[understanding]] IS complete
-      1. THEN [[You]] CONFIRM readiness
-      2. AND [[You]] INFORM [[User]]
+5. DADO QUE [[context]] ESTÁ estabelecido
+   1. ENTÃO [[You]] VERIFICA compreensão
+      1. E [[You]] CHECA entendimento da arquitetura
+      2. E [[You]] CHECA relacionamentos dos componentes
+      3. E [[You]] CHECA restrições técnicas
+   2. SE [[issues]] SÃO encontradas
+      1. ENTÃO [[You]] RESOLVE mal-entendidos
+      2. E [[You]] VERIFICA novamente
+   3. SE [[understanding]] ESTÁ completo
+      1. ENTÃO [[You]] CONFIRMA prontidão
+      2. E [[You]] INFORMA [[User]]
