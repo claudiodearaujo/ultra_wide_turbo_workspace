@@ -2,18 +2,18 @@
 
 # add_make_issue_brick.sh
 #
-# This script adds the issue brick globally to your Mason installation.
-# It's required to run this script before you can create new issues using 'mason make issue'.
+# Este script adiciona o brick de issues globalmente à sua instalação do Mason.
+# É necessário executar este script antes de poder criar novas issues usando 'mason make issue'.
 #
-# The script will:
-# 1. Navigate to the _mason directory
-# 2. Check if the issue brick is already installed
-# 3. Add the brick globally if not present
-# 4. Provide feedback about the process
+# O script irá:
+# 1. Navegar até o diretório _mason
+# 2. Verificar se o brick de issues já está instalado
+# 3. Adicionar o brick globalmente se não estiver presente
+# 4. Fornecer feedback sobre o processo
 #
-# Usage: ./scripts/add_make_issue_brick.sh
+# Uso: ./scripts/add_make_issue_brick.sh
 
-# Print with emoji and color
+# Imprime com emoji e cor
 print_step() {
     echo -e "\033[1;34m$1\033[0m"
 }
@@ -26,57 +26,57 @@ print_error() {
     echo -e "\033[1;31m$1\033[0m"
 }
 
-# Store current directory
+# Armazena diretório atual
 CURRENT_DIR=$(pwd)
 
-print_step "🔍 Preparing to add issue brick..."
+print_step "🔍 Preparando para adicionar brick de issues..."
 
-# Navigate to _mason directory
+# Navega até o diretório _mason
 cd "$(dirname "$0")/../_mason" || {
-    print_error "❌ Failed to navigate to _mason directory"
+    print_error "❌ Falha ao navegar até o diretório _mason"
     exit 1
 }
 
-# Check if mason is installed
+# Verifica se o mason está instalado
 if ! command -v mason &> /dev/null; then
-    print_error "❌ Mason CLI is not installed. Please install it first:"
+    print_error "❌ Mason CLI não está instalado. Por favor, instale primeiro:"
     print_error "  dart pub global activate mason_cli"
     exit 1
 fi
 
-# Check if issue brick exists locally
+# Verifica se o brick de issues existe localmente
 if [ ! -d "issue" ]; then
-    print_error "❌ Issue brick not found in _mason/issue"
+    print_error "❌ Brick de issues não encontrado em _mason/issue"
     exit 1
 fi
 
 if [ ! -f "issue/brick.yaml" ]; then
-    print_error "❌ Issue brick configuration not found in _mason/issue/brick.yaml"
+    print_error "❌ Configuração do brick de issues não encontrada em _mason/issue/brick.yaml"
     exit 1
 fi
 
 if [ ! -d "issue/__brick__" ]; then
-    print_error "❌ Issue brick template not found in _mason/issue/__brick__"
+    print_error "❌ Template do brick de issues não encontrado em _mason/issue/__brick__"
     exit 1
 fi
 
-# Check if brick is already added
+# Verifica se o brick já está adicionado
 if mason list | grep -q "issue"; then
-    print_success "✅ Issue brick is already added globally"
+    print_success "✅ Brick de issues já está adicionado globalmente"
 else
-    # Add brick globally from local path
-    print_step "📦 Adding issue brick globally from local path..."
+    # Adiciona brick globalmente do caminho local
+    print_step "📦 Adicionando brick de issues globalmente do caminho local..."
     if mason add issue --path "issue" -g; then
-        print_success "✅ Successfully added issue brick globally"
+        print_success "✅ Brick de issues adicionado globalmente com sucesso"
     else
-        print_error "❌ Failed to add issue brick"
+        print_error "❌ Falha ao adicionar brick de issues"
         cd "$CURRENT_DIR" || exit 1
         exit 1
     fi
 fi
 
-# Return to original directory
+# Retorna ao diretório original
 cd "$CURRENT_DIR" || exit 1
 
-print_success "🎉 Setup complete! You can now create issues using:"
+print_success "🎉 Configuração completa! Agora você pode criar issues usando:"
 echo "    mason make issue" 

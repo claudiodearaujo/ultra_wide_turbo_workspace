@@ -1,19 +1,19 @@
 #!/bin/bash
 
-# Documentation paths for syncing between source and mason bricks
-# This allows the docs folder to be synced from the root project into mason bricks
-# when generating new projects, ensuring documentation is properly copied over
+# Caminhos de documentação para sincronização entre fonte e mason bricks
+# Isso permite que a pasta docs seja sincronizada do projeto raiz para os mason bricks
+# ao gerar novos projetos, garantindo que a documentação seja copiada adequadamente
 docs_paths=(
-    "../docs"  # Source path relative to script location
+    "../docs"  # Caminho fonte relativo à localização do script
 )
 
-# Target paths in mason brick structure where docs will be copied
-# The {{name}} variable will be replaced with the actual project name during generation
+# Caminhos de destino na estrutura do mason brick onde os docs serão copiados
+# A variável {{name}} será substituída pelo nome real do projeto durante a geração
 docs_target_paths=(
-    "../_mason/docs/__brick__/{{name}}/docs"  # Target path in mason brick
+    "../_mason/docs/__brick__/{{name}}/docs"  # Caminho de destino no mason brick
 )
 
-# Array of source paths
+# Array de caminhos fonte
 source_paths=(
 # CORE ------------------------------------------------------------
     "../apis"
@@ -30,7 +30,7 @@ source_paths=(
     "../work-docs/your-ticket.md"
 )
 
-# Array of target paths
+# Array de caminhos de destino
 target_paths=(
 # CORE ------------------------------------------------------------
     "../_mason/apis/__brick__/{{name}}"
@@ -47,33 +47,33 @@ target_paths=(
     "../_mason/issue/__brick__/{{issueFolder.paramCase()}}/{{issueName.paramCase()}}/your-ticket.md"
 )
 
-# Check if arrays have same length
+# Verifica se os arrays têm o mesmo tamanho
 if [ ${#source_paths[@]} -ne ${#target_paths[@]} ]; then
-    echo "Error: Number of source paths must match number of target paths"
+    echo "Erro: Número de caminhos fonte deve corresponder ao número de caminhos de destino"
     exit 1
 fi
 
-# Loop through arrays and copy files
+# Percorre os arrays e copia os arquivos
 for i in "${!source_paths[@]}"; do
     source="${source_paths[$i]}"
     target="${target_paths[$i]}"
 
-    # Create target directory if it doesn't exist
+    # Cria diretório de destino se não existir
     mkdir -p "$(dirname "$target")"
 
-    # Copy files and folders
+    # Copia arquivos e pastas
     if [ -e "$source" ]; then
         if [ -d "$source" ]; then
-            # If source is a directory, copy its contents
+            # Se fonte é um diretório, copia seu conteúdo
             cp -R "$source"/. "$target"
         else
-            # If source is a file, copy it directly
+            # Se fonte é um arquivo, copia diretamente
             cp "$source" "$target"
         fi
-        echo "Copied: $source -> $target"
+        echo "Copiado: $source -> $target"
     else
-        echo "Warning: Source does not exist: $source"
+        echo "Aviso: Fonte não existe: $source"
     fi
 done
 
-echo "Sync completed!"
+echo "Sincronização concluída!"
